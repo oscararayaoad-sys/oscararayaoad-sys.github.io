@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oscar Araya Díaz — Analista de Datos</title>
+  <style>
+    :root {
+      --bg: #1a1a1a;
+      --card: #262626;
+      --text: #e8e8e8;
+      --muted: #a3a3a3;
+      --acento: #d4d4d4;
+      --acento-suave: #3a3a3a;
+      --borde: #333;
+    }
+    body { font-family: system-ui, sans-serif; max-width: 720px; margin: 40px auto 80px; padding: 0 20px; line-height: 1.7; color: var(--text); background: var(--bg); }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background: url("fondo.jpg") center/cover no-repeat;
+      opacity: 0.15;
+    }
+    .hero { padding: 24px 0 40px; border-bottom: 1px solid var(--borde); margin-bottom: 8px; }
+    .hero h1 { font-size: 2.6em; line-height: 1.15; margin: 0 0 16px; letter-spacing: -0.5px; }
+    .hero .sub { color: var(--muted); margin: 0 0 24px; font-size: 1.05em; }
+    .intro { margin: 20px 0 10px; }
+    h2 { margin-top: 64px; border-bottom: 2px solid var(--acento); padding-bottom: 6px; }
+    .btn {
+      display: inline-block;
+      background: var(--acento);
+      color: #1a1a1a;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95em;
+      padding: 10px 20px;
+      border-radius: 8px;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .btn:hover { opacity: 0.85; transform: translateY(-2px); }
+    .proyecto {
+      border: 1px solid var(--borde);
+      border-radius: 12px;
+      padding: 32px;
+      margin: 32px 0;
+      background: var(--card);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.30), 0 8px 24px rgba(0,0,0,0.25);
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .proyecto:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.40), 0 16px 40px rgba(0,0,0,0.35);
+      transform: translateY(-4px);
+    }
+    .proyecto h3 { margin-top: 0; }
+    .stack { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; padding: 0; }
+    .stack span {
+      background: var(--acento-suave);
+      color: var(--acento);
+      font-size: 0.8em;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-weight: 500;
+    }
+    a { color: var(--acento); text-decoration: underline; }
+    a:hover { opacity: 0.7; }
+    .contacto a { margin-right: 12px; }
+    footer { margin-top: 40px; color: var(--muted); font-size: 0.9em; }
+    .project-img { width: 100%; border-radius: 8px; border: 1px solid var(--borde); margin: 16px 0; display: block; }
+    .img-caption { color: var(--muted); font-size: 0.85em; text-align: center; margin: 4px 0 20px; }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <!-- Selector de Idioma -->
+    <div style="font-size: 0.9em; margin-bottom: 16px; color: var(--muted);">
+      <a href="index.html" style="text-decoration: none;">EN (English)</a> · <strong>ES</strong>
+    </div>
+
+    <h1>The right question yields the best data.</h1>
+    <p class="sub">Oscar Araya Díaz · Analista de Datos · Python &amp; SQL · Santiago, Chile 🇨🇱</p>
+    <a href="CV_Oscar_Araya_Diaz_ES.pdf" target="_blank" rel="noopener" class="btn">Descargar CV ↓</a>
+  </header>
+
+  <p class="intro">
+    Hago las preguntas correctas para obtener los mejores hallazgos. Trabajo datos con proyectos de punta a punta: desde la extracción y limpieza de datos reales hasta el análisis, la visualización y la automatización. Certificado en Google Advanced Data Analytics y Google Data Analytics.
+  </p>
+
+  <p class="contacto">
+    <a href="mailto:oscar.araya.oad@gmail.com">Email</a>
+    <a href="https://github.com/oscararayaoad-sys">GitHub</a>
+    <a href="https://www.linkedin.com/in/oscar-araya-diaz">LinkedIn</a>
+  </p>
+
+  <h2>Proyectos</h2>
+
+ <div class="proyecto">
+  <h3>Análisis del Gasto Público — Mercado Público de Chile</h3>
+  <p class="stack">
+    <span>Python</span><span>pandas</span><span>NumPy</span><span>Matplotlib</span><span>Seaborn</span><span>Power BI</span>
+  </p>
+
+  <img src="https://raw.githubusercontent.com/oscararayaoad-sys/mercado-publico-eda/main/img/dashboard_powerbi.png"
+       alt="Dashboard interactivo del gasto público en Power BI"
+       class="project-img">
+  <p class="img-caption">Dashboard interactivo en Power BI: gasto total, top 10 organismos, mapa regional y filtro por rubro que recalcula todos los visuales en tiempo real.</p>
+
+  <img src="https://raw.githubusercontent.com/oscararayaoad-sys/mercado-publico-eda/main/img/pareto_organismo.png"
+       alt="Concentración de gasto por organismo: JUNAEB y CENABAST encabezan"
+       class="project-img">
+  <p class="img-caption">JUNAEB y CENABAST juntos concentran ~30% del gasto. La curva se aplana rápido: pocos organismos explican el grueso, con una cola larga de compradores menores.</p>
+
+  <img src="https://raw.githubusercontent.com/oscararayaoad-sys/mercado-publico-eda/main/img/pareto_region.png"
+       alt="Concentración de gasto por región: la RM domina con ~62%"
+       class="project-img">
+  <p class="img-caption">La Región Metropolitana concentra ~62% del gasto y el top 5 llega al ~81%. La concentración geográfica es mucho más fuerte que la de categoría.</p>
+
+  <img src="https://raw.githubusercontent.com/oscararayaoad-sys/mercado-publico-eda/main/img/pareto_rubro.png"
+       alt="Concentración de gasto por rubro: distribuido entre muchos sectores"
+       class="project-img">
+  <p class="img-caption">El gasto por rubro se reparte entre muchos sectores: el 80% acumulado se alcanza recién cerca del top 14, señal de un mercado abierto.</p>
+
+  <img src="https://raw.githubusercontent.com/oscararayaoad-sys/mercado-publico-eda/main/img/pareto_categoria.png"
+       alt="Concentración de gasto por categoría: ninguna categoría domina"
+       class="project-img">
+  <p class="img-caption">Ninguna categoría domina: el 80% acumulado no se alcanza ni en el top 15. Mercado amplio, con múltiples frentes de oportunidad.</p>
+
+  <p>
+    EDA de ~1,1 millones de órdenes de compra pública (ChileCompra) para responder
+    dónde conviene entrar como proveedor del Estado. Hallazgo contraintuitivo:
+    "pocos proveedores" no significa oportunidad — los nichos reales están en mercados
+    de gasto alto con líder débil, no en mercados cautivos.
+  </p>
+
+  <p><a href="https://github.com/oscararayaoad-sys/mercado-publico-eda">Ver código en GitHub →</a></p>
+</div>
+
+  <div class="proyecto">
+  <h3>Análisis de Riesgo de Mora — LendingClub (P2P Lending)</h3>
+  <p class="stack">
+    <span>PostgreSQL</span><span>Python</span><span>pandas</span><span>Matplotlib</span><span>Seaborn</span>
+  </p>
+
+  <img src="https://raw.githubusercontent.com/oscararayaoad-sys/lending_club_sql_risk/main/img/01_pareto_grade.png"
+       alt="Pareto de mora por grade: C, D y B concentran el 73,8% de la mora total"
+       class="project-img">
+  <p class="img-caption">La paradoja del riesgo: el grade G es el más peligroso por préstamo (49,4%), pero solo aporta 1,8% de la mora total. Tres grades (C/D/B) concentran el 73,8% por su volumen.</p>
+
+  <img src="https://raw.githubusercontent.com/oscararayaoad-sys/lending_club_sql_risk/main/img/02_cohortes_anual.png"
+       alt="Evolución de la tasa de mora por cohorte anual, pico en 2016"
+       class="project-img">
+  <p class="img-caption">La cartera se deterioró al crecer el volumen: la mora se quiebra al alza en 2014 y llega a su pico en 2016 (23,7%). La "mejora" de 2018 es un artefacto de cohorte incompleta, marcado como dato no confiable.</p>
+
+  <img src="https://raw.githubusercontent.com/oscararayaoad-sys/lending_club_sql_risk/main/img/03_tail_risk.png"
+       alt="Heatmap de tail risk cruzando grade y propósito del préstamo"
+       class="project-img">
+  <p class="img-caption">Cruzando grade × propósito, el grade domina: la combinación más letal es G + consolidación de deuda (50,6%). Los bolsones de riesgo con volumen alto son candidatos a encarecer o vetar.</p>
+
+  <p>
+    Análisis de riesgo crediticio sobre 1,23 millones de préstamos peer-to-peer,
+    usando SQL avanzado (window functions, CTEs). Hallazgo clave: tres grades (C/D/B)
+    concentran el 73,8% de la mora total por su volumen, no por su tasa —
+    el monitoreo debe priorizar volumen × tasa, no solo la tasa.
+  </p>
+
+  <p><a href="https://github.com/oscararayaoad-sys/lending_club_sql_risk">Ver código en GitHub →</a></p>
+</div>
+
+  <div class="proyecto">
+    <h3>Pipeline ETL de Inflación — Banco Central de Chile</h3>
+    <p class="stack">
+      <span>Python</span><span>requests</span><span>pandas</span><span>SQLAlchemy</span><span>PostgreSQL</span><span>Power BI</span>
+    </p>
+  
+    <img src="https://raw.githubusercontent.com/oscararayaoad-sys/bcch-inflacion-pipeline/main/docs/dashboard-inflacion-bcch.png"
+         alt="Dashboard de inflación en Chile 2015–2025: IPC, UF y poder de compra (Power BI)"
+         class="project-img">
+  
+    <p>
+      Pipeline automatizado de extremo a extremo que extrae las series UF e IPC desde
+      la API del Banco Central, las procesa, las carga a PostgreSQL (idempotente) y las
+      visualiza en Power BI. Corre solo, 1 vez al mes. Hallazgo: el peso perdió ~38% de
+      su poder de compra en 11 años; guardado en UF, lo conservó casi intacto.
+    </p>
+  
+    <p><a href="https://github.com/oscararayaoad-sys/bcch-inflacion-pipeline">Ver código en GitHub →</a></p>
+  </div>
+
+  <h2>Contacto</h2>
+  <p class="contacto">
+    <a href="mailto:oscar.araya.oad@gmail.com">Email</a>
+    <a href="https://github.com/oscararayaoad-sys">GitHub</a>
+    <a href="https://www.linkedin.com/in/oscar-araya-diaz">LinkedIn</a>
+  </p>
+
+  <footer>
+    Analista de Datos · Santiago, Chile · 2026
+  </footer>
+</body>
+</html>

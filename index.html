@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oscar Araya Díaz — Data Analyst</title>
+  <style>
+    :root {
+      --bg: #1a1a1a;
+      --card: #262626;
+      --text: #e8e8e8;
+      --muted: #a3a3a3;
+      --acento: #d4d4d4;
+      --acento-suave: #3a3a3a;
+      --borde: #333;
+    }
+    body { font-family: system-ui, sans-serif; max-width: 720px; margin: 40px auto 80px; padding: 0 20px; line-height: 1.7; color: var(--text); background: var(--bg); }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background: url("fondo.jpg") center/cover no-repeat;
+      opacity: 0.15;
+    }
+    .hero { padding: 24px 0 40px; border-bottom: 1px solid var(--borde); margin-bottom: 8px; }
+    .hero h1 { font-size: 2.6em; line-height: 1.15; margin: 0 0 16px; letter-spacing: -0.5px; }
+    .hero .sub { color: var(--muted); margin: 0 0 24px; font-size: 1.05em; }
+    .intro { margin: 20px 0 10px; }
+    h2 { margin-top: 64px; border-bottom: 2px solid var(--acento); padding-bottom: 6px; }
+    .btn {
+      display: inline-block;
+      background: var(--acento);
+      color: #1a1a1a;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95em;
+      padding: 10px 20px;
+      border-radius: 8px;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .btn:hover { opacity: 0.85; transform: translateY(-2px); }
+    .proyecto {
+      border: 1px solid var(--borde);
+      border-radius: 12px;
+      padding: 32px;
+      margin: 32px 0;
+      background: var(--card);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.30), 0 8px 24px rgba(0,0,0,0.25);
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .proyecto:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.40), 0 16px 40px rgba(0,0,0,0.35);
+      transform: translateY(-4px);
+    }
+    .proyecto h3 { margin-top: 0; }
+    .stack { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; padding: 0; }
+    .stack span {
+      background: var(--acento-suave);
+      color: var(--acento);
+      font-size: 0.8em;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-weight: 500;
+    }
+    a { color: var(--acento); text-decoration: underline; }
+    a:hover { opacity: 0.7; }
+    .contacto a { margin-right: 12px; }
+    footer { margin-top: 40px; color: var(--muted); font-size: 0.9em; }
+    .project-img { width: 100%; border-radius: 8px; border: 1px solid var(--borde); margin: 16px 0; display: block; }
+    .img-caption { color: var(--muted); font-size: 0.85em; text-align: center; margin: 4px 0 20px; }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <!-- Language Selector -->
+    <div style="font-size: 0.9em; margin-bottom: 16px; color: var(--muted);">
+      <strong>EN</strong> · <a href="es.html" style="text-decoration: none;">ES (Español)</a>
+    </div>
+
+    <h1>The right question yields the best data.</h1>
+    <p class="sub">Oscar Araya Díaz · Data Analyst · Python &amp; SQL · Santiago, Chile 🇨🇱</p>
+    <a href="CV_Oscar_Araya_Diaz.pdf" target="_blank" rel="noopener" class="btn">Download CV ↓</a>
+  </header>
+
+  <p class="intro">
+    I ask the right questions to uncover the most impactful insights. I build end-to-end data projects: from extracting and cleaning real-world data to analysis, visualization, and automation. Certified in Google Advanced Data Analytics and Google Data Analytics.
+  </p>
+
+  <p class="contacto">
+    <a href="mailto:oscar.araya.oad@gmail.com">Email</a>
+    <a href="https://github.com/oscararayaoad-sys">GitHub</a>
+    <a href="https://www.linkedin.com/in/oscar-araya-diaz">LinkedIn</a>
+  </p>
+
+  <h2>Projects</h2>
+
+  <div class="proyecto">
+    <h3>Public Spending Analysis — Chile's Public Market (Mercado Público)</h3>
+    <p class="stack">
+      <span>Python</span><span>pandas</span><span>NumPy</span><span>Matplotlib</span><span>Seaborn</span><span>Power BI</span>
+    </p>
+
+    <img src="https://raw.githubusercontent.com/oscararayaoad-sys/mercado-publico-eda/main/img/dashboard_powerbi.png"
+         alt="Interactive public spending dashboard in Power BI"
+         class="project-img">
+    <p class="img-caption">Interactive Power BI dashboard: total spending, top 10 procurement agencies, regional map, and category filters that recalculate all visuals in real time.</p>
+
+    <img src="https://raw.githubusercontent.com/oscararayaoad-sys/mercado-publico-eda/main/img/pareto_organismo.png"
+         alt="Spending concentration by agency: JUNAEB and CENABAST lead"
+         class="project-img">
+    <p class="img-caption">JUNAEB and CENABAST together concentrate ~30% of total spending. The curve flattens quickly: a few large agencies drive most of the spending, leaving a long tail of minor buyers.</p>
+
+    <img src="https://raw.githubusercontent.com/oscararayaoad-sys/mercado-publico-eda/main/img/pareto_region.png"
+         alt="Spending concentration by region: RM dominates with ~62%"
+         class="project-img">
+    <p class="img-caption">The Metropolitan Region (RM) accounts for ~62% of the total budget, and the top 5 regions capture ~81%. Geographic concentration is significantly stronger than sector-based concentration.</p>
+
+    <img src="https://raw.githubusercontent.com/oscararayaoad-sys/mercado-publico-eda/main/img/pareto_rubro.png"
+         alt="Spending concentration by industry: widely distributed among many sectors"
+         class="project-img">
+    <p class="img-caption">Spending across industries is highly distributed: the 80% cumulative mark is only reached near the top 14 categories, indicating a broad and open market.</p>
+
+    <img src="https://raw.githubusercontent.com/oscararayaoad-sys/mercado-publico-eda/main/img/pareto_categoria.png"
+         alt="Spending concentration by category: no single category dominates"
+         class="project-img">
+    <p class="img-caption">No single category dominates: the cumulative 80% threshold is not met even within the top 15 categories, signaling a highly diverse market with multiple entry points.</p>
+
+    <p>
+      An EDA of ~1.1 million public purchase orders (ChileCompra) to answer where businesses should position themselves as government suppliers. Contraintuitive finding: a low supplier count does not guarantee a business opportunity—true niches lie in high-spending markets with weak leaders, rather than in closed, captive markets.
+    </p>
+
+    <p><a href="https://github.com/oscararayaoad-sys/mercado-publico-eda">View Code on GitHub →</a></p>
+  </div>
+
+  <div class="proyecto">
+    <h3>Default Risk Analysis — LendingClub (P2P Lending)</h3>
+    <p class="stack">
+      <span>PostgreSQL</span><span>Python</span><span>pandas</span><span>Matplotlib</span><span>Seaborn</span>
+    </p>
+
+    <img src="https://raw.githubusercontent.com/oscararayaoad-sys/lending_club_sql_risk/main/img/01_pareto_grade.png"
+         alt="Pareto default concentration by grade: C, D, and B account for 73.8% of total defaults"
+         class="project-img">
+    <p class="img-caption">The risk paradox: while Grade G is the most dangerous on an individual loan level (49.4% default rate), it only accounts for 1.8% of total portfolio defaults. Three grades (C/D/B) concentrate 73.8% due to their massive volume.</p>
+
+    <img src="https://raw.githubusercontent.com/oscararayaoad-sys/lending_club_sql_risk/main/img/02_cohortes_anual.png"
+         alt="Annual cohort default rate evolution, peaking in 2016"
+         class="project-img">
+    <p class="img-caption">The credit portfolio deteriorated as origination volume grew: defaults spiked upwards in 2014, reaching a peak in 2016 (23.7%). The apparent "improvement" in 2018 is an incomplete cohort artifact, explicitly flagged as unreliable.</p>
+
+    <img src="https://raw.githubusercontent.com/oscararayaoad-sys/lending_club_sql_risk/main/img/03_tail_risk.png"
+         alt="Tail risk heatmap crossing grade and loan purpose"
+         class="project-img">
+    <p class="img-caption">When crossing grade × purpose, the grade heavily dominates: the most toxic combination is Grade G + debt consolidation (50.6%). High-volume, high-risk pockets are prime candidates for pricing premium or rejection policies.</p>
+
+    <p>
+      Credit risk analysis conducted on 1.23 million peer-to-peer loans leveraging advanced SQL (window functions, CTEs). Key finding: three grades (C/D/B) concentrate 73.8% of all defaults due to their sheer volume, not just their individual rates—proving that risk monitoring must prioritize volume × rate over the default rate alone.
+    </p>
+
+    <p><a href="https://github.com/oscararayaoad-sys/lending_club_sql_risk">View Code on GitHub →</a></p>
+  </div>
+
+  <div class="proyecto">
+    <h3>Inflation ETL Pipeline — Central Bank of Chile (BCCh)</h3>
+    <p class="stack">
+      <span>Python</span><span>requests</span><span>pandas</span><span>SQLAlchemy</span><span>PostgreSQL</span><span>Power BI</span>
+    </p>
+  
+    <img src="https://raw.githubusercontent.com/oscararayaoad-sys/bcch-inflacion-pipeline/main/docs/dashboard-inflacion-bcch.png"
+         alt="Inflation dashboard in Chile 2015–2025: CPI, UF and purchasing power (Power BI)"
+         class="project-img">
+  
+    <p>
+      An automated, end-to-end data pipeline that extracts UF and CPI series directly from the Central Bank API, transforms the data, loads it into PostgreSQL using idempotent writes, and visualizes it in Power BI. It runs completely unattended once a month. Finding: the Chilean Peso lost ~38% of its purchasing power over 11 years, while savings held in UF preserved their value almost perfectly.
+    </p>
+  
+    <p><a href="https://github.com/oscararayaoad-sys/bcch-inflacion-pipeline">View Code on GitHub →</a></p>
+  </div>
+
+  <h2>Contact</h2>
+  <p class="contacto">
+    <a href="mailto:oscar.araya.oad@gmail.com">Email</a>
+    <a href="https://github.com/oscararayaoad-sys">GitHub</a>
+    <a href="https://www.linkedin.com/in/oscar-araya-diaz">LinkedIn</a>
+  </p>
+
+  <footer>
+    Data Analyst · Santiago, Chile · 2026
+  </footer>
+</body>
+</html>
