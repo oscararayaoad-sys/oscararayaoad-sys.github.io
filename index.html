@@ -12,6 +12,9 @@
   <meta property="og:image" content="https://raw.githubusercontent.com/oscararayaoad-sys/mercado-publico-eda/main/img/dashboard_powerbi.png">
   <meta property="og:url" content="https://oscararayaoad-sys.github.io">
 
+  <!-- Prism.js CSS para resaltado de sintaxis -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+
   <style>
     /* Tipografía y Jerarquía Limpia (Punto 1) & Scroll Suave (Punto 8) */
     html {
@@ -261,11 +264,9 @@
       <div class="data-layer clean-data">
         <div class="data-content">
           <span class="status-tag success">✓ Clean & Validated</span>
-          <code>
-            id, client, amount, date<br>
-            101, "Company A", 1500.50, 2026-07-26<br>
-            102, "Company B", 3200.00, 2026-07-25
-          </code>
+          <pre style="background:transparent; margin:0; padding:0;"><code class="language-sql">id, client, amount, date
+101, "Company A", 1500.50, 2026-07-26
+102, "Company B", 3200.00, 2026-07-25</code></pre>
         </div>
       </div>
 
@@ -273,11 +274,9 @@
       <div class="data-layer raw-data" id="rawLayer">
         <div class="data-content">
           <span class="status-tag warning">⚠ Raw / Dirty Data</span>
-          <code>
-            ID | CLI_NAME | TOTAL_USD | DATE<br>
-            ?  | comp_a   | $ 1,500.5 | 26/07/26<br>
-            102| COMPANY  | NULL      | INV-DATE
-          </code>
+          <pre style="background:transparent; margin:0; padding:0;"><code class="language-sql">ID | CLI_NAME | TOTAL_USD | DATE
+?  | comp_a   | $ 1,500.5 | 26/07/26
+102| COMPANY  | NULL      | INV-DATE</code></pre>
         </div>
       </div>
 
@@ -384,6 +383,10 @@
     <span>Data Analyst · Santiago, Chile · 2026</span>
     <a href="#top" class="back-to-top">Back to top ↑</a>
   </footer>
+
+  <!-- Prism.js JS para resaltado de sintaxis -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-sql.min.js"></script>
 
   <script>
     const slider = document.getElementById('dataSlider');
