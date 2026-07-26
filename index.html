@@ -100,7 +100,7 @@
       margin-top: 32px;
     }
 
-    /* Microinteracciones en Tarjetas de Proyectos */
+    /* Tarjetas de Proyectos */
     .proyecto {
       border: 1px solid var(--borde);
       border-radius: 12px;
@@ -133,7 +133,7 @@
       color: var(--bg);
     }
 
-    /* Microinteracciones en Enlaces Generales */
+    /* Enlaces Generales */
     a {
       color: var(--acento);
       text-decoration: underline;
@@ -141,7 +141,6 @@
     }
     a:hover { opacity: 0.75; }
 
-    /* Enfoque visible por teclado */
     a:focus-visible, button:focus-visible, input:focus-visible {
       outline: 2px solid var(--acento);
       outline-offset: 3px;
@@ -208,7 +207,6 @@
 </head>
 <body id="top">
   <header class="hero">
-    <!-- Language Selector -->
     <div style="font-size: 0.9em; margin-bottom: 16px; color: var(--muted);">
       <strong>EN</strong> · <a href="es.html" style="text-decoration: none;" aria-label="Cambiar idioma a Español">ES (Español)</a>
     </div>
@@ -233,116 +231,125 @@
 
     <div class="projects-grid">
       
-      <!-- Proyecto 1: Coffee Shop -->
+      <!-- Proyecto 1: Coffee Shop (Reordenado según requerimientos) -->
       <article class="proyecto">
+        
+        <!-- 1. TÍTULO Y STACK -->
         <h3>Coffee Shop Business Performance & Customer Insights</h3>
         <p class="stack">
           <span>Python</span><span>pandas</span><span>Matplotlib</span><span>Seaborn</span><span>Power BI</span>
         </p>
-      
-        <!-- Nueva ventana de destacados / insights bajo el título -->
-        <div style="margin: 16px 0; padding: 14px 16px; background: var(--bg); border-left: 4px solid var(--acento); border-radius: 0 8px 8px 0; font-size: 0.9em;">
-          <strong style="display: block; margin-bottom: 4px; color: var(--text);">Key Business Findings:</strong>
-          <ul style="margin: 0; padding-left: 18px; color: var(--muted);">
-            <li>Bimodal operational peaks identified at 9:00 AM and evening hours.</li>
-            <li>Digital payment dominance reaches over 85% of total sales volume.</li>
-            <li>Potential 14% net margin optimization via menu engineering & staffing adjustments.</li>
-          </ul>
-        </div>
-
         <p>
           Comprehensive exploratory data analysis of retail transactions to optimize inventory, staffing, and product bundling.
         </p>
-      
-        <!-- Sección: Slicer de Data Sucia / Limpia -->
-        <div style="margin: 20px 0; padding: 16px; background: var(--bg); border: 1px solid var(--borde); border-radius: 8px;">
-          <h4 style="margin: 0 0 8px 0; font-size: 1em; color: var(--text);">Data Pipeline: Raw vs. Clean Data</h4>
+
+        <!-- 2. SLICER DE DATOS SUCIOS Y LIMPIOS (Barra deslizante interactiva) -->
+        <div style="margin: 24px 0; padding: 16px; background: var(--bg); border: 1px solid var(--borde); border-radius: 8px;">
+          <h4 style="margin: 0 0 8px 0; font-size: 1em; color: var(--text);">Data Transformation Slicer (Raw vs. Clean)</h4>
           <p style="font-size: 0.85em; color: var(--muted); margin: 0 0 12px 0;">
-            Toggle between the raw dataset (containing missing values and formatting inconsistencies) and the processed clean dataset used for modeling.
+            Mueve la barra para transformar el set de datos inicial (sucio) en el modelo depurado y listo para análisis.
           </p>
-          <div style="display: flex; gap: 8px; margin-bottom: 12px;">
-            <button onclick="document.getElementById('raw-data-view').style.display='block'; document.getElementById('clean-data-view').style.display='none';" style="padding: 6px 12px; font-size: 0.85em; cursor: pointer; border-radius: 4px; border: 1px solid var(--borde); background: var(--bg); color: var(--text);">Show Raw Data (Sample)</button>
-            <button onclick="document.getElementById('raw-data-view').style.display='none'; document.getElementById('clean-data-view').style.display='block';" style="padding: 6px 12px; font-size: 0.85em; cursor: pointer; border-radius: 4px; border: 1px solid var(--borde); background: var(--bg); color: var(--text);">Show Clean Data (Sample)</button>
-          </div>
           
-          <div id="raw-data-view" style="font-family: monospace; font-size: 0.8em; background: rgba(0,0,0,0.05); padding: 8px; border-radius: 4px; overflow-x: auto;">
+          <!-- Control deslizante (Range Input) -->
+          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+            <span style="font-size: 0.8em; font-weight: 600;">Raw Data</span>
+            <input type="range" id="data-slicer" min="0" max="1" value="0" step="1" style="flex: 1; cursor: pointer;" oninput="toggleDataView(this.value)">
+            <span style="font-size: 0.8em; font-weight: 600;">Clean Data</span>
+          </div>
+
+          <!-- Vista de Datos Sucios -->
+          <div id="view-raw" style="font-family: monospace; font-size: 0.8em; background: rgba(0,0,0,0.05); padding: 10px; border-radius: 4px; overflow-x: auto;">
+            <strong style="color: #e06c75; display: block; margin-bottom: 4px;">[Estado: Datos Sucios] - Valores nulos y espacios detectados</strong>
             transaction_id,timestamp,item,price,payment_method<br>
             TX1001,2026-01-01 08:30:00,Latte,3.50,Credit<br>
             TX1002,NULL,Espresso,NULL,Debit<br>
             TX1003,2026-01-01 09:15:00,Croissant, 2.75 ,Cash
           </div>
-          
-          <div id="clean-data-view" style="display: none; font-family: monospace; font-size: 0.8em; background: rgba(0,0,0,0.05); padding: 8px; border-radius: 4px; overflow-x: auto;">
+
+          <!-- Vista de Datos Limpios -->
+          <div id="view-clean" style="display: none; font-family: monospace; font-size: 0.8em; background: rgba(0,0,0,0.05); padding: 10px; border-radius: 4px; overflow-x: auto;">
+            <strong style="color: #98c379; display: block; margin-bottom: 4px;">[Estado: Datos Limpios] - Imputados y estandarizados</strong>
             transaction_id,timestamp,item,price,payment_method<br>
             TX1001,2026-01-01 08:30:00,Latte,3.50,Credit<br>
             TX1002,2026-01-01 08:45:00,Espresso,2.50,Debit<br>
             TX1003,2026-01-01 09:15:00,Croissant,2.75,Cash
           </div>
         </div>
-      
-        <!-- Cuadrícula 2x2 para Gráficos (con clase zoomable agregada) -->
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; margin: 24px 0;">
+
+        <!-- 3. ANÁLISIS RESPALDADO POR GRÁFICOS -->
+        <h4 style="margin: 28px 0 12px 0; font-size: 1.1em; border-bottom: 1px solid var(--borde); padding-bottom: 4px;">Análisis Respaldado por Gráficos</h4>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-bottom: 24px;">
           
           <!-- Gráfico 1 -->
-          <div style="background: var(--bg); border: 1px solid var(--borde); border-radius: 8px; padding: 16px; display: flex; flex-direction: column; justify-content: space-between;">
+          <div style="background: var(--bg); border: 1px solid var(--borde); border-radius: 8px; padding: 12px; display: flex; flex-direction: column; justify-content: space-between;">
             <div>
-              <h4 style="margin: 0 0 12px 0; font-size: 1em; text-align: center; color: var(--text);">BCG Matrix (Portfolio)</h4>
+              <h5 style="margin: 0 0 8px 0; font-size: 0.9em; text-align: center; color: var(--text);">BCG Matrix (Portfolio)</h5>
               <img src="https://raw.githubusercontent.com/oscararayaoad-sys/dashboard-and-analysis-coffeeshop/main/assets/grafico_6.png" alt="BCG Matrix" class="zoomable" style="width: 100%; border-radius: 4px; border: 1px solid var(--borde);">
             </div>
-            <p style="font-size: 0.85em; color: var(--muted); margin: 12px 0 0 0; text-align: center;">
-              <strong>Menu Engineering:</strong> Products classified by profitability and volume (Stars, Workhorses, Question Marks, and Dogs).
-            </p>
+            <p style="font-size: 0.8em; color: var(--muted); margin: 8px 0 0 0; text-align: center;">Productos clasificados por rentabilidad y volumen.</p>
           </div>
-      
+
           <!-- Gráfico 2 -->
-          <div style="background: var(--bg); border: 1px solid var(--borde); border-radius: 8px; padding: 16px; display: flex; flex-direction: column; justify-content: space-between;">
+          <div style="background: var(--bg); border: 1px solid var(--borde); border-radius: 8px; padding: 12px; display: flex; flex-direction: column; justify-content: space-between;">
             <div>
-              <h4 style="margin: 0 0 12px 0; font-size: 1em; text-align: center; color: var(--text);">Time-of-Day vs. Day-of-Week Demand</h4>
+              <h5 style="margin: 0 0 8px 0; font-size: 0.9em; text-align: center; color: var(--text);">Time-of-Day Demand</h5>
               <img src="https://raw.githubusercontent.com/oscararayaoad-sys/dashboard-and-analysis-coffeeshop/main/assets/grafico_1.png" alt="Time of Day Demand" class="zoomable" style="width: 100%; border-radius: 4px; border: 1px solid var(--borde);">
             </div>
-            <p style="font-size: 0.85em; color: var(--muted); margin: 12px 0 0 0; text-align: center;">
-              <strong>Bimodal Demand:</strong> Weekdays show dual peaks (9:00 AM & 6:00–7:00 PM) with a midday trough.
-            </p>
+            <p style="font-size: 0.8em; color: var(--muted); margin: 8px 0 0 0; text-align: center;">Identificación de picos bimodal operativos.</p>
           </div>
-      
+
           <!-- Gráfico 3 -->
-          <div style="background: var(--bg); border: 1px solid var(--borde); border-radius: 8px; padding: 16px; display: flex; flex-direction: column; justify-content: space-between;">
+          <div style="background: var(--bg); border: 1px solid var(--borde); border-radius: 8px; padding: 12px; display: flex; flex-direction: column; justify-content: space-between;">
             <div>
-              <h4 style="margin: 0 0 12px 0; font-size: 1em; text-align: center; color: var(--text);">Service Channel by Category</h4>
+              <h5 style="margin: 0 0 8px 0; font-size: 0.9em; text-align: center; color: var(--text);">Service Channel</h5>
               <img src="https://raw.githubusercontent.com/oscararayaoad-sys/dashboard-and-analysis-coffeeshop/main/assets/grafico_3.png" alt="Service Channel" class="zoomable" style="width: 100%; border-radius: 4px; border: 1px solid var(--borde);">
             </div>
-            <p style="font-size: 0.85em; color: var(--muted); margin: 12px 0 0 0; text-align: center;">
-              <strong>Dine-In Preference:</strong> 70.3% of consumption is Dine-in. Takeaway orders display an identical product mix.
-            </p>
+            <p style="font-size: 0.8em; color: var(--muted); margin: 8px 0 0 0; text-align: center;">Preferencia de consumo local vs. para llevar.</p>
           </div>
-      
+
           <!-- Gráfico 4 -->
-          <div style="background: var(--bg); border: 1px solid var(--borde); border-radius: 8px; padding: 16px; display: flex; flex-direction: column; justify-content: space-between;">
+          <div style="background: var(--bg); border: 1px solid var(--borde); border-radius: 8px; padding: 12px; display: flex; flex-direction: column; justify-content: space-between;">
             <div>
-              <h4 style="margin: 0 0 12px 0; font-size: 1em; text-align: center; color: var(--text);">Preferred Payment Methods</h4>
+              <h5 style="margin: 0 0 8px 0; font-size: 0.9em; text-align: center; color: var(--text);">Payment Methods</h5>
               <img src="https://raw.githubusercontent.com/oscararayaoad-sys/dashboard-and-analysis-coffeeshop/main/assets/grafico_4.png" alt="Payment Methods" class="zoomable" style="width: 100%; border-radius: 4px; border: 1px solid var(--borde);">
             </div>
-            <p style="font-size: 0.85em; color: var(--muted); margin: 12px 0 0 0; text-align: center;">
-              <strong>High Digital Adoption:</strong> Over 85% of transactions use cards (Debit 60.2%, Credit 25.0%), leaving cash at 9.9%.
-            </p>
+            <p style="font-size: 0.8em; color: var(--muted); margin: 8px 0 0 0; text-align: center;">Adopción digital superior al 85%.</p>
           </div>
-      
+
         </div>
-      
-        <!-- Sección: Resumen Ejecutivo & Dashboard Interactivo Embebido -->
+
+        <!-- 4. RESUMEN EJECUTIVO (Ventana con vista previa del PDF real) -->
         <div style="margin: 24px 0; padding: 16px; background: var(--bg); border: 1px solid var(--borde); border-radius: 8px;">
-          <h4 style="margin: 0 0 8px 0; font-size: 1em; color: var(--text);">Executive Summary & Interactive Dashboard</h4>
-          <p style="font-size: 0.85em; color: var(--muted); margin: 0 0 16px 0;">
-            <strong>Key Takeaway:</strong> Optimizing staff shifts around the bimodal demand peaks and reallocating inventory toward high-margin "Star" items can increase net margins by an estimated 14%. Explore the live resources below or download the native files.
+          <h4 style="margin: 0 0 8px 0; font-size: 1em; color: var(--text);">Resumen Ejecutivo (Reporte PDF)</h4>
+          <p style="font-size: 0.85em; color: var(--muted); margin: 0 0 12px 0;">
+            Optimizar turnos alrededor de las horas peak y reasignar inventario a ítems "Star" incrementa los márgenes netos estimados en un 14%.
+          </p>
+          
+          <!-- Ventana miniatura del documento PDF real incrustado -->
+          <div style="border: 1px solid var(--borde); border-radius: 6px; overflow: hidden; margin-bottom: 12px; background: #fff;">
+            <iframe src="reports/executive_summary.pdf" width="100%" height="220px" style="border: none;" title="Executive Summary PDF Preview"></iframe>
+          </div>
+
+          <div style="display: flex; justify-content: flex-end;">
+            <a href="reports/executive_summary.pdf" target="_blank" rel="noopener" class="btn" style="padding: 6px 14px; font-size: 0.85em;">Abrir Reporte PDF Completo ↗</a>
+          </div>
+        </div>
+
+        <!-- 5. VENTANA DE DASHBOARD (Lo último que veremos) -->
+        <div style="margin: 24px 0; padding: 16px; background: var(--bg); border: 2px solid var(--acento); border-radius: 8px;">
+          <h4 style="margin: 0 0 8px 0; font-size: 1.1em; color: var(--text);">Dashboard Interactivo Final (Power BI)</h4>
+          <p style="font-size: 0.85em; color: var(--muted); margin: 0 0 12px 0;">
+            Vista consolidada de inteligencia de negocios para entrega y control gerencial.
           </p>
 
+          <img src="https://raw.githubusercontent.com/oscararayaoad-sys/dashboard-and-analysis-coffeeshop/main/img/dashboard_preview.png" alt="Power BI Dashboard Preview" class="zoomable" style="width: 100%; border-radius: 6px; border: 1px solid var(--borde); margin-bottom: 12px;">
+
           <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.9em; flex-wrap: wrap; gap: 12px;">
-            <a href="reports/executive_summary.pdf" target="_blank" rel="noopener" aria-label="Read Full Executive Report">Read Full Report (PDF) →</a>
-            <a href="dashboard/03_dashboard_cafeteria.pbix" download aria-label="Download Power BI Dashboard file">Download Power BI Dashboard (.pbix) ↓</a>
+            <a href="https://github.com/oscararayaoad-sys/dashboard-and-analysis-coffeeshop" target="_blank" rel="noopener">Ver Código en GitHub →</a>
+            <a href="dashboard/03_dashboard_cafeteria.pbix" download class="btn" style="padding: 6px 14px; font-size: 0.85em;">Descargar Power BI (.pbix) ↓</a>
           </div>
         </div>
-      
-        <p><a href="https://github.com/oscararayaoad-sys/dashboard-and-analysis-coffeeshop" target="_blank" rel="noopener" aria-label="View Coffee Shop project code on GitHub">View Code on GitHub →</a></p>
+
       </article>
 
       <!-- Proyecto 2: LendingClub Risk -->
@@ -354,76 +361,57 @@
 
         <img src="https://raw.githubusercontent.com/oscararayaoad-sys/lending_club_sql_risk/main/img/01_pareto_grade.png"
              alt="Pareto default concentration by grade: C, D, and B account for 73.8% of total defaults"
-             class="project-img">
+             class="project-img zoomable">
         <p class="img-caption">The risk paradox: while Grade G is the most dangerous on an individual loan level (49.4% default rate), it only accounts for 1.8% of total portfolio defaults. Three grades (C/D/B) concentrate 73.8% due to their massive volume.</p>
 
-        <img src="https://raw.githubusercontent.com/oscararayaoad-sys/lending_club_sql_risk/main/img/02_cohortes_anual.png"
-             alt="Annual cohort default rate evolution, peaking in 2016"
-             class="project-img">
-        <p class="img-caption">The credit portfolio deteriorated as origination volume grew: defaults spiked upwards in 2014, reaching a peak in 2016 (23.7%). The apparent "improvement" in 2018 is an incomplete cohort artifact, explicitly flagged as unreliable.</p>
-
-        <img src="https://raw.githubusercontent.com/oscararayaoad-sys/lending_club_sql_risk/main/img/03_tail_risk.png"
-             alt="Tail risk heatmap crossing grade and loan purpose"
-             class="project-img">
-        <p class="img-caption">When crossing grade × purpose, the grade heavily dominates: the most toxic combination is Grade G + debt consolidation (50.6%). High-volume, high-risk pockets are prime candidates for pricing premium or rejection policies.</p>
-
-        <p>
-          Credit risk analysis conducted on 1.23 million peer-to-peer loans leveraging advanced SQL (window functions, CTEs). Key finding: three grades (C/D/B) concentrate 73.8% of all defaults due to their sheer volume, not just their individual rates—proving that risk monitoring must prioritize volume × rate over the default rate alone.
-        </p>
-
-        <p><a href="https://github.com/oscararayaoad-sys/lending_club_sql_risk" target="_blank" rel="noopener" aria-label="View LendingClub Risk project code on GitHub">View Code on GitHub →</a></p>
-      </article>
-
-      <!-- Proyecto 3: Inflation ETL Pipeline -->
-      <article class="proyecto">
-        <h3>Inflation ETL Pipeline — Central Bank of Chile (BCCh)</h3>
-        <p class="stack">
-          <span>Python</span><span>requests</span><span>pandas</span><span>SQLAlchemy</span><span>PostgreSQL</span><span>Power BI</span>
-        </p>
-      
-        <img src="https://raw.githubusercontent.com/oscararayaoad-sys/bcch-inflacion-pipeline/main/docs/dashboard-inflacion-bcch.png"
-             alt="Inflation dashboard in Chile 2015–2025: CPI, UF and purchasing power (Power BI)"
-             class="project-img">
-      
-        <p>
-          An automated, end-to-end data pipeline that extracts UF and CPI series directly from the Central Bank API, transforms the data, loads it into PostgreSQL using idempotent writes, and visualizes it in Power BI. It runs completely unattended once a month. Finding: the Chilean Peso lost ~38% of its purchasing power over 11 years, while savings held in UF preserved their value almost perfectly.
-        </p>
-      
-        <p><a href="https://github.com/oscararayaoad-sys/bcch-inflacion-pipeline" target="_blank" rel="noopener" aria-label="View Central Bank Inflation Pipeline project code on GitHub">View Code on GitHub →</a></p>
+        <p><a href="https://github.com/oscararayaoad-sys/lending_club_sql_risk" target="_blank" rel="noopener">View Code on GitHub →</a></p>
       </article>
 
     </div>
 
     <h2>Contact</h2>
     <p class="contacto">
-      <a href="#" onclick="navigator.clipboard.writeText('oscar.araya.oad@gmail.com'); alert('¡Correo copiado al portapapeles!'); return false;" aria-label="Send email to Oscar Araya">Email</a>
-      <a href="https://github.com/oscararayaoad-sys" target="_blank" rel="noopener" aria-label="Visit Oscar Araya GitHub profile">GitHub</a>
-      <a href="https://www.linkedin.com/in/oscar-araya-diaz" target="_blank" rel="noopener" aria-label="Visit Oscar Araya LinkedIn profile">LinkedIn</a>
+      <a href="#" onclick="navigator.clipboard.writeText('oscar.araya.oad@gmail.com'); alert('¡Correo copiado al portapapeles!'); return false;">Email</a>
+      <a href="https://github.com/oscararayaoad-sys" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/oscar-araya-diaz" target="_blank" rel="noopener">LinkedIn</a>
     </p>
   </main>
 
   <footer>
     <span>Data Analyst · Santiago, Chile · 2026</span>
-    <a href="#top" class="back-to-top" aria-label="Scroll back to top of page">Back to top ↑</a>
+    <a href="#top" class="back-to-top">Back to top ↑</a>
   </footer>
 
   <!-- Botón Flotante Rectangular -->
-  <a href="#top" class="floating-top" aria-label="Scroll back to top of page">Subir ↑</a>
+  <a href="#top" class="floating-top">Subir ↑</a>
 
   <!-- Modal para Visualizar Imágenes en Grande -->
   <div id="image-modal" onclick="this.style.display='none'">
     <img id="modal-img" src="" alt="Amplified view">
   </div>
 
-  <!-- Scripts de interactividad y Prism.js -->
+  <!-- Scripts de interactividad -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-sql.min.js"></script>
   <script>
-    // Script simple para abrir las imágenes del primer proyecto en grande
+    // Función para transformar el slider de datos sucios/limpios
+    function toggleDataView(val) {
+      const rawView = document.getElementById('view-raw');
+      const cleanView = document.getElementById('view-clean');
+      if (val == "0") {
+        rawView.style.display = 'block';
+        cleanView.style.display = 'none';
+      } else {
+        rawView.style.display = 'none';
+        cleanView.style.display = 'block';
+      }
+    }
+
+    // Modal para abrir imágenes en grande al hacer clic
     const modal = document.getElementById('image-modal');
     const modalImg = document.getElementById('modal-img');
     
-    document.querySelectorAll('.proyecto:first-of-type img.zoomable').forEach(img => {
+    document.querySelectorAll('.proyecto img.zoomable').forEach(img => {
       img.addEventListener('click', (e) => {
         modal.style.display = 'flex';
         modalImg.src = e.target.src;
