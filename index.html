@@ -276,7 +276,22 @@
           </div>
         </div>
 
-        <!-- 3. ANÁLISIS RESPALDADO POR GRÁFICOS -->
+         <!-- 3. VENTANA DE DASHBOARD (Lo último que veremos) -->
+        <div style="margin: 24px 0; padding: 16px; background: var(--bg); border: 2px solid var(--acento); border-radius: 8px;">
+          <h4 style="margin: 0 0 8px 0; font-size: 1.1em; color: var(--text);">Dashboard Interactivo Final (Power BI)</h4>
+          <p style="font-size: 0.85em; color: var(--muted); margin: 0 0 12px 0;">
+            Vista consolidada de inteligencia de negocios para entrega y control gerencial.
+          </p>
+
+          <img src="https://raw.githubusercontent.com/oscararayaoad-sys/dashboard-and-analysis-coffeeshop/main/img/dashboard_preview.png" alt="Power BI Dashboard Preview" class="zoomable" style="width: 100%; border-radius: 6px; border: 1px solid var(--borde); margin-bottom: 12px;">
+
+          <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.9em; flex-wrap: wrap; gap: 12px;">
+            <a href="https://github.com/oscararayaoad-sys/dashboard-and-analysis-coffeeshop" target="_blank" rel="noopener">Ver Código en GitHub →</a>
+            <a href="dashboard/03_dashboard_cafeteria.pbix" download class="btn" style="padding: 6px 14px; font-size: 0.85em;">Descargar Power BI (.pbix) ↓</a>
+          </div>
+        </div>
+
+        <!-- 4. ANÁLISIS RESPALDADO POR GRÁFICOS -->
         <h4 style="margin: 28px 0 12px 0; font-size: 1.1em; border-bottom: 1px solid var(--borde); padding-bottom: 4px;">Análisis Respaldado por Gráficos</h4>
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-bottom: 24px;">
           
@@ -318,7 +333,7 @@
 
         </div>
 
-        <!-- 4. RESUMEN EJECUTIVO (Ventana con vista previa del PDF real) -->
+        <!-- 5. RESUMEN EJECUTIVO (Ventana con vista previa del PDF real) -->
         <div style="margin: 24px 0; padding: 16px; background: var(--bg); border: 1px solid var(--borde); border-radius: 8px;">
           <h4 style="margin: 0 0 8px 0; font-size: 1em; color: var(--text);">Resumen Ejecutivo (Reporte PDF)</h4>
           <p style="font-size: 0.85em; color: var(--muted); margin: 0 0 12px 0;">
@@ -327,45 +342,19 @@
           
           <!-- Ventana miniatura del documento PDF real incrustado -->
           <div style="border: 1px solid var(--borde); border-radius: 6px; overflow: hidden; margin-bottom: 12px; background: #fff;">
-            <iframe src="reports/executive_summary.pdf" width="100%" height="220px" style="border: none;" title="Executive Summary PDF Preview"></iframe>
+            <iframe src="https://github.com/oscararayaoad-sys/dashboard-and-analysis-coffeeshop/blob/main/reports/executive_summary.pdf" width="100%" height="220px" style="border: none;" title="Executive Summary PDF Preview"></iframe>
           </div>
 
           <div style="display: flex; justify-content: flex-end;">
-            <a href="reports/executive_summary.pdf" target="_blank" rel="noopener" class="btn" style="padding: 6px 14px; font-size: 0.85em;">Abrir Reporte PDF Completo ↗</a>
+            <a href="https://github.com/oscararayaoad-sys/dashboard-and-analysis-coffeeshop/blob/main/reports/executive_summary.pdf" target="_blank" rel="noopener" class="btn" style="padding: 6px 14px; font-size: 0.85em;">Abrir Reporte PDF Completo ↗</a>
           </div>
         </div>
 
-        <!-- 5. VENTANA DE DASHBOARD (Lo último que veremos) -->
-        <div style="margin: 24px 0; padding: 16px; background: var(--bg); border: 2px solid var(--acento); border-radius: 8px;">
-          <h4 style="margin: 0 0 8px 0; font-size: 1.1em; color: var(--text);">Dashboard Interactivo Final (Power BI)</h4>
-          <p style="font-size: 0.85em; color: var(--muted); margin: 0 0 12px 0;">
-            Vista consolidada de inteligencia de negocios para entrega y control gerencial.
-          </p>
-
-          <img src="https://raw.githubusercontent.com/oscararayaoad-sys/dashboard-and-analysis-coffeeshop/main/img/dashboard_preview.png" alt="Power BI Dashboard Preview" class="zoomable" style="width: 100%; border-radius: 6px; border: 1px solid var(--borde); margin-bottom: 12px;">
-
-          <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.9em; flex-wrap: wrap; gap: 12px;">
-            <a href="https://github.com/oscararayaoad-sys/dashboard-and-analysis-coffeeshop" target="_blank" rel="noopener">Ver Código en GitHub →</a>
-            <a href="dashboard/03_dashboard_cafeteria.pbix" download class="btn" style="padding: 6px 14px; font-size: 0.85em;">Descargar Power BI (.pbix) ↓</a>
-          </div>
-        </div>
+       
 
       </article>
 
-      <!-- Proyecto 2: LendingClub Risk -->
-      <article class="proyecto">
-        <h3>Default Risk Analysis — LendingClub (P2P Lending)</h3>
-        <p class="stack">
-          <span>PostgreSQL</span><span>Python</span><span>pandas</span><span>Matplotlib</span><span>Seaborn</span>
-        </p>
-
-        <img src="https://raw.githubusercontent.com/oscararayaoad-sys/lending_club_sql_risk/main/img/01_pareto_grade.png"
-             alt="Pareto default concentration by grade: C, D, and B account for 73.8% of total defaults"
-             class="project-img zoomable">
-        <p class="img-caption">The risk paradox: while Grade G is the most dangerous on an individual loan level (49.4% default rate), it only accounts for 1.8% of total portfolio defaults. Three grades (C/D/B) concentrate 73.8% due to their massive volume.</p>
-
-        <p><a href="https://github.com/oscararayaoad-sys/lending_club_sql_risk" target="_blank" rel="noopener">View Code on GitHub →</a></p>
-      </article>
+      
 
     </div>
 
