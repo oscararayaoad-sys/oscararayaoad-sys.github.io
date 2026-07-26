@@ -175,7 +175,7 @@
       border: 0;
     }
 
-    /* Botón flotante para subir arriba */
+    /* Botón flotante rectangular con texto */
     .floating-top {
       position: fixed;
       bottom: 24px;
@@ -183,16 +183,17 @@
       background: var(--card);
       color: var(--acento);
       border: 1px solid var(--borde);
-      padding: 10px 14px;
-      border-radius: 50%;
-      font-size: 1.1em;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-size: 0.9em;
+      font-weight: 600;
       text-decoration: none;
       box-shadow: 0 4px 12px rgba(0,0,0,0.3);
       transition: all 0.25s ease;
       z-index: 100;
       display: flex;
       align-items: center;
-      justify-content: center;
+      gap: 6px;
     }
     .floating-top:hover {
       background: var(--acento);
@@ -435,8 +436,8 @@
     <a href="#top" class="back-to-top" aria-label="Scroll back to top of page">Back to top ↑</a>
   </footer>
 
-  <!-- Botón Flotante para subir arriba -->
-  <a href="#top" class="floating-top" aria-label="Scroll back to top of page">↑</a>
+  <!-- Botón Flotante Rectangular -->
+  <a href="#top" class="floating-top" aria-label="Scroll back to top of page">Subir ↑</a>
 
   <!-- Prism.js JS para resaltado de sintaxis -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
