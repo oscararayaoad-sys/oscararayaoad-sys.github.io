@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <!-- SEO & Open Graph Metadata (Punto 3) -->
+  <!-- SEO & Open Graph Metadata -->
   <title>Oscar Araya Díaz — Data Analyst</title>
   <meta name="description" content="Data Analyst specializing in Python, SQL, and Power BI. End-to-end data projects, from cleaning and pipelines to visualization.">
   <meta property="og:title" content="Oscar Araya Díaz — Data Analyst">
@@ -16,7 +16,7 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
 
   <style>
-    /* Tipografía y Jerarquía Limpia (Punto 1) & Scroll Suave (Punto 8) */
+    /* Tipografía y Jerarquía Limpia & Scroll Suave */
     html {
       scroll-behavior: smooth;
     }
@@ -32,7 +32,7 @@
       --borde: #333;
     }
 
-    /* Modo Claro Automático (Punto 2 - Sin JS) */
+    /* Modo Claro Automático */
     @media (prefers-color-scheme: light) {
       :root {
         --bg: #f8fafc;
@@ -84,7 +84,7 @@
     }
     .btn:hover { opacity: 0.85; transform: translateY(-2px); }
 
-    /* Grid Visual para Proyectos (Punto 4) */
+    /* Grid Visual para Proyectos */
     .projects-grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -106,7 +106,7 @@
     }
     .proyecto h3 { margin-top: 0; }
 
-    /* Badges de Stack Técnico (Punto 5) */
+    /* Badges de Stack Técnico */
     .stack { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; padding: 0; list-style: none; }
     .stack span {
       background: var(--acento-suave);
@@ -125,7 +125,7 @@
     .project-img { width: 100%; border-radius: 8px; border: 1px solid var(--borde); margin: 16px 0; display: block; }
     .img-caption { color: var(--muted); font-size: 0.85em; text-align: center; margin: 4px 0 20px; }
 
-    /* Contenedor Responsive para Power BI (Punto 7) */
+    /* Contenedor Responsive para Power BI */
     .powerbi-container {
       position: relative;
       width: 100%;
@@ -147,7 +147,7 @@
       border: 0;
     }
 
-    /* Botón de subir al principio (Punto 8) */
+    /* Botón de subir al principio */
     .back-to-top {
       background: var(--acento-suave);
       color: var(--acento);
@@ -159,7 +159,7 @@
     }
     .back-to-top:hover { opacity: 0.8; }
 
-    /* Estilos para el Componente Slider de Datos (Punto 11) */
+    /* Estilos para el Componente Slider de Datos */
     .data-cleaner-demo {
       background: var(--card);
       border: 1px solid var(--borde);
@@ -255,156 +255,158 @@
   <header class="hero">
     <!-- Language Selector -->
     <div style="font-size: 0.9em; margin-bottom: 16px; color: var(--muted);">
-      <strong>EN</strong> · <a href="es.html" style="text-decoration: none;">ES (Español)</a>
+      <strong>EN</strong> · <a href="es.html" style="text-decoration: none;" aria-label="Cambiar idioma a Español">ES (Español)</a>
     </div>
 
     <h1>Your business in your hands.</h1>
     <p class="sub">Oscar Araya Díaz · Data Analyst · Python &amp; SQL · Santiago, Chile 🇨🇱</p>
-    <a href="CV_Oscar_Araya_Diaz.pdf" target="_blank" rel="noopener" class="btn">Download CV ↓</a>
+    <a href="CV_Oscar_Araya_Diaz.pdf" target="_blank" rel="noopener" class="btn" aria-label="Download CV in PDF format">Download CV ↓</a>
   </header>
 
-  <p class="intro">
-    Focused on helping business to take control on their desicions. My motto is "Your business in your hands". I ask the right questions to uncover the most impactful insights. I build end-to-end data projects: from extracting and cleaning real-world data to analysis, visualization, and automation.
-  </p>
+  <main>
+    <p class="intro">
+      Focused on helping business to take control on their desicions. My motto is "Your business in your hands". I ask the right questions to uncover the most impactful insights. I build end-to-end data projects: from extracting and cleaning real-world data to analysis, visualization, and automation.
+    </p>
 
-  <p class="contacto">
-    <a href="#" onclick="navigator.clipboard.writeText('oscar.araya.oad@gmail.com'); alert('¡Correo copiado al portapapeles!'); return false;">Email</a>
-    <a href="https://github.com/oscararayaoad-sys">GitHub</a>
-    <a href="https://www.linkedin.com/in/oscar-araya-diaz">LinkedIn</a>
-  </p>
+    <p class="contacto">
+      <a href="#" onclick="navigator.clipboard.writeText('oscar.araya.oad@gmail.com'); alert('¡Correo copiado al portapapeles!'); return false;" aria-label="Send email to Oscar Araya">Email</a>
+      <a href="https://github.com/oscararayaoad-sys" aria-label="Visit Oscar Araya GitHub profile">GitHub</a>
+      <a href="https://www.linkedin.com/in/oscar-araya-diaz" aria-label="Visit Oscar Araya LinkedIn profile">LinkedIn</a>
+    </p>
 
-  <!-- Componente Interactivo: Datos Sucios vs. Limpios (Punto 11) -->
-  <div class="data-cleaner-demo">
-    <div class="cleaner-header">
-      <span class="badge-demo">Live Demo</span>
-      <h3>Data Transformation</h3>
-      <p>Slide to see the before (raw, inconsistent data) and after (structured data ready for analysis).</p>
-    </div>
+    <!-- Componente Interactivo: Datos Sucios vs. Limpios -->
+    <div class="data-cleaner-demo">
+      <div class="cleaner-header">
+        <span class="badge-demo">Live Demo</span>
+        <h3>Data Transformation</h3>
+        <p>Slide to see the before (raw, inconsistent data) and after (structured data ready for analysis).</p>
+      </div>
 
-    <div class="slider-container">
-      <!-- Capa de Datos Limpios (Fondo) -->
-      <div class="data-layer clean-data">
-        <div class="data-content">
-          <span class="status-tag success">✓ Clean & Validated</span>
-          <pre style="background:transparent; margin:0; padding:0;"><code class="language-sql">id, client, amount, date
+      <div class="slider-container">
+        <!-- Capa de Datos Limpios (Fondo) -->
+        <div class="data-layer clean-data">
+          <div class="data-content">
+            <span class="status-tag success">✓ Clean & Validated</span>
+            <pre style="background:transparent; margin:0; padding:0;"><code class="language-sql">id, client, amount, date
 101, "Company A", 1500.50, 2026-07-26
 102, "Company B", 3200.00, 2026-07-25</code></pre>
+          </div>
         </div>
-      </div>
 
-      <!-- Capa de Datos Sucios (Superpuesta con clip-path) -->
-      <div class="data-layer raw-data" id="rawLayer">
-        <div class="data-content">
-          <span class="status-tag warning">⚠ Raw / Dirty Data</span>
-          <pre style="background:transparent; margin:0; padding:0;"><code class="language-sql">ID | CLI_NAME | TOTAL_USD | DATE
+        <!-- Capa de Datos Sucios (Superpuesta con clip-path) -->
+        <div class="data-layer raw-data" id="rawLayer">
+          <div class="data-content">
+            <span class="status-tag warning">⚠ Raw / Dirty Data</span>
+            <pre style="background:transparent; margin:0; padding:0;"><code class="language-sql">ID | CLI_NAME | TOTAL_USD | DATE
 ?  | comp_a   | $ 1,500.5 | 26/07/26
 102| COMPANY  | NULL      | INV-DATE</code></pre>
+          </div>
         </div>
+
+        <!-- Control deslizante nativo -->
+        <input type="range" min="0" max="100" value="50" class="slider-range" id="dataSlider" aria-label="Data comparison slider">
       </div>
-
-      <!-- Control deslizante nativo -->
-      <input type="range" min="0" max="100" value="50" class="slider-range" id="dataSlider" aria-label="Data comparison slider">
-    </div>
-  </div>
-
-  <h2>Projects</h2>
-
-  <div class="projects-grid">
-    <div class="proyecto">
-      <h3>Public Spending Analysis — Chile's Public Market (Mercado Público)</h3>
-      <p class="stack">
-        <span>Python</span><span>pandas</span><span>NumPy</span><span>Matplotlib</span><span>Seaborn</span><span>Power BI</span>
-      </p>
-
-      <!-- Ejemplo de Power BI Responsive integrado (Punto 7) -->
-      <div class="powerbi-container">
-        <iframe title="Public Spending Dashboard" src="https://app.powerbi.com/view?r=TU_URL_DE_PUBLICAR_EN_LA_WEB" allowFullScreen="true"></iframe>
-      </div>
-      <p class="img-caption">Interactive Power BI dashboard: total spending, top 10 procurement agencies, regional map, and category filters that recalculate all visuals in real time.</p>
-
-      <img src="https://raw.githubusercontent.com/oscararayaoad-sys/mercado-publico-eda/main/img/pareto_organismo.png"
-           alt="Spending concentration by agency: JUNAEB and CENABAST lead"
-           class="project-img">
-      <p class="img-caption">JUNAEB and CENABAST together concentrate ~30% of total spending. The curve flattens quickly: a few large agencies drive most of the spending, leaving a long tail of minor buyers.</p>
-
-      <img src="https://raw.githubusercontent.com/oscararayaoad-sys/mercado-publico-eda/main/img/pareto_region.png"
-           alt="Spending concentration by region: RM dominates with ~62%"
-           class="project-img">
-      <p class="img-caption">The Metropolitan Region (RM) accounts for ~62% of the total budget, and the top 5 regions capture ~81%. Geographic concentration is significantly stronger than sector-based concentration.</p>
-
-      <img src="https://raw.githubusercontent.com/oscararayaoad-sys/mercado-publico-eda/main/img/pareto_rubro.png"
-           alt="Spending concentration by industry: widely distributed among many sectors"
-           class="project-img">
-      <p class="img-caption">Spending across industries is highly distributed: the 80% cumulative mark is only reached near the top 14 categories, indicating a broad and open market.</p>
-
-      <img src="https://raw.githubusercontent.com/oscararayaoad-sys/mercado-publico-eda/main/img/pareto_categoria.png"
-           alt="Spending concentration by category: no single category dominates"
-           class="project-img">
-      <p class="img-caption">No single category dominates: the cumulative 80% threshold is not met even within the top 15 categories, signaling a highly diverse market with multiple entry points.</p>
-
-      <p>
-        An EDA of ~1.1 million public purchase orders (ChileCompra) to answer where businesses should position themselves as government suppliers. Contraintuitive finding: a low supplier count does not guarantee a business opportunity—true niches lie in high-spending markets with weak leaders, rather than in closed, captive markets.
-      </p>
-
-      <p><a href="https://github.com/oscararayaoad-sys/mercado-publico-eda">View Code on GitHub →</a></p>
     </div>
 
-    <div class="proyecto">
-      <h3>Default Risk Analysis — LendingClub (P2P Lending)</h3>
-      <p class="stack">
-        <span>PostgreSQL</span><span>Python</span><span>pandas</span><span>Matplotlib</span><span>Seaborn</span>
-      </p>
+    <h2>Projects</h2>
 
-      <img src="https://raw.githubusercontent.com/oscararayaoad-sys/lending_club_sql_risk/main/img/01_pareto_grade.png"
-           alt="Pareto default concentration by grade: C, D, and B account for 73.8% of total defaults"
-           class="project-img">
-      <p class="img-caption">The risk paradox: while Grade G is the most dangerous on an individual loan level (49.4% default rate), it only accounts for 1.8% of total portfolio defaults. Three grades (C/D/B) concentrate 73.8% due to their massive volume.</p>
+    <div class="projects-grid">
+      <article class="proyecto">
+        <h3>Public Spending Analysis — Chile's Public Market (Mercado Público)</h3>
+        <p class="stack">
+          <span>Python</span><span>pandas</span><span>NumPy</span><span>Matplotlib</span><span>Seaborn</span><span>Power BI</span>
+        </p>
 
-      <img src="https://raw.githubusercontent.com/oscararayaoad-sys/lending_club_sql_risk/main/img/02_cohortes_anual.png"
-           alt="Annual cohort default rate evolution, peaking in 2016"
-           class="project-img">
-      <p class="img-caption">The credit portfolio deteriorated as origination volume grew: defaults spiked upwards in 2014, reaching a peak in 2016 (23.7%). The apparent "improvement" in 2018 is an incomplete cohort artifact, explicitly flagged as unreliable.</p>
+        <!-- Ejemplo de Power BI Responsive integrado -->
+        <div class="powerbi-container">
+          <iframe title="Public Spending Dashboard" src="https://app.powerbi.com/view?r=TU_URL_DE_PUBLICAR_EN_LA_WEB" allowFullScreen="true"></iframe>
+        </div>
+        <p class="img-caption">Interactive Power BI dashboard: total spending, top 10 procurement agencies, regional map, and category filters that recalculate all visuals in real time.</p>
 
-      <img src="https://raw.githubusercontent.com/oscararayaoad-sys/lending_club_sql_risk/main/img/03_tail_risk.png"
-           alt="Tail risk heatmap crossing grade and loan purpose"
-           class="project-img">
-      <p class="img-caption">When crossing grade × purpose, the grade heavily dominates: the most toxic combination is Grade G + debt consolidation (50.6%). High-volume, high-risk pockets are prime candidates for pricing premium or rejection policies.</p>
+        <img src="https://raw.githubusercontent.com/oscararayaoad-sys/mercado-publico-eda/main/img/pareto_organismo.png"
+             alt="Spending concentration by agency: JUNAEB and CENABAST lead"
+             class="project-img">
+        <p class="img-caption">JUNAEB and CENABAST together concentrate ~30% of total spending. The curve flattens quickly: a few large agencies drive most of the spending, leaving a long tail of minor buyers.</p>
 
-      <p>
-        Credit risk analysis conducted on 1.23 million peer-to-peer loans leveraging advanced SQL (window functions, CTEs). Key finding: three grades (C/D/B) concentrate 73.8% of all defaults due to their sheer volume, not just their individual rates—proving that risk monitoring must prioritize volume × rate over the default rate alone.
-      </p>
+        <img src="https://raw.githubusercontent.com/oscararayaoad-sys/mercado-publico-eda/main/img/pareto_region.png"
+             alt="Spending concentration by region: RM dominates with ~62%"
+             class="project-img">
+        <p class="img-caption">The Metropolitan Region (RM) accounts for ~62% of the total budget, and the top 5 regions capture ~81%. Geographic concentration is significantly stronger than sector-based concentration.</p>
 
-      <p><a href="https://github.com/oscararayaoad-sys/lending_club_sql_risk">View Code on GitHub →</a></p>
+        <img src="https://raw.githubusercontent.com/oscararayaoad-sys/mercado-publico-eda/main/img/pareto_rubro.png"
+             alt="Spending concentration by industry: widely distributed among many sectors"
+             class="project-img">
+        <p class="img-caption">Spending across industries is highly distributed: the 80% cumulative mark is only reached near the top 14 categories, indicating a broad and open market.</p>
+
+        <img src="https://raw.githubusercontent.com/oscararayaoad-sys/mercado-publico-eda/main/img/pareto_categoria.png"
+             alt="Spending concentration by category: no single category dominates"
+             class="project-img">
+        <p class="img-caption">No single category dominates: the cumulative 80% threshold is not met even within the top 15 categories, signaling a highly diverse market with multiple entry points.</p>
+
+        <p>
+          An EDA of ~1.1 million public purchase orders (ChileCompra) to answer where businesses should position themselves as government suppliers. Contraintuitive finding: a low supplier count does not guarantee a business opportunity—true niches lie in high-spending markets with weak leaders, rather than in closed, captive markets.
+        </p>
+
+        <p><a href="https://github.com/oscararayaoad-sys/mercado-publico-eda" aria-label="View Public Spending project code on GitHub">View Code on GitHub →</a></p>
+      </article>
+
+      <article class="proyecto">
+        <h3>Default Risk Analysis — LendingClub (P2P Lending)</h3>
+        <p class="stack">
+          <span>PostgreSQL</span><span>Python</span><span>pandas</span><span>Matplotlib</span><span>Seaborn</span>
+        </p>
+
+        <img src="https://raw.githubusercontent.com/oscararayaoad-sys/lending_club_sql_risk/main/img/01_pareto_grade.png"
+             alt="Pareto default concentration by grade: C, D, and B account for 73.8% of total defaults"
+             class="project-img">
+        <p class="img-caption">The risk paradox: while Grade G is the most dangerous on an individual loan level (49.4% default rate), it only accounts for 1.8% of total portfolio defaults. Three grades (C/D/B) concentrate 73.8% due to their massive volume.</p>
+
+        <img src="https://raw.githubusercontent.com/oscararayaoad-sys/lending_club_sql_risk/main/img/02_cohortes_anual.png"
+             alt="Annual cohort default rate evolution, peaking in 2016"
+             class="project-img">
+        <p class="img-caption">The credit portfolio deteriorated as origination volume grew: defaults spiked upwards in 2014, reaching a peak in 2016 (23.7%). The apparent "improvement" in 2018 is an incomplete cohort artifact, explicitly flagged as unreliable.</p>
+
+        <img src="https://raw.githubusercontent.com/oscararayaoad-sys/lending_club_sql_risk/main/img/03_tail_risk.png"
+             alt="Tail risk heatmap crossing grade and loan purpose"
+             class="project-img">
+        <p class="img-caption">When crossing grade × purpose, the grade heavily dominates: the most toxic combination is Grade G + debt consolidation (50.6%). High-volume, high-risk pockets are prime candidates for pricing premium or rejection policies.</p>
+
+        <p>
+          Credit risk analysis conducted on 1.23 million peer-to-peer loans leveraging advanced SQL (window functions, CTEs). Key finding: three grades (C/D/B) concentrate 73.8% of all defaults due to their sheer volume, not just their individual rates—proving that risk monitoring must prioritize volume × rate over the default rate alone.
+        </p>
+
+        <p><a href="https://github.com/oscararayaoad-sys/lending_club_sql_risk" aria-label="View LendingClub Risk project code on GitHub">View Code on GitHub →</a></p>
+      </article>
+
+      <article class="proyecto">
+        <h3>Inflation ETL Pipeline — Central Bank of Chile (BCCh)</h3>
+        <p class="stack">
+          <span>Python</span><span>requests</span><span>pandas</span><span>SQLAlchemy</span><span>PostgreSQL</span><span>Power BI</span>
+        </p>
+      
+        <img src="https://raw.githubusercontent.com/oscararayaoad-sys/bcch-inflacion-pipeline/main/docs/dashboard-inflacion-bcch.png"
+             alt="Inflation dashboard in Chile 2015–2025: CPI, UF and purchasing power (Power BI)"
+             class="project-img">
+      
+        <p>
+          An automated, end-to-end data pipeline that extracts UF and CPI series directly from the Central Bank API, transforms the data, loads it into PostgreSQL using idempotent writes, and visualizes it in Power BI. It runs completely unattended once a month. Finding: the Chilean Peso lost ~38% of its purchasing power over 11 years, while savings held in UF preserved their value almost perfectly.
+        </p>
+      
+        <p><a href="https://github.com/oscararayaoad-sys/bcch-inflacion-pipeline" aria-label="View Central Bank Inflation Pipeline project code on GitHub">View Code on GitHub →</a></p>
+      </article>
     </div>
 
-    <div class="proyecto">
-      <h3>Inflation ETL Pipeline — Central Bank of Chile (BCCh)</h3>
-      <p class="stack">
-        <span>Python</span><span>requests</span><span>pandas</span><span>SQLAlchemy</span><span>PostgreSQL</span><span>Power BI</span>
-      </p>
-    
-      <img src="https://raw.githubusercontent.com/oscararayaoad-sys/bcch-inflacion-pipeline/main/docs/dashboard-inflacion-bcch.png"
-           alt="Inflation dashboard in Chile 2015–2025: CPI, UF and purchasing power (Power BI)"
-           class="project-img">
-    
-      <p>
-        An automated, end-to-end data pipeline that extracts UF and CPI series directly from the Central Bank API, transforms the data, loads it into PostgreSQL using idempotent writes, and visualizes it in Power BI. It runs completely unattended once a month. Finding: the Chilean Peso lost ~38% of its purchasing power over 11 years, while savings held in UF preserved their value almost perfectly.
-      </p>
-    
-      <p><a href="https://github.com/oscararayaoad-sys/bcch-inflacion-pipeline">View Code on GitHub →</a></p>
-    </div>
-  </div>
-
-  <h2>Contact</h2>
-  <p class="contacto">
-    <a href="#" onclick="navigator.clipboard.writeText('oscar.araya.oad@gmail.com'); alert('¡Correo copiado al portapapeles!'); return false;">Email</a>
-    <a href="https://github.com/oscararayaoad-sys">GitHub</a>
-    <a href="https://www.linkedin.com/in/oscar-araya-diaz">LinkedIn</a>
-  </p>
+    <h2>Contact</h2>
+    <p class="contacto">
+      <a href="#" onclick="navigator.clipboard.writeText('oscar.araya.oad@gmail.com'); alert('¡Correo copiado al portapapeles!'); return false;" aria-label="Send email to Oscar Araya">Email</a>
+      <a href="https://github.com/oscararayaoad-sys" aria-label="Visit Oscar Araya GitHub profile">GitHub</a>
+      <a href="https://www.linkedin.com/in/oscar-araya-diaz" aria-label="Visit Oscar Araya LinkedIn profile">LinkedIn</a>
+    </p>
+  </main>
 
   <footer>
     <span>Data Analyst · Santiago, Chile · 2026</span>
-    <a href="#top" class="back-to-top">Back to top ↑</a>
+    <a href="#top" class="back-to-top" aria-label="Scroll back to top of page">Back to top ↑</a>
   </footer>
 
   <!-- Prism.js JS para resaltado de sintaxis -->
