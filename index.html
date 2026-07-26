@@ -323,106 +323,106 @@
     </p>
 
     <h2>Projects</h2>
-      <article class="proyecto">
- <article style="font-family: inherit; color: var(--text);">
-  <h3>Coffee Shop Business Performance & Customer Insights</h3>
-  <p class="stack">
-    <span>Python</span><span>pandas</span><span>Matplotlib</span><span>Seaborn</span><span>Streamlit</span>
-  </p>
-
-  <p>
-    Comprehensive exploratory data analysis of retail transactions to optimize inventory, staffing, and product bundling.
-  </p>
-
-  <!-- Sección: Slicer de Data Sucia / Limpia -->
-  <div style="margin: 20px 0; padding: 16px; background: var(--bg); border: 1px solid var(--borde); border-radius: 8px;">
-    <h4 style="margin: 0 0 8px 0; font-size: 1em; color: var(--text);">Data Pipeline: Raw vs. Clean Data</h4>
-    <p style="font-size: 0.85em; color: var(--muted); margin: 0 0 12px 0;">
-      Toggle between the raw dataset (containing missing values and formatting inconsistencies) and the processed clean dataset used for modeling.
+        <article class="proyecto">
+   <article style="font-family: inherit; color: var(--text);">
+    <h3>Coffee Shop Business Performance & Customer Insights</h3>
+    <p class="stack">
+      <span>Python</span><span>pandas</span><span>Matplotlib</span><span>Seaborn</span><span>Streamlit</span>
     </p>
-    <div style="display: flex; gap: 8px; margin-bottom: 12px;">
-      <button onclick="document.getElementById('raw-data-view').style.display='block'; document.getElementById('clean-data-view').style.display='none';" style="padding: 6px 12px; font-size: 0.85em; cursor: pointer; border-radius: 4px; border: 1px solid var(--borde); background: var(--bg); color: var(--text);">Show Raw Data (Sample)</button>
-      <button onclick="document.getElementById('raw-data-view').style.display='none'; document.getElementById('clean-data-view').style.display='block';" style="padding: 6px 12px; font-size: 0.85em; cursor: pointer; border-radius: 4px; border: 1px solid var(--borde); background: var(--bg); color: var(--text);">Show Clean Data (Sample)</button>
-    </div>
-    
-    <div id="raw-data-view" style="font-family: monospace; font-size: 0.8em; background: rgba(0,0,0,0.05); padding: 8px; border-radius: 4px; overflow-x: auto;">
-      transaction_id,timestamp,item,price,payment_method<br>
-      TX1001,2026-01-01 08:30:00,Latte,3.50,Credit<br>
-      TX1002,NULL,Espresso,NULL,Debit<br>
-      TX1003,2026-01-01 09:15:00,Croissant, 2.75 ,Cash
-    </div>
-    
-    <div id="clean-data-view" style="display: none; font-family: monospace; font-size: 0.8em; background: rgba(0,0,0,0.05); padding: 8px; border-radius: 4px; overflow-x: auto;">
-      transaction_id,timestamp,item,price,payment_method<br>
-      TX1001,2026-01-01 08:30:00,Latte,3.50,Credit<br>
-      TX1002,2026-01-01 08:45:00,Espresso,2.50,Debit<br>
-      TX1003,2026-01-01 09:15:00,Croissant,2.75,Cash
-    </div>
-  </div>
-
-  <!-- Cuadrícula 2x2 para Gráficos -->
-  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; margin: 24px 0;">
-    
-    <!-- Gráfico 1 -->
-    <div style="background: var(--bg); border: 1px solid var(--borde); border-radius: 8px; padding: 16px; display: flex; flex-direction: column; justify-content: space-between;">
-      <div>
-        <h4 style="margin: 0 0 12px 0; font-size: 1em; text-align: center; color: var(--text);">BCG Matrix (Portfolio)</h4>
-        <img src="https://raw.githubusercontent.com/oscararayaoad-sys/dashboard-and-analysis-coffeeshop/main/img/grafico_6.png" alt="BCG Matrix" style="width: 100%; border-radius: 4px; border: 1px solid var(--borde);">
-      </div>
-      <p style="font-size: 0.85em; color: var(--muted); margin: 12px 0 0 0; text-align: center;">
-        <strong>Menu Engineering:</strong> Products classified by profitability and volume (Stars, Workhorses, Question Marks, and Dogs).
-      </p>
-    </div>
-
-    <!-- Gráfico 2 -->
-    <div style="background: var(--bg); border: 1px solid var(--borde); border-radius: 8px; padding: 16px; display: flex; flex-direction: column; justify-content: space-between;">
-      <div>
-        <h4 style="margin: 0 0 12px 0; font-size: 1em; text-align: center; color: var(--text);">Time-of-Day vs. Day-of-Week Demand</h4>
-        <img src="https://raw.githubusercontent.com/oscararayaoad-sys/dashboard-and-analysis-coffeeshop/main/img/grafico_1.png" alt="Time of Day Demand" style="width: 100%; border-radius: 4px; border: 1px solid var(--borde);">
-      </div>
-      <p style="font-size: 0.85em; color: var(--muted); margin: 12px 0 0 0; text-align: center;">
-        <strong>Bimodal Demand:</strong> Weekdays show dual peaks (9:00 AM & 6:00–7:00 PM) with a midday trough.
-      </p>
-    </div>
-
-    <!-- Gráfico 3 -->
-    <div style="background: var(--bg); border: 1px solid var(--borde); border-radius: 8px; padding: 16px; display: flex; flex-direction: column; justify-content: space-between;">
-      <div>
-        <h4 style="margin: 0 0 12px 0; font-size: 1em; text-align: center; color: var(--text);">Service Channel by Category</h4>
-        <img src="https://raw.githubusercontent.com/oscararayaoad-sys/dashboard-and-analysis-coffeeshop/main/img/grafico_3.png" alt="Service Channel" style="width: 100%; border-radius: 4px; border: 1px solid var(--borde);">
-      </div>
-      <p style="font-size: 0.85em; color: var(--muted); margin: 12px 0 0 0; text-align: center;">
-        <strong>Dine-In Preference:</strong> 70.3% of consumption is Dine-in. Takeaway orders display an identical product mix.
-      </p>
-    </div>
-
-    <!-- Gráfico 4 -->
-    <div style="background: var(--bg); border: 1px solid var(--borde); border-radius: 8px; padding: 16px; display: flex; flex-direction: column; justify-content: space-between;">
-      <div>
-        <h4 style="margin: 0 0 12px 0; font-size: 1em; text-align: center; color: var(--text);">Preferred Payment Methods</h4>
-        <img src="https://raw.githubusercontent.com/oscararayaoad-sys/dashboard-and-analysis-coffeeshop/main/img/grafico_4.png" alt="Payment Methods" style="width: 100%; border-radius: 4px; border: 1px solid var(--borde);">
-      </div>
-      <p style="font-size: 0.85em; color: var(--muted); margin: 12px 0 0 0; text-align: center;">
-        <strong>High Digital Adoption:</strong> Over 85% of transactions use cards (Debit 60.2%, Credit 25.0%), leaving cash at 9.9%.
-      </p>
-    </div>
-
-  </div>
-
-  <!-- Sección: Resumen Ejecutivo (Glimpse) & Dashboard Link -->
-  <div style="margin: 24px 0; padding: 16px; background: var(--bg); border: 1px solid var(--borde); border-radius: 8px;">
-    <h4 style="margin: 0 0 8px 0; font-size: 1em; color: var(--text);">Executive Summary & Interactive Dashboard</h4>
-    <p style="font-size: 0.85em; color: var(--muted); margin: 0 0 12px 0;">
-      <strong>Key Takeaway:</strong> Optimizing staff shifts around the bimodal demand peaks and reallocating inventory toward high-margin "Star" items can increase net margins by an estimated 14%.
+  
+    <p>
+      Comprehensive exploratory data analysis of retail transactions to optimize inventory, staffing, and product bundling.
     </p>
-    <div style="display: flex; gap: 16px; align-items: center; font-size: 0.9em;">
-      <a href="/dashboard" target="_blank" aria-label="Open Interactive Dashboard">Launch Interactive Dashboard →</a>
-      <a href="/reports" target="_blank" aria-label="Read Full Executive Report">Read Full Report (/reports) →</a>
+  
+    <!-- Sección: Slicer de Data Sucia / Limpia -->
+    <div style="margin: 20px 0; padding: 16px; background: var(--bg); border: 1px solid var(--borde); border-radius: 8px;">
+      <h4 style="margin: 0 0 8px 0; font-size: 1em; color: var(--text);">Data Pipeline: Raw vs. Clean Data</h4>
+      <p style="font-size: 0.85em; color: var(--muted); margin: 0 0 12px 0;">
+        Toggle between the raw dataset (containing missing values and formatting inconsistencies) and the processed clean dataset used for modeling.
+      </p>
+      <div style="display: flex; gap: 8px; margin-bottom: 12px;">
+        <button onclick="document.getElementById('raw-data-view').style.display='block'; document.getElementById('clean-data-view').style.display='none';" style="padding: 6px 12px; font-size: 0.85em; cursor: pointer; border-radius: 4px; border: 1px solid var(--borde); background: var(--bg); color: var(--text);">Show Raw Data (Sample)</button>
+        <button onclick="document.getElementById('raw-data-view').style.display='none'; document.getElementById('clean-data-view').style.display='block';" style="padding: 6px 12px; font-size: 0.85em; cursor: pointer; border-radius: 4px; border: 1px solid var(--borde); background: var(--bg); color: var(--text);">Show Clean Data (Sample)</button>
+      </div>
+      
+      <div id="raw-data-view" style="font-family: monospace; font-size: 0.8em; background: rgba(0,0,0,0.05); padding: 8px; border-radius: 4px; overflow-x: auto;">
+        transaction_id,timestamp,item,price,payment_method<br>
+        TX1001,2026-01-01 08:30:00,Latte,3.50,Credit<br>
+        TX1002,NULL,Espresso,NULL,Debit<br>
+        TX1003,2026-01-01 09:15:00,Croissant, 2.75 ,Cash
+      </div>
+      
+      <div id="clean-data-view" style="display: none; font-family: monospace; font-size: 0.8em; background: rgba(0,0,0,0.05); padding: 8px; border-radius: 4px; overflow-x: auto;">
+        transaction_id,timestamp,item,price,payment_method<br>
+        TX1001,2026-01-01 08:30:00,Latte,3.50,Credit<br>
+        TX1002,2026-01-01 08:45:00,Espresso,2.50,Debit<br>
+        TX1003,2026-01-01 09:15:00,Croissant,2.75,Cash
+      </div>
     </div>
-  </div>
-
-  <p><a href="https://github.com/oscararayaoad-sys/dashboard-and-analysis-coffeeshop" aria-label="View Coffee Shop project code on GitHub">View Code on GitHub →</a></p>
-</article>
+  
+    <!-- Cuadrícula 2x2 para Gráficos -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; margin: 24px 0;">
+      
+      <!-- Gráfico 1 -->
+      <div style="background: var(--bg); border: 1px solid var(--borde); border-radius: 8px; padding: 16px; display: flex; flex-direction: column; justify-content: space-between;">
+        <div>
+          <h4 style="margin: 0 0 12px 0; font-size: 1em; text-align: center; color: var(--text);">BCG Matrix (Portfolio)</h4>
+          <img src="https://raw.githubusercontent.com/oscararayaoad-sys/dashboard-and-analysis-coffeeshop/main/img/grafico_6.png" alt="BCG Matrix" style="width: 100%; border-radius: 4px; border: 1px solid var(--borde);">
+        </div>
+        <p style="font-size: 0.85em; color: var(--muted); margin: 12px 0 0 0; text-align: center;">
+          <strong>Menu Engineering:</strong> Products classified by profitability and volume (Stars, Workhorses, Question Marks, and Dogs).
+        </p>
+      </div>
+  
+      <!-- Gráfico 2 -->
+      <div style="background: var(--bg); border: 1px solid var(--borde); border-radius: 8px; padding: 16px; display: flex; flex-direction: column; justify-content: space-between;">
+        <div>
+          <h4 style="margin: 0 0 12px 0; font-size: 1em; text-align: center; color: var(--text);">Time-of-Day vs. Day-of-Week Demand</h4>
+          <img src="https://raw.githubusercontent.com/oscararayaoad-sys/dashboard-and-analysis-coffeeshop/main/img/grafico_1.png" alt="Time of Day Demand" style="width: 100%; border-radius: 4px; border: 1px solid var(--borde);">
+        </div>
+        <p style="font-size: 0.85em; color: var(--muted); margin: 12px 0 0 0; text-align: center;">
+          <strong>Bimodal Demand:</strong> Weekdays show dual peaks (9:00 AM & 6:00–7:00 PM) with a midday trough.
+        </p>
+      </div>
+  
+      <!-- Gráfico 3 -->
+      <div style="background: var(--bg); border: 1px solid var(--borde); border-radius: 8px; padding: 16px; display: flex; flex-direction: column; justify-content: space-between;">
+        <div>
+          <h4 style="margin: 0 0 12px 0; font-size: 1em; text-align: center; color: var(--text);">Service Channel by Category</h4>
+          <img src="https://raw.githubusercontent.com/oscararayaoad-sys/dashboard-and-analysis-coffeeshop/main/img/grafico_3.png" alt="Service Channel" style="width: 100%; border-radius: 4px; border: 1px solid var(--borde);">
+        </div>
+        <p style="font-size: 0.85em; color: var(--muted); margin: 12px 0 0 0; text-align: center;">
+          <strong>Dine-In Preference:</strong> 70.3% of consumption is Dine-in. Takeaway orders display an identical product mix.
+        </p>
+      </div>
+  
+      <!-- Gráfico 4 -->
+      <div style="background: var(--bg); border: 1px solid var(--borde); border-radius: 8px; padding: 16px; display: flex; flex-direction: column; justify-content: space-between;">
+        <div>
+          <h4 style="margin: 0 0 12px 0; font-size: 1em; text-align: center; color: var(--text);">Preferred Payment Methods</h4>
+          <img src="https://raw.githubusercontent.com/oscararayaoad-sys/dashboard-and-analysis-coffeeshop/main/img/grafico_4.png" alt="Payment Methods" style="width: 100%; border-radius: 4px; border: 1px solid var(--borde);">
+        </div>
+        <p style="font-size: 0.85em; color: var(--muted); margin: 12px 0 0 0; text-align: center;">
+          <strong>High Digital Adoption:</strong> Over 85% of transactions use cards (Debit 60.2%, Credit 25.0%), leaving cash at 9.9%.
+        </p>
+      </div>
+  
+    </div>
+  
+    <!-- Sección: Resumen Ejecutivo (Glimpse) & Dashboard Link -->
+    <div style="margin: 24px 0; padding: 16px; background: var(--bg); border: 1px solid var(--borde); border-radius: 8px;">
+      <h4 style="margin: 0 0 8px 0; font-size: 1em; color: var(--text);">Executive Summary & Interactive Dashboard</h4>
+      <p style="font-size: 0.85em; color: var(--muted); margin: 0 0 12px 0;">
+        <strong>Key Takeaway:</strong> Optimizing staff shifts around the bimodal demand peaks and reallocating inventory toward high-margin "Star" items can increase net margins by an estimated 14%.
+      </p>
+      <div style="display: flex; gap: 16px; align-items: center; font-size: 0.9em;">
+        <a href="/dashboard" target="_blank" aria-label="Open Interactive Dashboard">Launch Interactive Dashboard →</a>
+        <a href="/reports" target="_blank" aria-label="Read Full Executive Report">Read Full Report (/reports) →</a>
+      </div>
+    </div>
+  
+    <p><a href="https://github.com/oscararayaoad-sys/dashboard-and-analysis-coffeeshop" aria-label="View Coffee Shop project code on GitHub">View Code on GitHub →</a></p>
+  </article>
 
     <div class="projects-grid">
      
