@@ -154,6 +154,29 @@
     .project-img:hover { transform: scale(1.01); }
     .img-caption { color: var(--muted); font-size: 0.85em; text-align: center; margin: 4px 0 20px; }
 
+    /* Zoomable Images (Modal Gallery) */
+    .zoomable {
+      cursor: zoom-in;
+    }
+    #image-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(4px);
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+    #image-modal img {
+      max-width: 90%;
+      max-height: 90vh;
+      border-radius: 8px;
+      border: 1px solid var(--borde);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+    }
+
     /* Botón flotante rectangular con texto */
     .floating-top {
       position: fixed;
@@ -217,6 +240,16 @@
           <span>Python</span><span>pandas</span><span>Matplotlib</span><span>Seaborn</span><span>Power BI</span>
         </p>
       
+        <!-- Nueva ventana de destacados / insights bajo el título -->
+        <div style="margin: 16px 0; padding: 14px 16px; background: var(--bg); border-left: 4px solid var(--acento); border-radius: 0 8px 8px 0; font-size: 0.9em;">
+          <strong style="display: block; margin-bottom: 4px; color: var(--text);">Key Business Findings:</strong>
+          <ul style="margin: 0; padding-left: 18px; color: var(--muted);">
+            <li>Bimodal operational peaks identified at 9:00 AM and evening hours.</li>
+            <li>Digital payment dominance reaches over 85% of total sales volume.</li>
+            <li>Potential 14% net margin optimization via menu engineering & staffing adjustments.</li>
+          </ul>
+        </div>
+
         <p>
           Comprehensive exploratory data analysis of retail transactions to optimize inventory, staffing, and product bundling.
         </p>
@@ -247,14 +280,14 @@
           </div>
         </div>
       
-        <!-- Cuadrícula 2x2 para Gráficos -->
+        <!-- Cuadrícula 2x2 para Gráficos (con clase zoomable agregada) -->
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; margin: 24px 0;">
           
           <!-- Gráfico 1 -->
           <div style="background: var(--bg); border: 1px solid var(--borde); border-radius: 8px; padding: 16px; display: flex; flex-direction: column; justify-content: space-between;">
             <div>
               <h4 style="margin: 0 0 12px 0; font-size: 1em; text-align: center; color: var(--text);">BCG Matrix (Portfolio)</h4>
-              <img src="https://raw.githubusercontent.com/oscararayaoad-sys/dashboard-and-analysis-coffeeshop/main/assets/grafico_6.png" alt="BCG Matrix" style="width: 100%; border-radius: 4px; border: 1px solid var(--borde);">
+              <img src="https://raw.githubusercontent.com/oscararayaoad-sys/dashboard-and-analysis-coffeeshop/main/assets/grafico_6.png" alt="BCG Matrix" class="zoomable" style="width: 100%; border-radius: 4px; border: 1px solid var(--borde);">
             </div>
             <p style="font-size: 0.85em; color: var(--muted); margin: 12px 0 0 0; text-align: center;">
               <strong>Menu Engineering:</strong> Products classified by profitability and volume (Stars, Workhorses, Question Marks, and Dogs).
@@ -265,7 +298,7 @@
           <div style="background: var(--bg); border: 1px solid var(--borde); border-radius: 8px; padding: 16px; display: flex; flex-direction: column; justify-content: space-between;">
             <div>
               <h4 style="margin: 0 0 12px 0; font-size: 1em; text-align: center; color: var(--text);">Time-of-Day vs. Day-of-Week Demand</h4>
-              <img src="https://raw.githubusercontent.com/oscararayaoad-sys/dashboard-and-analysis-coffeeshop/main/assets/grafico_1.png" alt="Time of Day Demand" style="width: 100%; border-radius: 4px; border: 1px solid var(--borde);">
+              <img src="https://raw.githubusercontent.com/oscararayaoad-sys/dashboard-and-analysis-coffeeshop/main/assets/grafico_1.png" alt="Time of Day Demand" class="zoomable" style="width: 100%; border-radius: 4px; border: 1px solid var(--borde);">
             </div>
             <p style="font-size: 0.85em; color: var(--muted); margin: 12px 0 0 0; text-align: center;">
               <strong>Bimodal Demand:</strong> Weekdays show dual peaks (9:00 AM & 6:00–7:00 PM) with a midday trough.
@@ -276,7 +309,7 @@
           <div style="background: var(--bg); border: 1px solid var(--borde); border-radius: 8px; padding: 16px; display: flex; flex-direction: column; justify-content: space-between;">
             <div>
               <h4 style="margin: 0 0 12px 0; font-size: 1em; text-align: center; color: var(--text);">Service Channel by Category</h4>
-              <img src="https://raw.githubusercontent.com/oscararayaoad-sys/dashboard-and-analysis-coffeeshop/main/assets/grafico_3.png" alt="Service Channel" style="width: 100%; border-radius: 4px; border: 1px solid var(--borde);">
+              <img src="https://raw.githubusercontent.com/oscararayaoad-sys/dashboard-and-analysis-coffeeshop/main/assets/grafico_3.png" alt="Service Channel" class="zoomable" style="width: 100%; border-radius: 4px; border: 1px solid var(--borde);">
             </div>
             <p style="font-size: 0.85em; color: var(--muted); margin: 12px 0 0 0; text-align: center;">
               <strong>Dine-In Preference:</strong> 70.3% of consumption is Dine-in. Takeaway orders display an identical product mix.
@@ -287,7 +320,7 @@
           <div style="background: var(--bg); border: 1px solid var(--borde); border-radius: 8px; padding: 16px; display: flex; flex-direction: column; justify-content: space-between;">
             <div>
               <h4 style="margin: 0 0 12px 0; font-size: 1em; text-align: center; color: var(--text);">Preferred Payment Methods</h4>
-              <img src="https://raw.githubusercontent.com/oscararayaoad-sys/dashboard-and-analysis-coffeeshop/main/assets/grafico_4.png" alt="Payment Methods" style="width: 100%; border-radius: 4px; border: 1px solid var(--borde);">
+              <img src="https://raw.githubusercontent.com/oscararayaoad-sys/dashboard-and-analysis-coffeeshop/main/assets/grafico_4.png" alt="Payment Methods" class="zoomable" style="width: 100%; border-radius: 4px; border: 1px solid var(--borde);">
             </div>
             <p style="font-size: 0.85em; color: var(--muted); margin: 12px 0 0 0; text-align: center;">
               <strong>High Digital Adoption:</strong> Over 85% of transactions use cards (Debit 60.2%, Credit 25.0%), leaving cash at 9.9%.
@@ -377,8 +410,25 @@
   <!-- Botón Flotante Rectangular -->
   <a href="#top" class="floating-top" aria-label="Scroll back to top of page">Subir ↑</a>
 
-  <!-- Prism.js JS para resaltado de sintaxis -->
+  <!-- Modal para Visualizar Imágenes en Grande -->
+  <div id="image-modal" onclick="this.style.display='none'">
+    <img id="modal-img" src="" alt="Amplified view">
+  </div>
+
+  <!-- Scripts de interactividad y Prism.js -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-sql.min.js"></script>
+  <script>
+    // Script simple para abrir las imágenes del primer proyecto en grande
+    const modal = document.getElementById('image-modal');
+    const modalImg = document.getElementById('modal-img');
+    
+    document.querySelectorAll('.proyecto:first-of-type img.zoomable').forEach(img => {
+      img.addEventListener('click', (e) => {
+        modal.style.display = 'flex';
+        modalImg.src = e.target.src;
+      });
+    });
+  </script>
 </body>
 </html>
