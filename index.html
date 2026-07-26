@@ -311,69 +311,6 @@
             </table>
           </div>
         </div>
-        
-        <script>
-          function toggleDataView(val) {
-            const statusEl = document.getElementById('metric-status');
-            const nullsEl = document.getElementById('metric-nulls');
-            const integrityEl = document.getElementById('metric-integrity');
-            const tableMsg = document.getElementById('table-state-msg');
-            const row2 = document.getElementById('row-2');
-            const cellTimestamp = document.getElementById('cell-timestamp');
-            const cellPrice = document.getElementById('cell-price');
-            const cellPrice2 = document.getElementById('cell-price2');
-        
-            if (val == "0") {
-              statusEl.textContent = 'Status: Raw Ingestion';
-              statusEl.style.color = '#e06c75';
-              nullsEl.textContent = 'Missing Values: 2';
-              nullsEl.style.color = '#e06c75';
-              integrityEl.textContent = 'Data Integrity: 86.4%';
-              integrityEl.style.color = '#e06c75';
-              
-              tableMsg.textContent = '[State: Raw Dataset] - Unhandled nulls, whitespace anomalies & type inconsistencies';
-              tableMsg.style.background = '#ffeef0';
-              tableMsg.style.color = '#c53030';
-              
-              row2.style.background = '#fff5f5';
-              cellTimestamp.textContent = 'NULL';
-              cellTimestamp.style.color = '#c53030';
-              cellTimestamp.style.fontWeight = 'bold';
-              
-              cellPrice.textContent = 'NULL';
-              cellPrice.style.color = '#c53030';
-              cellPrice.style.fontWeight = 'bold';
-              
-              cellPrice2.textContent = ' 2.75 ';
-              cellPrice2.style.background = '#fff5f5';
-              cellPrice2.style.color = '#c53030';
-            } else {
-              statusEl.textContent = 'Status: Production Model';
-              statusEl.style.color = '#98c379';
-              nullsEl.textContent = 'Missing Values: 0';
-              nullsEl.style.color = '#98c379';
-              integrityEl.textContent = 'Data Integrity: 100%';
-              integrityEl.style.color = '#98c379';
-              
-              tableMsg.textContent = '[State: Production Model] - Imputed values, trimmed strings & standardized schemas';
-              tableMsg.style.background = '#f0fff4';
-              tableMsg.style.color = '#276749';
-              
-              row2.style.background = '#ffffff';
-              cellTimestamp.textContent = '2026-01-01 08:45:00';
-              cellTimestamp.style.color = '#276749';
-              cellTimestamp.style.fontWeight = 'normal';
-              
-              cellPrice.textContent = '2.50';
-              cellPrice.style.color = '#276749';
-              cellPrice.style.fontWeight = 'normal';
-              
-              cellPrice2.textContent = '2.75';
-              cellPrice2.style.background = '#ffffff';
-              cellPrice2.style.color = '#1e293b';
-            }
-          }
-        </script>
 
         <!-- 3. VENTANA DE DASHBOARD -->
         <div style="margin: 24px 0; padding: 16px; background: var(--bg); border: 2px solid var(--acento); border-radius: 8px;">
@@ -479,32 +416,65 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-sql.min.js"></script>
   <script>
-    // Función para transformar el slider de datos sucios/limpios y actualizar métricas
+    // Función para transformar el slider de datos sucios/limpios y actualizar la tabla tipo Excel
     function toggleDataView(val) {
-      const rawView = document.getElementById('view-raw');
-      const cleanView = document.getElementById('view-clean');
       const statusEl = document.getElementById('metric-status');
       const nullsEl = document.getElementById('metric-nulls');
       const integrityEl = document.getElementById('metric-integrity');
+      const tableMsg = document.getElementById('table-state-msg');
+      const row2 = document.getElementById('row-2');
+      const cellTimestamp = document.getElementById('cell-timestamp');
+      const cellPrice = document.getElementById('cell-price');
+      const cellPrice2 = document.getElementById('cell-price2');
 
       if (val == "0") {
-        rawView.style.display = 'block';
-        cleanView.style.display = 'none';
         statusEl.textContent = 'Status: Raw Ingestion';
         statusEl.style.color = '#e06c75';
         nullsEl.textContent = 'Missing Values: 2';
         nullsEl.style.color = '#e06c75';
         integrityEl.textContent = 'Data Integrity: 86.4%';
         integrityEl.style.color = '#e06c75';
+        
+        tableMsg.textContent = '[State: Raw Dataset] - Unhandled nulls, whitespace anomalies & type inconsistencies';
+        tableMsg.style.background = '#ffeef0';
+        tableMsg.style.color = '#c53030';
+        
+        row2.style.background = '#fff5f5';
+        cellTimestamp.textContent = 'NULL';
+        cellTimestamp.style.color = '#c53030';
+        cellTimestamp.style.fontWeight = 'bold';
+        
+        cellPrice.textContent = 'NULL';
+        cellPrice.style.color = '#c53030';
+        cellPrice.style.fontWeight = 'bold';
+        
+        cellPrice2.textContent = ' 2.75 ';
+        cellPrice2.style.background = '#fff5f5';
+        cellPrice2.style.color = '#c53030';
       } else {
-        rawView.style.display = 'none';
-        cleanView.style.display = 'block';
         statusEl.textContent = 'Status: Production Model';
         statusEl.style.color = '#98c379';
         nullsEl.textContent = 'Missing Values: 0';
         nullsEl.style.color = '#98c379';
         integrityEl.textContent = 'Data Integrity: 100%';
         integrityEl.style.color = '#98c379';
+        
+        tableMsg.textContent = '[State: Production Model] - Imputed values, trimmed strings & standardized schemas';
+        tableMsg.style.background = '#f0fff4';
+        tableMsg.style.color = '#276749';
+        
+        row2.style.background = '#ffffff';
+        cellTimestamp.textContent = '2026-01-01 08:45:00';
+        cellTimestamp.style.color = '#276749';
+        cellTimestamp.style.fontWeight = 'normal';
+        
+        cellPrice.textContent = '2.50';
+        cellPrice.style.color = '#276749';
+        cellPrice.style.fontWeight = 'normal';
+        
+        cellPrice2.textContent = '2.75';
+        cellPrice2.style.background = '#ffffff';
+        cellPrice2.style.color = '#1e293b';
       }
     }
 
