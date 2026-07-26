@@ -214,7 +214,7 @@
       <article class="proyecto">
         <h3>Coffee Shop Business Performance & Customer Insights</h3>
         <p class="stack">
-          <span>Python</span><span>pandas</span><span>Matplotlib</span><span>Seaborn</span><span>Streamlit</span>
+          <span>Python</span><span>pandas</span><span>Matplotlib</span><span>Seaborn</span><span>Power BI</span>
         </p>
       
         <p>
@@ -296,19 +296,20 @@
       
         </div>
       
-        <!-- Sección: Resumen Ejecutivo (Glimpse) & Dashboard Link -->
+        <!-- Sección: Resumen Ejecutivo & Dashboard Interactivo Embebido -->
         <div style="margin: 24px 0; padding: 16px; background: var(--bg); border: 1px solid var(--borde); border-radius: 8px;">
           <h4 style="margin: 0 0 8px 0; font-size: 1em; color: var(--text);">Executive Summary & Interactive Dashboard</h4>
-          <p style="font-size: 0.85em; color: var(--muted); margin: 0 0 12px 0;">
-            <strong>Key Takeaway:</strong> Optimizing staff shifts around the bimodal demand peaks and reallocating inventory toward high-margin "Star" items can increase net margins by an estimated 14%.
+          <p style="font-size: 0.85em; color: var(--muted); margin: 0 0 16px 0;">
+            <strong>Key Takeaway:</strong> Optimizing staff shifts around the bimodal demand peaks and reallocating inventory toward high-margin "Star" items can increase net margins by an estimated 14%. Explore the live resources below or download the native files.
           </p>
-          <div style="display: flex; gap: 16px; align-items: center; font-size: 0.9em;">
-            <a href="/dashboard" target="_blank" aria-label="Open Interactive Dashboard">Launch Interactive Dashboard →</a>
-            <a href="/reports" target="_blank" aria-label="Read Full Executive Report">Read Full Report (/reports) →</a>
+
+          <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.9em; flex-wrap: wrap; gap: 12px;">
+            <a href="reports/executive_summary.pdf" target="_blank" rel="noopener" aria-label="Read Full Executive Report">Read Full Report (PDF) →</a>
+            <a href="dashboard/03_dashboard_cafeteria.pbix" download aria-label="Download Power BI Dashboard file">Download Power BI Dashboard (.pbix) ↓</a>
           </div>
         </div>
       
-        <p><a href="https://github.com/oscararayaoad-sys/dashboard-and-analysis-coffeeshop" aria-label="View Coffee Shop project code on GitHub">View Code on GitHub →</a></p>
+        <p><a href="https://github.com/oscararayaoad-sys/dashboard-and-analysis-coffeeshop" target="_blank" rel="noopener" aria-label="View Coffee Shop project code on GitHub">View Code on GitHub →</a></p>
       </article>
 
       <!-- Proyecto 2: LendingClub Risk -->
@@ -337,7 +338,7 @@
           Credit risk analysis conducted on 1.23 million peer-to-peer loans leveraging advanced SQL (window functions, CTEs). Key finding: three grades (C/D/B) concentrate 73.8% of all defaults due to their sheer volume, not just their individual rates—proving that risk monitoring must prioritize volume × rate over the default rate alone.
         </p>
 
-        <p><a href="https://github.com/oscararayaoad-sys/lending_club_sql_risk" aria-label="View LendingClub Risk project code on GitHub">View Code on GitHub →</a></p>
+        <p><a href="https://github.com/oscararayaoad-sys/lending_club_sql_risk" target="_blank" rel="noopener" aria-label="View LendingClub Risk project code on GitHub">View Code on GitHub →</a></p>
       </article>
 
       <!-- Proyecto 3: Inflation ETL Pipeline -->
@@ -355,7 +356,7 @@
           An automated, end-to-end data pipeline that extracts UF and CPI series directly from the Central Bank API, transforms the data, loads it into PostgreSQL using idempotent writes, and visualizes it in Power BI. It runs completely unattended once a month. Finding: the Chilean Peso lost ~38% of its purchasing power over 11 years, while savings held in UF preserved their value almost perfectly.
         </p>
       
-        <p><a href="https://github.com/oscararayaoad-sys/bcch-inflacion-pipeline" aria-label="View Central Bank Inflation Pipeline project code on GitHub">View Code on GitHub →</a></p>
+        <p><a href="https://github.com/oscararayaoad-sys/bcch-inflacion-pipeline" target="_blank" rel="noopener" aria-label="View Central Bank Inflation Pipeline project code on GitHub">View Code on GitHub →</a></p>
       </article>
 
     </div>
@@ -363,8 +364,8 @@
     <h2>Contact</h2>
     <p class="contacto">
       <a href="#" onclick="navigator.clipboard.writeText('oscar.araya.oad@gmail.com'); alert('¡Correo copiado al portapapeles!'); return false;" aria-label="Send email to Oscar Araya">Email</a>
-      <a href="https://github.com/oscararayaoad-sys" aria-label="Visit Oscar Araya GitHub profile">GitHub</a>
-      <a href="https://www.linkedin.com/in/oscar-araya-diaz" aria-label="Visit Oscar Araya LinkedIn profile">LinkedIn</a>
+      <a href="https://github.com/oscararayaoad-sys" target="_blank" rel="noopener" aria-label="Visit Oscar Araya GitHub profile">GitHub</a>
+      <a href="https://www.linkedin.com/in/oscar-araya-diaz" target="_blank" rel="noopener" aria-label="Visit Oscar Araya LinkedIn profile">LinkedIn</a>
     </p>
   </main>
 
