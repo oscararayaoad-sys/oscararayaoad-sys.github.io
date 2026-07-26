@@ -243,51 +243,137 @@
           Comprehensive exploratory data analysis of retail transactions to optimize inventory, staffing, and product bundling.
         </p>
 
-        <!-- 2. SLICER DE DATOS SUCIOS Y LIMPIOS (Mejorado y Detallado) -->
-        <div style="margin: 24px 0; padding: 16px; background: var(--bg); border: 1px solid var(--borde); border-radius: 8px;">
-          <h4 style="margin: 0 0 8px 0; font-size: 1em; color: var(--text);">Data Pipeline Transformation Slicer (Raw vs. Clean)</h4>
-          <p style="font-size: 0.85em; color: var(--muted); margin: 0 0 12px 0;">
-            Slide to inspect how data quality metrics and values shift from raw ingestion to the production-ready analytical model.
-          </p>
-          
-          <!-- Panel de Estadísticas de Calidad -->
-          <div id="metrics-panel" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 12px; text-align: center; font-size: 0.75em;">
-            <div style="background: rgba(0,0,0,0.1); padding: 6px; border-radius: 4px;">
-              <span id="metric-status" style="display: block; font-weight: bold; color: #e06c75;">Status: Raw Ingestion</span>
-            </div>
-            <div style="background: rgba(0,0,0,0.1); padding: 6px; border-radius: 4px;">
-              <span id="metric-nulls" style="display: block; font-weight: bold; color: #e06c75;">Missing Values: 2</span>
-            </div>
-            <div style="background: rgba(0,0,0,0.1); padding: 6px; border-radius: 4px;">
-              <span id="metric-integrity" style="display: block; font-weight: bold; color: #e06c75;">Data Integrity: 86.4%</span>
-            </div>
-          </div>
+        <!-- 2. SLICER DE DATOS TIPO TABLA EXCEL -->
+<div style="margin: 24px 0; padding: 16px; background: var(--bg); border: 1px solid var(--borde); border-radius: 8px;">
+  <h4 style="margin: 0 0 8px 0; font-size: 1.1em; color: var(--text);">Data Pipeline Transformation Slicer (Raw vs. Clean)</h4>
+  <p style="font-size: 0.9em; color: var(--muted); margin: 0 0 16px 0;">
+    Slide to inspect how data quality metrics and values shift from raw ingestion to the production-ready analytical model.
+  </p>
+  
+  <!-- Panel de Estadísticas de Calidad -->
+  <div id="metrics-panel" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 16px; text-align: center; font-size: 0.85em;">
+    <div style="background: rgba(0,0,0,0.1); padding: 8px; border-radius: 6px;">
+      <span id="metric-status" style="display: block; font-weight: bold; color: #e06c75;">Status: Raw Ingestion</span>
+    </div>
+    <div style="background: rgba(0,0,0,0.1); padding: 8px; border-radius: 6px;">
+      <span id="metric-nulls" style="display: block; font-weight: bold; color: #e06c75;">Missing Values: 2</span>
+    </div>
+    <div style="background: rgba(0,0,0,0.1); padding: 8px; border-radius: 6px;">
+      <span id="metric-integrity" style="display: block; font-weight: bold; color: #e06c75;">Data Integrity: 86.4%</span>
+    </div>
+  </div>
 
-          <!-- Control deslizante (Range Input) -->
-          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
-            <span style="font-size: 0.8em; font-weight: 600;">Raw Data</span>
-            <input type="range" id="data-slicer" min="0" max="1" value="0" step="1" style="flex: 1; cursor: pointer;" oninput="toggleDataView(this.value)">
-            <span style="font-size: 0.8em; font-weight: 600;">Clean Data</span>
-          </div>
+  <!-- Control deslizante (Range Input) -->
+  <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+    <span style="font-size: 0.9em; font-weight: 600;">Raw Data</span>
+    <input type="range" id="data-slicer" min="0" max="1" value="0" step="1" style="flex: 1; cursor: pointer; height: 8px;" oninput="toggleDataView(this.value)">
+    <span style="font-size: 0.9em; font-weight: 600;">Clean Data</span>
+  </div>
 
-          <!-- Vista de Datos Sucios -->
-          <div id="view-raw" style="font-family: monospace; font-size: 0.8em; background: rgba(0,0,0,0.05); padding: 10px; border-radius: 4px; overflow-x: auto;">
-            <strong style="color: #e06c75; display: block; margin-bottom: 4px;">[State: Raw Dataset] - Unhandled nulls, whitespace anomalies & type inconsistencies</strong>
-            transaction_id,timestamp,item,price,payment_method<br>
-            TX1001,2026-01-01 08:30:00,Latte,3.50,Credit<br>
-            TX1002,NULL,Espresso,NULL,Debit<br>
-            TX1003,2026-01-01 09:15:00,Croissant, 2.75 ,Cash
-          </div>
+  <!-- Cuadrícula tipo Excel -->
+  <div style="overflow-x: auto; border: 1px solid var(--borde); border-radius: 6px; background: #fff;">
+    <div id="table-state-msg" style="padding: 8px 12px; font-size: 0.85em; font-weight: bold; background: #ffeef0; color: #c53030; border-bottom: 1px solid var(--borde);">
+      [State: Raw Dataset] - Unhandled nulls, whitespace anomalies & type inconsistencies
+    </div>
+    <table style="width: 100%; border-collapse: collapse; font-family: monospace; font-size: 0.9em; text-align: left; color: #1e293b;">
+      <thead>
+        <tr style="background: #f1f5f9; border-bottom: 2px solid #cbd5e1;">
+          <th style="padding: 10px 12px; border-right: 1px solid #e2e8f0;">transaction_id</th>
+          <th style="padding: 10px 12px; border-right: 1px solid #e2e8f0;">timestamp</th>
+          <th style="padding: 10px 12px; border-right: 1px solid #e2e8f0;">item</th>
+          <th style="padding: 10px 12px; border-right: 1px solid #e2e8f0;">price</th>
+          <th style="padding: 10px 12px;">payment_method</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom: 1px solid #e2e8f0;">
+          <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">TX1001</td>
+          <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">2026-01-01 08:30:00</td>
+          <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">Latte</td>
+          <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">3.50</td>
+          <td style="padding: 8px 12px;">Credit</td>
+        </tr>
+        <tr id="row-2" style="border-bottom: 1px solid #e2e8f0; background: #fff5f5;">
+          <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">TX1002</td>
+          <td id="cell-timestamp" style="padding: 8px 12px; border-right: 1px solid #e2e8f0; color: #c53030; font-weight: bold;">NULL</td>
+          <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">Espresso</td>
+          <td id="cell-price" style="padding: 8px 12px; border-right: 1px solid #e2e8f0; color: #c53030; font-weight: bold;">NULL</td>
+          <td style="padding: 8px 12px;">Debit</td>
+        </tr>
+        <tr>
+          <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">TX1003</td>
+          <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">2026-01-01 09:15:00</td>
+          <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">Croissant</td>
+          <td id="cell-price2" style="padding: 8px 12px; border-right: 1px solid #e2e8f0; background: #fff5f5; color: #c53030;"> 2.75 </td>
+          <td style="padding: 8px 12px;">Cash</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
 
-          <!-- Vista de Datos Limpios -->
-          <div id="view-clean" style="display: none; font-family: monospace; font-size: 0.8em; background: rgba(0,0,0,0.05); padding: 10px; border-radius: 4px; overflow-x: auto;">
-            <strong style="color: #98c379; display: block; margin-bottom: 4px;">[State: Production Model] - Imputed values, trimmed strings & standardized schemas</strong>
-            transaction_id,timestamp,item,price,payment_method<br>
-            TX1001,2026-01-01 08:30:00,Latte,3.50,Credit<br>
-            TX1002,2026-01-01 08:45:00,Espresso,2.50,Debit<br>
-            TX1003,2026-01-01 09:15:00,Croissant,2.75,Cash
-          </div>
-        </div>
+<script>
+  function toggleDataView(val) {
+    const statusEl = document.getElementById('metric-status');
+    const nullsEl = document.getElementById('metric-nulls');
+    const integrityEl = document.getElementById('metric-integrity');
+    const tableMsg = document.getElementById('table-state-msg');
+    const row2 = document.getElementById('row-2');
+    const cellTimestamp = document.getElementById('cell-timestamp');
+    const cellPrice = document.getElementById('cell-price');
+    const cellPrice2 = document.getElementById('cell-price2');
+
+    if (val == "0") {
+      statusEl.textContent = 'Status: Raw Ingestion';
+      statusEl.style.color = '#e06c75';
+      nullsEl.textContent = 'Missing Values: 2';
+      nullsEl.style.color = '#e06c75';
+      integrityEl.textContent = 'Data Integrity: 86.4%';
+      integrityEl.style.color = '#e06c75';
+      
+      tableMsg.textContent = '[State: Raw Dataset] - Unhandled nulls, whitespace anomalies & type inconsistencies';
+      tableMsg.style.background = '#ffeef0';
+      tableMsg.style.color = '#c53030';
+      
+      row2.style.background = '#fff5f5';
+      cellTimestamp.textContent = 'NULL';
+      cellTimestamp.style.color = '#c53030';
+      cellTimestamp.style.fontWeight = 'bold';
+      
+      cellPrice.textContent = 'NULL';
+      cellPrice.style.color = '#c53030';
+      cellPrice.style.fontWeight = 'bold';
+      
+      cellPrice2.textContent = ' 2.75 ';
+      cellPrice2.style.background = '#fff5f5';
+      cellPrice2.style.color = '#c53030';
+    } else {
+      statusEl.textContent = 'Status: Production Model';
+      statusEl.style.color = '#98c379';
+      nullsEl.textContent = 'Missing Values: 0';
+      nullsEl.style.color = '#98c379';
+      integrityEl.textContent = 'Data Integrity: 100%';
+      integrityEl.style.color = '#98c379';
+      
+      tableMsg.textContent = '[State: Production Model] - Imputed values, trimmed strings & standardized schemas';
+      tableMsg.style.background = '#f0fff4';
+      tableMsg.style.color = '#276749';
+      
+      row2.style.background = '#ffffff';
+      cellTimestamp.textContent = '2026-01-01 08:45:00';
+      cellTimestamp.style.color = '#276749';
+      cellTimestamp.style.fontWeight = 'normal';
+      
+      cellPrice.textContent = '2.50';
+      cellPrice.style.color = '#276749';
+      cellPrice.style.fontWeight = 'normal';
+      
+      cellPrice2.textContent = '2.75';
+      cellPrice2.style.background = '#ffffff';
+      cellPrice2.style.color = '#1e293b';
+    }
+  }
+</script>
 
         <!-- 3. VENTANA DE DASHBOARD -->
         <div style="margin: 24px 0; padding: 16px; background: var(--bg); border: 2px solid var(--acento); border-radius: 8px;">
