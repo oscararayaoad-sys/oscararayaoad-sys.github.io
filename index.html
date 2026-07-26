@@ -8,8 +8,8 @@
   <title>Oscar Araya Díaz — Data Analyst</title>
   <meta name="description" content="Data Analyst specializing in Python, SQL, and Power BI. End-to-end data projects, from cleaning and pipelines to visualization.">
   <meta property="og:title" content="Oscar Araya Díaz — Data Analyst">
-  <meta property="og:description" content="Explore data science and analytics projects: Public Spending, LendingClub Risk, and Central Bank Inflation Pipelines.">
-  <meta property="og:image" content="https://raw.githubusercontent.com/oscararayaoad-sys/mercado-publico-eda/main/img/dashboard_powerbi.png">
+  <meta property="og:description" content="Explore data science and analytics projects: Coffee Shop Analytics, LendingClub Risk, and Central Bank Inflation Pipelines.">
+  <meta property="og:image" content="https://raw.githubusercontent.com/oscararayaoad-sys/dashboard-and-analysis-coffeeshop/main/img/dashboard_preview.png">
   <meta property="og:url" content="https://oscararayaoad-sys.github.io">
 
   <!-- Prism.js CSS para resaltado de sintaxis -->
@@ -71,7 +71,7 @@
     .intro { margin: 20px 0 10px; }
     h2 { margin-top: 64px; border-bottom: 2px solid var(--acento); padding-bottom: 6px; }
     
-    /* Microinteracciones en Botones (Punto 10) */
+    /* Microinteracciones en Botones */
     .btn {
       display: inline-block;
       background: var(--acento);
@@ -100,7 +100,7 @@
       margin-top: 32px;
     }
 
-    /* Microinteracciones en Tarjetas de Proyectos (Punto 10) */
+    /* Microinteracciones en Tarjetas de Proyectos */
     .proyecto {
       border: 1px solid var(--borde);
       border-radius: 12px;
@@ -140,7 +140,7 @@
     }
     a:hover { opacity: 0.75; }
 
-    /* Enfoque visible por teclado (Accesibilidad y UX) */
+    /* Enfoque visible por teclado */
     a:focus-visible, button:focus-visible, input:focus-visible {
       outline: 2px solid var(--acento);
       outline-offset: 3px;
@@ -153,7 +153,7 @@
     .project-img:hover { transform: scale(1.01); }
     .img-caption { color: var(--muted); font-size: 0.85em; text-align: center; margin: 4px 0 20px; }
 
-    /* Contenedor Responsive para Power BI */
+    /* Contenedor Responsive para Power BI / Dashboards */
     .powerbi-container {
       position: relative;
       width: 100%;
@@ -350,42 +350,21 @@
 
     <div class="projects-grid">
       <article class="proyecto">
-        <h3>Public Spending Analysis — Chile's Public Market (Mercado Público)</h3>
+        <h3>Coffee Shop Business Performance & Customer Insights</h3>
         <p class="stack">
-          <span>Python</span><span>pandas</span><span>NumPy</span><span>Matplotlib</span><span>Seaborn</span><span>Power BI</span>
+          <span>Python</span><span>pandas</span><span>Matplotlib</span><span>Seaborn</span><span>Streamlit</span>
         </p>
 
-        <!-- Ejemplo de Power BI Responsive integrado -->
-        <div class="powerbi-container">
-          <iframe title="Public Spending Dashboard" src="https://app.powerbi.com/view?r=TU_URL_DE_PUBLICAR_EN_LA_WEB" allowFullScreen="true"></iframe>
-        </div>
-        <p class="img-caption">Interactive Power BI dashboard: total spending, top 10 procurement agencies, regional map, and category filters that recalculate all visuals in real time.</p>
-
-        <img src="https://raw.githubusercontent.com/oscararayaoad-sys/mercado-publico-eda/main/img/pareto_organismo.png"
-             alt="Spending concentration by agency: JUNAEB and CENABAST lead"
+        <img src="https://raw.githubusercontent.com/oscararayaoad-sys/dashboard-and-analysis-coffeeshop/main/img/dashboard_preview.png"
+             alt="Coffee Shop Sales and Customer Behavior Dashboard"
              class="project-img">
-        <p class="img-caption">JUNAEB and CENABAST together concentrate ~30% of total spending. The curve flattens quickly: a few large agencies drive most of the spending, leaving a long tail of minor buyers.</p>
-
-        <img src="https://raw.githubusercontent.com/oscararayaoad-sys/mercado-publico-eda/main/img/pareto_region.png"
-             alt="Spending concentration by region: RM dominates with ~62%"
-             class="project-img">
-        <p class="img-caption">The Metropolitan Region (RM) accounts for ~62% of the total budget, and the top 5 regions capture ~81%. Geographic concentration is significantly stronger than sector-based concentration.</p>
-
-        <img src="https://raw.githubusercontent.com/oscararayaoad-sys/mercado-publico-eda/main/img/pareto_rubro.png"
-             alt="Spending concentration by industry: widely distributed among many sectors"
-             class="project-img">
-        <p class="img-caption">Spending across industries is highly distributed: the 80% cumulative mark is only reached near the top 14 categories, indicating a broad and open market.</p>
-
-        <img src="https://raw.githubusercontent.com/oscararayaoad-sys/mercado-publico-eda/main/img/pareto_categoria.png"
-             alt="Spending concentration by category: no single category dominates"
-             class="project-img">
-        <p class="img-caption">No single category dominates: the cumulative 80% threshold is not met even within the top 15 categories, signaling a highly diverse market with multiple entry points.</p>
+        <p class="img-caption">Interactive dashboard tracking hourly sales peaks, top-selling product categories, and customer transaction patterns across store locations.</p>
 
         <p>
-          An EDA of ~1.1 million public purchase orders (ChileCompra) to answer where businesses should position themselves as government suppliers. Contraintuitive finding: a low supplier count does not guarantee a business opportunity—true niches lie in high-spending markets with weak leaders, rather than in closed, captive markets.
+          End-to-end exploratory data analysis and interactive dashboard built to optimize retail coffee shop operations. Analyzed transactional sales data to uncover peak operating hours, product affinity, and revenue drivers. Key insight: identifying high-margin product bundling opportunities during morning rush hours increased projected daily transaction value by optimizing stock availability.
         </p>
 
-        <p><a href="https://github.com/oscararayaoad-sys/mercado-publico-eda" aria-label="View Public Spending project code on GitHub">View Code on GitHub →</a></p>
+        <p><a href="https://github.com/oscararayaoad-sys/dashboard-and-analysis-coffeeshop" aria-label="View Coffee Shop project code on GitHub">View Code on GitHub →</a></p>
       </article>
 
       <article class="proyecto">
