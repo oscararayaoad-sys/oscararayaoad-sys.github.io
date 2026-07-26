@@ -322,40 +322,6 @@
       <a href="https://www.linkedin.com/in/oscar-araya-diaz" aria-label="Visit Oscar Araya LinkedIn profile">LinkedIn</a>
     </p>
 
-    <!-- Componente Interactivo: Datos Sucios vs. Limpios -->
-    <div class="data-cleaner-demo">
-      <div class="cleaner-header">
-        <span class="badge-demo">Live Demo</span>
-        <h3>Data Transformation</h3>
-        <p>Slide to see the before (raw, inconsistent data) and after (structured data ready for analysis).</p>
-      </div>
-
-      <div class="slider-container">
-        <!-- Capa de Datos Limpios (Fondo) -->
-        <div class="data-layer clean-data">
-          <div class="data-content">
-            <span class="status-tag success">✓ Clean & Validated</span>
-            <pre style="background:transparent; margin:0; padding:0;"><code class="language-sql">id, client, amount, date
-101, "Company A", 1500.50, 2026-07-26
-102, "Company B", 3200.00, 2026-07-25</code></pre>
-          </div>
-        </div>
-
-        <!-- Capa de Datos Sucios (Superpuesta con clip-path) -->
-        <div class="data-layer raw-data" id="rawLayer">
-          <div class="data-content">
-            <span class="status-tag warning">⚠ Raw / Dirty Data</span>
-            <pre style="background:transparent; margin:0; padding:0;"><code class="language-sql">ID | CLI_NAME | TOTAL_USD | DATE
-?  | comp_a   | $ 1,500.5 | 26/07/26
-102| COMPANY  | NULL      | INV-DATE</code></pre>
-          </div>
-        </div>
-
-        <!-- Control deslizante nativo -->
-        <input type="range" min="0" max="100" value="50" class="slider-range" id="dataSlider" aria-label="Data comparison slider">
-      </div>
-    </div>
-
     <h2>Projects</h2>
 
     <div class="projects-grid">
