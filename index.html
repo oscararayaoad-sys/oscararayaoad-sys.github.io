@@ -175,22 +175,31 @@
       border: 0;
     }
 
-    /* Botón de subir al principio */
-    .back-to-top {
-      background: var(--acento-suave);
+    /* Botón flotante para subir arriba */
+    .floating-top {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--card);
       color: var(--acento);
-      padding: 6px 12px;
-      border-radius: 6px;
+      border: 1px solid var(--borde);
+      padding: 10px 14px;
+      border-radius: 50%;
+      font-size: 1.1em;
       text-decoration: none;
-      font-size: 0.85em;
-      font-weight: 600;
-      transition: all 0.2s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      transition: all 0.25s ease;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-    .back-to-top:hover {
-      opacity: 0.9;
+    .floating-top:hover {
       background: var(--acento);
       color: var(--bg);
-      transform: translateY(-2px);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+      opacity: 1;
     }
 
     /* Estilos para el Componente Slider de Datos */
@@ -425,6 +434,9 @@
     <span>Data Analyst · Santiago, Chile · 2026</span>
     <a href="#top" class="back-to-top" aria-label="Scroll back to top of page">Back to top ↑</a>
   </footer>
+
+  <!-- Botón Flotante para subir arriba -->
+  <a href="#top" class="floating-top" aria-label="Scroll back to top of page">↑</a>
 
   <!-- Prism.js JS para resaltado de sintaxis -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
