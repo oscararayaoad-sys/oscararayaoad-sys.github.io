@@ -222,7 +222,7 @@
     </p>
 
     <p class="contacto">
-      <a href="#" onclick="navigator.clipboard.writeText('oscar.araya.oad@gmail.com'); alert('¡Correo copiado al portapapeles!'); return false;" aria-label="Send email to Oscar Araya">Email</a>
+      <a href="#" onclick="navigator.clipboard.writeText('oscar.araya.oad@gmail.com'); alert('Email copied to clipboard!'); return false;" aria-label="Send email to Oscar Araya">Email</a>
       <a href="https://github.com/oscararayaoad-sys" target="_blank" rel="noopener" aria-label="Visit Oscar Araya GitHub profile">GitHub</a>
       <a href="https://www.linkedin.com/in/oscar-araya-diaz" target="_blank" rel="noopener" aria-label="Visit Oscar Araya LinkedIn profile">LinkedIn</a>
     </p>
@@ -231,7 +231,7 @@
 
     <div class="projects-grid">
       
-      <!-- Proyecto 1: Coffee Shop (Reordenado según requerimientos) -->
+      <!-- Proyecto 1: Coffee Shop -->
       <article class="proyecto">
         
         <!-- 1. TÍTULO Y STACK -->
@@ -243,13 +243,26 @@
           Comprehensive exploratory data analysis of retail transactions to optimize inventory, staffing, and product bundling.
         </p>
 
-        <!-- 2. SLICER DE DATOS SUCIOS Y LIMPIOS (Barra deslizante interactiva) -->
+        <!-- 2. SLICER DE DATOS SUCIOS Y LIMPIOS (Mejorado y Detallado) -->
         <div style="margin: 24px 0; padding: 16px; background: var(--bg); border: 1px solid var(--borde); border-radius: 8px;">
-          <h4 style="margin: 0 0 8px 0; font-size: 1em; color: var(--text);">Data Transformation Slicer (Raw vs. Clean)</h4>
+          <h4 style="margin: 0 0 8px 0; font-size: 1em; color: var(--text);">Data Pipeline Transformation Slicer (Raw vs. Clean)</h4>
           <p style="font-size: 0.85em; color: var(--muted); margin: 0 0 12px 0;">
-            Mueve la barra para transformar el set de datos inicial (sucio) en el modelo depurado y listo para análisis.
+            Slide to inspect how data quality metrics and values shift from raw ingestion to the production-ready analytical model.
           </p>
           
+          <!-- Panel de Estadísticas de Calidad -->
+          <div id="metrics-panel" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 12px; text-align: center; font-size: 0.75em;">
+            <div style="background: rgba(0,0,0,0.1); padding: 6px; border-radius: 4px;">
+              <span id="metric-status" style="display: block; font-weight: bold; color: #e06c75;">Status: Raw Ingestion</span>
+            </div>
+            <div style="background: rgba(0,0,0,0.1); padding: 6px; border-radius: 4px;">
+              <span id="metric-nulls" style="display: block; font-weight: bold; color: #e06c75;">Missing Values: 2</span>
+            </div>
+            <div style="background: rgba(0,0,0,0.1); padding: 6px; border-radius: 4px;">
+              <span id="metric-integrity" style="display: block; font-weight: bold; color: #e06c75;">Data Integrity: 86.4%</span>
+            </div>
+          </div>
+
           <!-- Control deslizante (Range Input) -->
           <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
             <span style="font-size: 0.8em; font-weight: 600;">Raw Data</span>
@@ -259,7 +272,7 @@
 
           <!-- Vista de Datos Sucios -->
           <div id="view-raw" style="font-family: monospace; font-size: 0.8em; background: rgba(0,0,0,0.05); padding: 10px; border-radius: 4px; overflow-x: auto;">
-            <strong style="color: #e06c75; display: block; margin-bottom: 4px;">[Estado: Datos Sucios] - Valores nulos y espacios detectados</strong>
+            <strong style="color: #e06c75; display: block; margin-bottom: 4px;">[State: Raw Dataset] - Unhandled nulls, whitespace anomalies & type inconsistencies</strong>
             transaction_id,timestamp,item,price,payment_method<br>
             TX1001,2026-01-01 08:30:00,Latte,3.50,Credit<br>
             TX1002,NULL,Espresso,NULL,Debit<br>
@@ -268,7 +281,7 @@
 
           <!-- Vista de Datos Limpios -->
           <div id="view-clean" style="display: none; font-family: monospace; font-size: 0.8em; background: rgba(0,0,0,0.05); padding: 10px; border-radius: 4px; overflow-x: auto;">
-            <strong style="color: #98c379; display: block; margin-bottom: 4px;">[Estado: Datos Limpios] - Imputados y estandarizados</strong>
+            <strong style="color: #98c379; display: block; margin-bottom: 4px;">[State: Production Model] - Imputed values, trimmed strings & standardized schemas</strong>
             transaction_id,timestamp,item,price,payment_method<br>
             TX1001,2026-01-01 08:30:00,Latte,3.50,Credit<br>
             TX1002,2026-01-01 08:45:00,Espresso,2.50,Debit<br>
@@ -276,23 +289,23 @@
           </div>
         </div>
 
-         <!-- 3. VENTANA DE DASHBOARD (Lo último que veremos) -->
+        <!-- 3. VENTANA DE DASHBOARD -->
         <div style="margin: 24px 0; padding: 16px; background: var(--bg); border: 2px solid var(--acento); border-radius: 8px;">
-          <h4 style="margin: 0 0 8px 0; font-size: 1.1em; color: var(--text);">Dashboard Interactivo Final (Power BI)</h4>
+          <h4 style="margin: 0 0 8px 0; font-size: 1.1em; color: var(--text);">Final Interactive Dashboard (Power BI)</h4>
           <p style="font-size: 0.85em; color: var(--muted); margin: 0 0 12px 0;">
-            Vista consolidada de inteligencia de negocios para entrega y control gerencial.
+            Consolidated business intelligence view designed for executive decision-making and operational control.
           </p>
 
           <img src="https://raw.githubusercontent.com/oscararayaoad-sys/dashboard-and-analysis-coffeeshop/main/img/dashboard_preview.png" alt="Power BI Dashboard Preview" class="zoomable" style="width: 100%; border-radius: 6px; border: 1px solid var(--borde); margin-bottom: 12px;">
 
           <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.9em; flex-wrap: wrap; gap: 12px;">
-            <a href="https://github.com/oscararayaoad-sys/dashboard-and-analysis-coffeeshop" target="_blank" rel="noopener">Ver Código en GitHub →</a>
-            <a href="dashboard/03_dashboard_cafeteria.pbix" download class="btn" style="padding: 6px 14px; font-size: 0.85em;">Descargar Power BI (.pbix) ↓</a>
+            <a href="https://github.com/oscararayaoad-sys/dashboard-and-analysis-coffeeshop" target="_blank" rel="noopener">View Code on GitHub →</a>
+            <a href="dashboard/03_dashboard_cafeteria.pbix" download class="btn" style="padding: 6px 14px; font-size: 0.85em;">Download Power BI (.pbix) ↓</a>
           </div>
         </div>
 
         <!-- 4. ANÁLISIS RESPALDADO POR GRÁFICOS -->
-        <h4 style="margin: 28px 0 12px 0; font-size: 1.1em; border-bottom: 1px solid var(--borde); padding-bottom: 4px;">Análisis Respaldado por Gráficos</h4>
+        <h4 style="margin: 28px 0 12px 0; font-size: 1.1em; border-bottom: 1px solid var(--borde); padding-bottom: 4px;">Chart-Backed Analysis</h4>
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-bottom: 24px;">
           
           <!-- Gráfico 1 -->
@@ -301,7 +314,7 @@
               <h5 style="margin: 0 0 8px 0; font-size: 0.9em; text-align: center; color: var(--text);">BCG Matrix (Portfolio)</h5>
               <img src="https://raw.githubusercontent.com/oscararayaoad-sys/dashboard-and-analysis-coffeeshop/main/assets/grafico_6.png" alt="BCG Matrix" class="zoomable" style="width: 100%; border-radius: 4px; border: 1px solid var(--borde);">
             </div>
-            <p style="font-size: 0.8em; color: var(--muted); margin: 8px 0 0 0; text-align: center;">Productos clasificados por rentabilidad y volumen.</p>
+            <p style="font-size: 0.8em; color: var(--muted); margin: 8px 0 0 0; text-align: center;">Products categorized by profitability and sales volume.</p>
           </div>
 
           <!-- Gráfico 2 -->
@@ -310,7 +323,7 @@
               <h5 style="margin: 0 0 8px 0; font-size: 0.9em; text-align: center; color: var(--text);">Time-of-Day Demand</h5>
               <img src="https://raw.githubusercontent.com/oscararayaoad-sys/dashboard-and-analysis-coffeeshop/main/assets/grafico_1.png" alt="Time of Day Demand" class="zoomable" style="width: 100%; border-radius: 4px; border: 1px solid var(--borde);">
             </div>
-            <p style="font-size: 0.8em; color: var(--muted); margin: 8px 0 0 0; text-align: center;">Identificación de picos bimodal operativos.</p>
+            <p style="font-size: 0.8em; color: var(--muted); margin: 8px 0 0 0; text-align: center;">Identification of bimodal operational peaks.</p>
           </div>
 
           <!-- Gráfico 3 -->
@@ -319,7 +332,7 @@
               <h5 style="margin: 0 0 8px 0; font-size: 0.9em; text-align: center; color: var(--text);">Service Channel</h5>
               <img src="https://raw.githubusercontent.com/oscararayaoad-sys/dashboard-and-analysis-coffeeshop/main/assets/grafico_3.png" alt="Service Channel" class="zoomable" style="width: 100%; border-radius: 4px; border: 1px solid var(--borde);">
             </div>
-            <p style="font-size: 0.8em; color: var(--muted); margin: 8px 0 0 0; text-align: center;">Preferencia de consumo local vs. para llevar.</p>
+            <p style="font-size: 0.8em; color: var(--muted); margin: 8px 0 0 0; text-align: center;">In-store vs. takeaway consumption preference.</p>
           </div>
 
           <!-- Gráfico 4 -->
@@ -328,39 +341,36 @@
               <h5 style="margin: 0 0 8px 0; font-size: 0.9em; text-align: center; color: var(--text);">Payment Methods</h5>
               <img src="https://raw.githubusercontent.com/oscararayaoad-sys/dashboard-and-analysis-coffeeshop/main/assets/grafico_4.png" alt="Payment Methods" class="zoomable" style="width: 100%; border-radius: 4px; border: 1px solid var(--borde);">
             </div>
-            <p style="font-size: 0.8em; color: var(--muted); margin: 8px 0 0 0; text-align: center;">Adopción digital superior al 85%.</p>
+            <p style="font-size: 0.8em; color: var(--muted); margin: 8px 0 0 0; text-align: center;">Digital payment adoption exceeding 85%.</p>
           </div>
 
         </div>
 
-        <!-- 5. RESUMEN EJECUTIVO (Ventana con vista previa del PDF real) -->
+        <!-- 5. RESUMEN EJECUTIVO -->
         <div style="margin: 24px 0; padding: 16px; background: var(--bg); border: 1px solid var(--borde); border-radius: 8px;">
-          <h4 style="margin: 0 0 8px 0; font-size: 1em; color: var(--text);">Resumen Ejecutivo (Reporte PDF)</h4>
+          <h4 style="margin: 0 0 8px 0; font-size: 1em; color: var(--text);">Executive Summary (PDF Report)</h4>
           <p style="font-size: 0.85em; color: var(--muted); margin: 0 0 12px 0;">
-            Optimizar turnos alrededor de las horas peak y reasignar inventario a ítems "Star" incrementa los márgenes netos estimados en un 14%.
+            Optimizing staff rosters around peak hours and reallocating inventory to "Star" items increases estimated net margins by 14%.
           </p>
           
           <!-- Hallazgo Clave Destacado -->
           <div style="background: #ffffff; color: #000000; border: 1px solid var(--borde); border-left: 4px solid #007bff; padding: 12px 16px; margin-bottom: 12px; border-radius: 6px; font-size: 0.95em;">
-            <strong style="color: #000000;">💡 Hallazgo Clave:</strong> Las horas pico concentran el <strong>47.5% de las ventas totales</strong>, duplicando (2.04x) el rendimiento de los periodos de baja actividad.
+            <strong style="color: #000000;">💡 Key Finding:</strong> Peak demand hours account for <strong>47.5% of total sales</strong>, selling 2.04 times more than off-peak hours.
           </div>
           
-          <!-- Visor integrado usando Google Docs Viewer para evitar descarga automática -->
+          <!-- Visor integrado usando Google Docs Viewer -->
           <div style="border: 1px solid var(--borde); border-radius: 6px; overflow: hidden; background: #fff;">
             <iframe src="https://docs.google.com/gview?url=https://raw.githubusercontent.com/oscararayaoad-sys/dashboard-and-analysis-coffeeshop/main/reports/executive_summary.pdf&embedded=true" width="100%" height="220px" style="border: none;" title="Executive Summary PDF Preview"></iframe>
           </div>
-
-       
+        </div>
 
       </article>
-
-      
 
     </div>
 
     <h2>Contact</h2>
     <p class="contacto">
-      <a href="#" onclick="navigator.clipboard.writeText('oscar.araya.oad@gmail.com'); alert('¡Correo copiado al portapapeles!'); return false;">Email</a>
+      <a href="#" onclick="navigator.clipboard.writeText('oscar.araya.oad@gmail.com'); alert('Email copied to clipboard!'); return false;">Email</a>
       <a href="https://github.com/oscararayaoad-sys" target="_blank" rel="noopener">GitHub</a>
       <a href="https://www.linkedin.com/in/oscar-araya-diaz" target="_blank" rel="noopener">LinkedIn</a>
     </p>
@@ -372,7 +382,7 @@
   </footer>
 
   <!-- Botón Flotante Rectangular -->
-  <a href="#top" class="floating-top">Subir ↑</a>
+  <a href="#top" class="floating-top">Top ↑</a>
 
   <!-- Modal para Visualizar Imágenes en Grande -->
   <div id="image-modal" onclick="this.style.display='none'">
@@ -383,16 +393,32 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-sql.min.js"></script>
   <script>
-    // Función para transformar el slider de datos sucios/limpios
+    // Función para transformar el slider de datos sucios/limpios y actualizar métricas
     function toggleDataView(val) {
       const rawView = document.getElementById('view-raw');
       const cleanView = document.getElementById('view-clean');
+      const statusEl = document.getElementById('metric-status');
+      const nullsEl = document.getElementById('metric-nulls');
+      const integrityEl = document.getElementById('metric-integrity');
+
       if (val == "0") {
         rawView.style.display = 'block';
         cleanView.style.display = 'none';
+        statusEl.textContent = 'Status: Raw Ingestion';
+        statusEl.style.color = '#e06c75';
+        nullsEl.textContent = 'Missing Values: 2';
+        nullsEl.style.color = '#e06c75';
+        integrityEl.textContent = 'Data Integrity: 86.4%';
+        integrityEl.style.color = '#e06c75';
       } else {
         rawView.style.display = 'none';
         cleanView.style.display = 'block';
+        statusEl.textContent = 'Status: Production Model';
+        statusEl.style.color = '#98c379';
+        nullsEl.textContent = 'Missing Values: 0';
+        nullsEl.style.color = '#98c379';
+        integrityEl.textContent = 'Data Integrity: 100%';
+        integrityEl.style.color = '#98c379';
       }
     }
 
