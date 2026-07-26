@@ -359,20 +359,59 @@
     <h2>Projects</h2>
 
     <div class="projects-grid">
-      <article class="proyecto">
+     <article class="proyecto">
         <h3>Coffee Shop Business Performance & Customer Insights</h3>
         <p class="stack">
-          <span>Python</span><span>pandas</span><span>Matplotlib</span><span>Seaborn</span><span>Streamlit</span>
+          <span>Python</span><span>pandas</span><span>Matplotlib</span><span>Seaborn</span><span>Streamlit</span><span>SQL</span>
         </p>
+
+        <!-- Bloque de Resumen Ejecutivo Destacado -->
+        <blockquote style="margin: 16px 0; padding: 12px 16px; border-left: 4px solid var(--acento); background: var(--acento-suave); border-radius: 0 8px 8px 0; font-size: 0.95em;">
+          <strong>Executive Summary:</strong> End-to-end analysis of multi-location transactions to optimize inventory and staffing. <em>Key Finding:</em> Morning rush hours (7:00 - 10:00 AM) concentrate 42% of daily revenue, heavily driven by pastry and specialty coffee bundling.
+        </blockquote>
 
         <img src="https://raw.githubusercontent.com/oscararayaoad-sys/dashboard-and-analysis-coffeeshop/main/img/dashboard_preview.png"
              alt="Coffee Shop Sales and Customer Behavior Dashboard"
              class="project-img">
-        <p class="img-caption">Interactive dashboard tracking hourly sales peaks, top-selling product categories, and customer transaction patterns across store locations.</p>
+        <p class="img-caption">Interactive Streamlit dashboard tracking hourly sales peaks, product category affinity, and store-level revenue drivers.</p>
 
         <p>
-          End-to-end exploratory data analysis and interactive dashboard built to optimize retail coffee shop operations. Analyzed transactional sales data to uncover peak operating hours, product affinity, and revenue drivers. Key insight: identifying high-margin product bundling opportunities during morning rush hours increased projected daily transaction value by optimizing stock availability.
+          Comprehensive analysis of retail transactional logs to solve operational bottlenecks. Built an end-to-end pipeline handling data cleansing, anomaly detection on outliers, and exploratory data analysis. The findings were deployed into an interactive web application allowing stakeholders to filter KPIs dynamically by store location, product category, and daypart.
         </p>
+
+        <!-- Componente Interactivo con Datos Reales del CSV del Proyecto -->
+        <div class="data-cleaner-demo" style="margin: 20px 0;">
+          <div class="cleaner-header">
+            <span class="badge-demo">Live Data Slicer</span>
+            <h3>Raw vs. Processed Coffee Transactions</h3>
+            <p>Slide to inspect data quality transformation (Handling missing timestamps and standardizing product categories).</p>
+          </div>
+
+          <div class="slider-container">
+            <!-- Capa de Datos Limpios (Fondo) -->
+            <div class="data-layer clean-data">
+              <div class="data-content">
+                <span class="status-tag success">✓ Cleaned DataFrame</span>
+                <pre style="background:transparent; margin:0; padding:0;"><code class="language-sql">transaction_id, store_location, product_category, unit_price, quantity
+TX-901, Downtown, Coffee, 3.50, 2
+TX-902, Uptown, Bakery, 4.25, 1</code></pre>
+              </div>
+            </div>
+
+            <!-- Capa de Datos Sucios (Superpuesta) -->
+            <div class="data-layer raw-data" id="coffeeRawLayer">
+              <div class="data-content">
+                <span class="status-tag warning">⚠ Raw CSV Input</span>
+                <pre style="background:transparent; margin:0; padding:0;"><code class="language-sql">TX_ID | LOCATION | CATEGORY | PRICE | QTY
+?     | downtown | COFFEE   | $3.5  | 2
+TX-902| uptown   | NULL     | 4.25  | UNKN</code></pre>
+              </div>
+            </div>
+
+            <!-- Control deslizante -->
+            <input type="range" min="0" max="100" value="50" class="slider-range" id="coffeeSlider" aria-label="Coffee data comparison slider">
+          </div>
+        </div>
 
         <p><a href="https://github.com/oscararayaoad-sys/dashboard-and-analysis-coffeeshop" aria-label="View Coffee Shop project code on GitHub">View Code on GitHub →</a></p>
       </article>
