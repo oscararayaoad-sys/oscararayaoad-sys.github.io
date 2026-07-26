@@ -8,7 +8,7 @@
   <title>Oscar Araya Díaz — Data Analyst</title>
   <meta name="description" content="Data Analyst specializing in Python, SQL, and Power BI. End-to-end data projects, from cleaning and pipelines to visualization.">
   <meta property="og:title" content="Oscar Araya Díaz — Data Analyst">
-  <meta property="og:description" content="Explore data science and analytics projects: Coffee Shop Analytics, LendingClub Risk, and Central Bank Inflation Pipelines.">
+  <meta property="og:description" content="Explore data science and analytics projects: Coffee Shop Analytics, Central Bank Inflation Pipeline, and Chilean Public Procurement Analysis.">
   <meta property="og:image" content="https://raw.githubusercontent.com/oscararayaoad-sys/dashboard-and-analysis-coffeeshop/main/img/dashboard_preview.png">
   <meta property="og:url" content="https://oscararayaoad-sys.github.io">
   <meta property="og:type" content="profile">
@@ -28,10 +28,10 @@
     "jobTitle": "Data Analyst",
     "url": "https://oscararayaoad-sys.github.io",
     "sameAs": [
-      "https://www.linkedin.com/in/oscar-araya-diaz",
+      "https://www.linkedin.com/in/oscar-araya-diaz-7a418a170",
       "https://github.com/oscararayaoad-sys"
     ],
-    "knowsAbout": ["Python", "SQL", "Power BI", "Data Analytics", "Data Visualization"]
+    "knowsAbout": ["Python", "SQL", "Power BI", "Data Analytics", "Data Visualization", "ETL Pipelines"]
   }
   </script>
 
@@ -247,7 +247,7 @@
     <p class="contacto">
       <a href="#" onclick="navigator.clipboard.writeText('oscar.araya.oad@gmail.com'); alert('Email copied to clipboard!'); return false;" aria-label="Send email to Oscar Araya">Email</a>
       <a href="https://github.com/oscararayaoad-sys" target="_blank" rel="noopener" aria-label="Visit Oscar Araya GitHub profile">GitHub</a>
-      <a href="https://www.linkedin.com/in/oscar-araya-diaz" target="_blank" rel="noopener" aria-label="Visit Oscar Araya LinkedIn profile">LinkedIn</a>
+      <a href="https://www.linkedin.com/in/oscar-araya-diaz-7a418a170" target="_blank" rel="noopener" aria-label="Visit Oscar Araya LinkedIn profile">LinkedIn</a>
     </p>
 
     <h2>Projects</h2>
@@ -454,8 +454,8 @@
             Optimizing staff rosters around peak hours and reallocating inventory to "Star" items increases estimated net margins by 14%.
           </p>
           
-          <div style="background: #ffffff; color: #000000; border: 1px solid var(--borde); border-left: 4px solid #007bff; padding: 12px 16px; margin-bottom: 12px; border-radius: 6px; font-size: 0.95em;">
-            <strong style="color: #000000;">💡 Key Finding:</strong> Peak demand hours account for <strong>47.5% of total sales</strong>, selling 2.04 times more than off-peak hours.
+          <div style="background: var(--card); border: 1px solid var(--borde); border-left: 4px solid var(--acento); padding: 12px 16px; margin-bottom: 12px; border-radius: 6px; font-size: 0.95em;">
+            <strong>💡 Key Finding:</strong> Peak demand hours account for <strong>47.5% of total sales</strong>, selling 2.04 times more than off-peak hours.
           </div>
           
           <div style="border: 1px solid var(--borde); border-radius: 6px; overflow: hidden; background: #fff;">
@@ -465,13 +465,79 @@
 
       </article>
 
+      <!-- Proyecto 2: Pipeline ETL de Inflación — Banco Central de Chile -->
+      <article class="proyecto">
+        <h3>Pipeline ETL de Inflación — Banco Central de Chile</h3>
+        <p class="stack">
+          <span>Python</span><span>requests</span><span>pandas</span><span>PostgreSQL</span><span>SQLAlchemy</span><span>Power BI</span>
+        </p>
+        <p>
+          Pipeline de datos automatizado de extremo a extremo que extrae las series UF e IPC desde la API del Banco Central de Chile, las procesa, las almacena en una base de datos con carga idempotente, y se visualiza en un dashboard interactivo de Power BI.
+        </p>
+
+        <!-- Arquitectura / Visual -->
+        <div style="margin: 24px 0; padding: 16px; background: var(--bg); border: 1px solid var(--borde); border-radius: 8px;">
+          <h4 style="margin: 0 0 8px 0; font-size: 1.1em; color: var(--text);">Dashboard & Arquitectura ETL</h4>
+          <p style="font-size: 0.85em; color: var(--muted); margin: 0 0 12px 0;">
+            Visualización del impacto inflacionario y diagrama de orquestación mensual sin intervención humana.
+          </p>
+
+          <img src="docs/dashboard-inflacion-bcch.png" alt="Dashboard de inflación BCCh" class="zoomable" style="width: 100%; border-radius: 6px; border: 1px solid var(--borde); margin-bottom: 12px;">
+
+          <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.9em; flex-wrap: wrap; gap: 12px;">
+            <a href="https://github.com/oscararayaoad-sys/bcch-inflacion-pipeline" target="_blank" rel="noopener">View Code on GitHub →</a>
+          </div>
+        </div>
+
+        <!-- Hallazgo clave -->
+        <div style="margin: 24px 0; padding: 16px; background: var(--bg); border: 1px solid var(--borde); border-radius: 8px;">
+          <h4 style="margin: 0 0 8px 0; font-size: 1em; color: var(--text);">Hallazgos Clave</h4>
+          <div style="background: var(--card); border: 1px solid var(--borde); border-left: 4px solid var(--acento); padding: 12px 16px; border-radius: 6px; font-size: 0.95em;">
+            <strong>💡 Key Finding:</strong> Entre enero 2015 y diciembre 2025, el peso perdió cerca del <strong>38% de su poder de compra</strong>, mientras que la UF se solapó casi de forma idéntica con el IPC (~160 vs ~162), confirmando empíricamente que la UF blinda el valor frente a la inflación.
+          </div>
+        </div>
+      </article>
+
+      <!-- Proyecto 3: Análisis del Gasto Público en Mercado Público de Chile -->
+      <article class="proyecto">
+        <h3>Análisis del Gasto Público en Mercado Público de Chile</h3>
+        <p class="stack">
+          <span>Python</span><span>pandas</span><span>NumPy</span><span>Matplotlib</span><span>Seaborn</span><span>Power BI</span>
+        </p>
+        <p>
+          Análisis exploratorio de datos (EDA) de ~1,1 millones de órdenes de compra pública para identificar patrones de gasto, concentración geográfica y nichos accesibles para proveedores.
+        </p>
+
+        <!-- Visual / Dashboard -->
+        <div style="margin: 24px 0; padding: 16px; background: var(--bg); border: 1px solid var(--borde); border-radius: 8px;">
+          <h4 style="margin: 0 0 8px 0; font-size: 1.1em; color: var(--text);">Dashboard y Concentración de Gasto</h4>
+          <p style="font-size: 0.85em; color: var(--muted); margin: 0 0 12px 0;">
+            Evaluación interactiva del destino de los recursos estatales y distribución regional/rubros.
+          </p>
+
+          <img src="img/dashboard_powerbi.png" alt="Dashboard del gasto público en Power BI" class="zoomable" style="width: 100%; border-radius: 6px; border: 1px solid var(--borde); margin-bottom: 12px;">
+
+          <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.9em; flex-wrap: wrap; gap: 12px;">
+            <a href="https://github.com/oscararayaoad-sys/mercado-publico-chile-eda" target="_blank" rel="noopener">View Code on GitHub →</a>
+          </div>
+        </div>
+
+        <!-- Hallazgo clave -->
+        <div style="margin: 24px 0; padding: 16px; background: var(--bg); border: 1px solid var(--borde); border-radius: 8px;">
+          <h4 style="margin: 0 0 8px 0; font-size: 1em; color: var(--text);">Hallazgos Clave</h4>
+          <div style="background: var(--card); border: 1px solid var(--borde); border-left: 4px solid var(--acento); padding: 12px 16px; border-radius: 6px; font-size: 0.95em;">
+            <strong>💡 Key Finding:</strong> "Pocos proveedores" no significa oportunidad: los nichos de alto gasto con pocos proveedores resultaron ser <strong>mercados cautivos</strong> con barreras altas, mientras que las verdaderas oportunidades residen en mercados de gasto alto con competencia media y líder débil (&lt;50%).
+          </div>
+        </div>
+      </article>
+
     </div>
 
     <h2>Contact</h2>
     <p class="contacto">
       <a href="#" onclick="navigator.clipboard.writeText('oscar.araya.oad@gmail.com'); alert('Email copied to clipboard!'); return false;">Email</a>
       <a href="https://github.com/oscararayaoad-sys" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://www.linkedin.com/in/oscar-araya-diaz" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.linkedin.com/in/oscar-araya-diaz-7a418a170" target="_blank" rel="noopener">LinkedIn</a>
     </p>
   </main>
 
