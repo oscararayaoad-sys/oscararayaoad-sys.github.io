@@ -243,11 +243,11 @@
           Comprehensive exploratory data analysis of retail transactions to optimize inventory, staffing, and product bundling.
         </p>
 
-        <!-- 2. SLICER DE DATOS TIPO TABLA EXCEL ( AMPLIADO: 7 COLUMNAS x 8 FILAS ) -->
+        <!-- 2. SLICER DE DATOS TIPO TABLA EXCEL ( MÁS ERRORES + LETRA MÁS GRANDE ) -->
         <div style="margin: 24px 0; padding: 20px; background: var(--bg); border: 1px solid var(--borde); border-radius: 12px; box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);">
           <h4 style="margin: 0 0 6px 0; font-size: 1.1em; color: var(--text);">Data Pipeline Transformation Slicer</h4>
           <p style="font-size: 0.88em; color: var(--muted); margin: 0 0 20px 0;">
-            Select pipeline state to interactively inspect how messy operational ingestion is transformed into production-ready analytical models.
+            Select pipeline state to interactively inspect how chaotic raw ingestion filled with anomalies transforms into a pristine model.
           </p>
           
           <!-- Botones Estilo Segmentador (Slicer de Power BI / Excel) -->
@@ -267,106 +267,112 @@
               <span id="metric-status" style="font-weight: bold; color: #c53030; font-size: 0.95em;">Raw Ingestion</span>
             </div>
             <div id="card-nulls" style="background: #ffeef0; border: 1px solid #fbd5d5; padding: 10px; border-radius: 8px; transition: all 0.3s ease;">
-              <span style="display: block; color: var(--muted); font-size: 0.75em; text-transform: uppercase; letter-spacing: 0.5px;">Missing Values</span>
-              <span id="metric-nulls" style="font-weight: bold; color: #c53030; font-size: 0.95em;">6 Anomalies</span>
+              <span style="display: block; color: var(--muted); font-size: 0.75em; text-transform: uppercase; letter-spacing: 0.5px;">Anomalies Detected</span>
+              <span id="metric-nulls" style="font-weight: bold; color: #c53030; font-size: 0.95em;">10 Critical Errors</span>
             </div>
             <div id="card-integrity" style="background: #ffeef0; border: 1px solid #fbd5d5; padding: 10px; border-radius: 8px; transition: all 0.3s ease;">
               <span style="display: block; color: var(--muted); font-size: 0.75em; text-transform: uppercase; letter-spacing: 0.5px;">Data Integrity</span>
-              <span id="metric-integrity" style="font-weight: bold; color: #c53030; font-size: 0.95em;">71.4%</span>
+              <span id="metric-integrity" style="font-weight: bold; color: #c53030; font-size: 0.95em;">42.8%</span>
             </div>
           </div>
         
-          <!-- Cuadrícula tipo Excel Ampliada (7 columnas, 8 filas) -->
+          <!-- Cuadrícula tipo Excel Demostrativa (Letra más grande: font-size: 0.95em) -->
           <div style="overflow-x: auto; border: 1px solid var(--borde); border-radius: 8px; background: #fff; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
-            <div id="table-state-msg" style="padding: 10px 14px; font-size: 0.85em; font-weight: 600; background: #ffeef0; color: #c53030; border-bottom: 1px solid var(--borde); display: flex; align-items: center; gap: 6px;">
-              <span>🚨</span> [State: Raw Dataset] - Unhandled nulls, whitespace anomalies & type inconsistencies detected.
+            <div id="table-state-msg" style="padding: 10px 14px; font-size: 0.9em; font-weight: 600; background: #ffeef0; color: #c53030; border-bottom: 1px solid var(--borde); display: flex; align-items: center; gap: 6px;">
+              <span>🚨</span> [State: Raw Dataset] - Extreme corruption: NaN values, negative prices, duplicate IDs, typos and format breaks.
             </div>
-            <table style="width: 100%; border-collapse: collapse; font-family: monospace; font-size: 0.8em; text-align: left; color: #1e293b; white-space: nowrap;">
+            <table style="width: 100%; border-collapse: collapse; font-family: monospace; font-size: 0.95em; text-align: left; color: #1e293b; white-space: nowrap;">
               <thead>
                 <tr style="background: #f1f5f9; border-bottom: 2px solid #cbd5e1;">
-                  <th style="padding: 8px 10px; border-right: 1px solid #e2e8f0;">tx_id</th>
-                  <th style="padding: 8px 10px; border-right: 1px solid #e2e8f0;">timestamp</th>
-                  <th style="padding: 8px 10px; border-right: 1px solid #e2e8f0;">item</th>
-                  <th style="padding: 8px 10px; border-right: 1px solid #e2e8f0;">price</th>
-                  <th style="padding: 8px 10px; border-right: 1px solid #e2e8f0;">payment</th>
-                  <th style="padding: 8px 10px; border-right: 1px solid #e2e8f0;">store_loc</th>
-                  <th style="padding: 8px 10px;">customer_id</th>
+                  <th style="padding: 10px 12px; border-right: 1px solid #e2e8f0;">tx_id</th>
+                  <th style="padding: 10px 12px; border-right: 1px solid #e2e8f0;">timestamp</th>
+                  <th style="padding: 10px 12px; border-right: 1px solid #e2e8f0;">item</th>
+                  <th style="padding: 10px 12px; border-right: 1px solid #e2e8f0;">price</th>
+                  <th style="padding: 10px 12px; border-right: 1px solid #e2e8f0;">payment</th>
+                  <th style="padding: 10px 12px; border-right: 1px solid #e2e8f0;">store_loc</th>
+                  <th style="padding: 10px 12px;">customer_id</th>
                 </tr>
               </thead>
               <tbody>
+                <!-- Fila 1 -->
                 <tr style="border-bottom: 1px solid #e2e8f0;">
-                  <td style="padding: 6px 10px; border-right: 1px solid #e2e8f0;">TX1001</td>
-                  <td style="padding: 6px 10px; border-right: 1px solid #e2e8f0;">2026-01-01 08:30</td>
-                  <td style="padding: 6px 10px; border-right: 1px solid #e2e8f0;">Latte</td>
-                  <td style="padding: 6px 10px; border-right: 1px solid #e2e8f0;">3.50</td>
-                  <td style="padding: 6px 10px; border-right: 1px solid #e2e8f0;">Credit</td>
-                  <td style="padding: 6px 10px; border-right: 1px solid #e2e8f0;">Downtown</td>
-                  <td style="padding: 6px 10px;">C-4091</td>
+                  <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">TX1001</td>
+                  <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">2026-01-01 08:30</td>
+                  <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">Latte</td>
+                  <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">3.50</td>
+                  <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">Credit</td>
+                  <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">Downtown</td>
+                  <td style="padding: 8px 12px;">C-4091</td>
                 </tr>
+                <!-- Fila 2: Errores múltiples (NULLs y tipo incorrecto) -->
                 <tr id="row-2" style="border-bottom: 1px solid #e2e8f0; background: #fff5f5; transition: background 0.3s ease;">
-                  <td style="padding: 6px 10px; border-right: 1px solid #e2e8f0;">TX1002</td>
-                  <td id="cell-timestamp" style="padding: 6px 10px; border-right: 1px solid #e2e8f0; color: #c53030; font-weight: bold; transition: all 0.3s ease;">NULL</td>
-                  <td style="padding: 6px 10px; border-right: 1px solid #e2e8f0;">Espresso</td>
-                  <td id="cell-price" style="padding: 6px 10px; border-right: 1px solid #e2e8f0; color: #c53030; font-weight: bold; transition: all 0.3s ease;">NULL</td>
-                  <td style="padding: 6px 10px; border-right: 1px solid #e2e8f0;">Debit</td>
-                  <td style="padding: 6px 10px; border-right: 1px solid #e2e8f0;">Downtown</td>
-                  <td style="padding: 6px 10px;">C-8812</td>
+                  <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">TX1002</td>
+                  <td id="cell-timestamp" style="padding: 8px 12px; border-right: 1px solid #e2e8f0; color: #c53030; font-weight: bold; transition: all 0.3s ease;">MISSING_DATE</td>
+                  <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">Espresso</td>
+                  <td id="cell-price" style="padding: 8px 12px; border-right: 1px solid #e2e8f0; color: #c53030; font-weight: bold; transition: all 0.3s ease;">ERROR_NaN</td>
+                  <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">Debit</td>
+                  <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">Downtown</td>
+                  <td style="padding: 8px 12px;">C-8812</td>
                 </tr>
-                <tr style="border-bottom: 1px solid #e2e8f0;">
-                  <td style="padding: 6px 10px; border-right: 1px solid #e2e8f0;">TX1003</td>
-                  <td style="padding: 6px 10px; border-right: 1px solid #e2e8f0;">2026-01-01 09:15</td>
-                  <td style="padding: 6px 10px; border-right: 1px solid #e2e8f0;">Croissant</td>
-                  <td id="cell-price2" style="padding: 6px 10px; border-right: 1px solid #e2e8f0; background: #fff5f5; color: #c53030; transition: all 0.3s ease;"> 2.75 </td>
-                  <td style="padding: 6px 10px; border-right: 1px solid #e2e8f0;">Cash</td>
-                  <td style="padding: 6px 10px; border-right: 1px solid #e2e8f0;">Airport</td>
-                  <td style="padding: 6px 10px;">C-1029</td>
+                <!-- Fila 3: Precio negativo absurdo -->
+                <tr id="row-3" style="border-bottom: 1px solid #e2e8f0; background: #fff5f5; transition: background 0.3s ease;">
+                  <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">TX1003</td>
+                  <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">01/01/2026 09:15</td>
+                  <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">Croissant</td>
+                  <td id="cell-price2" style="padding: 8px 12px; border-right: 1px solid #e2e8f0; background: #fff5f5; color: #c53030; font-weight: bold; transition: all 0.3s ease;">-99.99</td>
+                  <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">Cash</td>
+                  <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">Airport</td>
+                  <td style="padding: 8px 12px;">C-1029</td>
                 </tr>
+                <!-- Fila 4: Espacios y typo -->
                 <tr id="row-4" style="border-bottom: 1px solid #e2e8f0; background: #fff5f5; transition: background 0.3s ease;">
-                  <td style="padding: 6px 10px; border-right: 1px solid #e2e8f0;">TX1004</td>
-                  <td style="padding: 6px 10px; border-right: 1px solid #e2e8f0;">2026-01-01 10:00</td>
-                  <td id="cell-item" style="padding: 6px 10px; border-right: 1px solid #e2e8f0; color: #c53030; font-weight: bold; background: #fff5f5; transition: all 0.3s ease;">  Mocha  </td>
-                  <td style="padding: 6px 10px; border-right: 1px solid #e2e8f0;">4.00</td>
-                  <td style="padding: 6px 10px; border-right: 1px solid #e2e8f0;">Credit</td>
-                  <td style="padding: 6px 10px; border-right: 1px solid #e2e8f0;">Downtown</td>
-                  <td style="padding: 6px 10px;">C-3304</td>
+                  <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">TX1004</td>
+                  <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">2026.01.01</td>
+                  <td id="cell-item" style="padding: 8px 12px; border-right: 1px solid #e2e8f0; color: #c53030; font-weight: bold; background: #fff5f5; transition: all 0.3s ease;">   M#cha   </td>
+                  <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">4.00</td>
+                  <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">Credit</td>
+                  <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">Downtown</td>
+                  <td style="padding: 8px 12px;">C-3304</td>
                 </tr>
-                <tr style="border-bottom: 1px solid #e2e8f0;">
-                  <td style="padding: 6px 10px; border-right: 1px solid #e2e8f0;">TX1005</td>
-                  <td style="padding: 6px 10px; border-right: 1px solid #e2e8f0;">2026-01-01 10:20</td>
-                  <td style="padding: 6px 10px; border-right: 1px solid #e2e8f0;">Muffin</td>
-                  <td style="padding: 6px 10px; border-right: 1px solid #e2e8f0;">3.00</td>
-                  <td style="padding: 6px 10px; border-right: 1px solid #e2e8f0;">Cash</td>
-                  <td style="padding: 6px 10px; border-right: 1px solid #e2e8f0;">Airport</td>
-                  <td style="padding: 6px 10px;">C-5012</td>
+                <!-- Fila 5: ID duplicado y texto en precio -->
+                <tr id="row-5" style="border-bottom: 1px solid #e2e8f0; background: #fff5f5; transition: background 0.3s ease;">
+                  <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">TX1001</td>
+                  <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">2026-01-01 10:20</td>
+                  <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">Muffin</td>
+                  <td id="cell-price3" style="padding: 8px 12px; border-right: 1px solid #e2e8f0; color: #c53030; font-weight: bold; background: #fff5f5; transition: all 0.3s ease;">FREE_PROMO</td>
+                  <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">Cash</td>
+                  <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">Airport</td>
+                  <td style="padding: 8px 12px;">C-5012</td>
                 </tr>
+                <!-- Fila 6: Pago desconocido -->
                 <tr id="row-6" style="border-bottom: 1px solid #e2e8f0; background: #fff5f5; transition: background 0.3s ease;">
-                  <td style="padding: 6px 10px; border-right: 1px solid #e2e8f0;">TX1006</td>
-                  <td style="padding: 6px 10px; border-right: 1px solid #e2e8f0;">2026-01-01 11:05</td>
-                  <td style="padding: 6px 10px; border-right: 1px solid #e2e8f0;">Cappuccino</td>
-                  <td style="padding: 6px 10px; border-right: 1px solid #e2e8f0;">3.75</td>
-                  <td id="cell-payment" style="padding: 6px 10px; border-right: 1px solid #e2e8f0; color: #c53030; font-weight: bold; background: #fff5f5; transition: all 0.3s ease;">unknown</td>
-                  <td style="padding: 6px 10px; border-right: 1px solid #e2e8f0;">Downtown</td>
-                  <td style="padding: 6px 10px;">C-9921</td>
+                  <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">TX1006</td>
+                  <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">2026-01-01 11:05</td>
+                  <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">Cappuccino</td>
+                  <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">3.75</td>
+                  <td id="cell-payment" style="padding: 8px 12px; border-right: 1px solid #e2e8f0; color: #c53030; font-weight: bold; background: #fff5f5; transition: all 0.3s ease;">???_UNKNOWN</td>
+                  <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">Downtown</td>
+                  <td style="padding: 8px 12px;">C-9921</td>
                 </tr>
-                <!-- Fila 7 nueva -->
+                <!-- Fila 7: Ubicación corrupta y customer inválido -->
                 <tr id="row-7" style="border-bottom: 1px solid #e2e8f0; background: #fff5f5; transition: background 0.3s ease;">
-                  <td style="padding: 6px 10px; border-right: 1px solid #e2e8f0;">TX1007</td>
-                  <td style="padding: 6px 10px; border-right: 1px solid #e2e8f0;">2026-01-01 11:40</td>
-                  <td style="padding: 6px 10px; border-right: 1px solid #e2e8f0;">Tea</td>
-                  <td style="padding: 6px 10px; border-right: 1px solid #e2e8f0;">2.00</td>
-                  <td style="padding: 6px 10px; border-right: 1px solid #e2e8f0;">Credit</td>
-                  <td id="cell-loc" style="padding: 6px 10px; border-right: 1px solid #e2e8f0; color: #c53030; font-weight: bold; background: #fff5f5; transition: all 0.3s ease;">N/A</td>
-                  <td style="padding: 6px 10px;">C-7714</td>
+                  <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">TX1007</td>
+                  <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">2026-01-01 11:40</td>
+                  <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">Tea</td>
+                  <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">2.00</td>
+                  <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">Credit</td>
+                  <td id="cell-loc" style="padding: 8px 12px; border-right: 1px solid #e2e8f0; color: #c53030; font-weight: bold; background: #fff5f5; transition: all 0.3s ease;">ERROR_404</td>
+                  <td id="cell-cust" style="padding: 8px 12px; color: #c53030; font-weight: bold; background: #fff5f5; transition: all 0.3s ease;">NULL_USER</td>
                 </tr>
-                <!-- Fila 8 nueva -->
-                <tr style="background: #ffffff;">
-                  <td style="padding: 6px 10px; border-right: 1px solid #e2e8f0;">TX1008</td>
-                  <td style="padding: 6px 10px; border-right: 1px solid #e2e8f0;">2026-01-01 12:10</td>
-                  <td style="padding: 6px 10px; border-right: 1px solid #e2e8f0;">Americano</td>
-                  <td style="padding: 6px 10px; border-right: 1px solid #e2e8f0;">2.80</td>
-                  <td style="padding: 6px 10px; border-right: 1px solid #e2e8f0;">Debit</td>
-                  <td style="padding: 6px 10px; border-right: 1px solid #e2e8f0;">Downtown</td>
-                  <td style="padding: 6px 10px;">C-2290</td>
+                <!-- Fila 8: Formato de fecha basura -->
+                <tr id="row-8" style="background: #fff5f5; transition: background 0.3s ease;">
+                  <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">TX1008</td>
+                  <td id="cell-date8" style="padding: 8px 12px; border-right: 1px solid #e2e8f0; color: #c53030; font-weight: bold; background: #fff5f5; transition: all 0.3s ease;">BAD_DATE_FORMAT</td>
+                  <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">Americano</td>
+                  <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">2.80</td>
+                  <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">Debit</td>
+                  <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">Downtown</td>
+                  <td style="padding: 8px 12px;">C-2290</td>
                 </tr>
               </tbody>
             </table>
@@ -477,7 +483,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-sql.min.js"></script>
   <script>
-    // Función para alternar el estado del pipeline con 7 columnas y 8 filas de ejemplo
+    // Función para alternar el estado del pipeline con múltiples errores demostrativos
     function switchDataState(state) {
       const btnRaw = document.getElementById('btn-raw');
       const btnClean = document.getElementById('btn-clean');
@@ -494,16 +500,25 @@
       const row2 = document.getElementById('row-2');
       const cellTimestamp = document.getElementById('cell-timestamp');
       const cellPrice = document.getElementById('cell-price');
+
+      const row3 = document.getElementById('row-3');
       const cellPrice2 = document.getElementById('cell-price2');
 
       const row4 = document.getElementById('row-4');
       const cellItem = document.getElementById('cell-item');
+
+      const row5 = document.getElementById('row-5');
+      const cellPrice3 = document.getElementById('cell-price3');
 
       const row6 = document.getElementById('row-6');
       const cellPayment = document.getElementById('cell-payment');
 
       const row7 = document.getElementById('row-7');
       const cellLoc = document.getElementById('cell-loc');
+      const cellCust = document.getElementById('cell-cust');
+
+      const row8 = document.getElementById('row-8');
+      const cellDate8 = document.getElementById('cell-date8');
 
       if (state === 'raw') {
         // Estilos Botón Raw Activo
@@ -524,48 +539,43 @@
         cardIntegrity.style.background = '#ffeef0'; cardIntegrity.style.borderColor = '#fbd5d5';
 
         statusEl.textContent = 'Raw Ingestion'; statusEl.style.color = '#c53030';
-        nullsEl.textContent = '6 Anomalies'; nullsEl.style.color = '#c53030';
-        integrityEl.textContent = '71.4%'; integrityEl.style.color = '#c53030';
+        nullsEl.textContent = '10 Critical Errors'; nullsEl.style.color = '#c53030';
+        integrityEl.textContent = '42.8%'; integrityEl.style.color = '#c53030';
         
         // Tabla Raw
-        tableMsg.innerHTML = '<span>🚨</span> [State: Raw Dataset] - Unhandled nulls, whitespace anomalies & type inconsistencies detected.';
+        tableMsg.innerHTML = '<span>🚨</span> [State: Raw Dataset] - Extreme corruption: NaN values, negative prices, duplicate IDs, typos and format breaks.';
         tableMsg.style.background = '#ffeef0';
         tableMsg.style.color = '#c53030';
         
-        // Fila 2: NULLs
+        // Fila 2
         row2.style.background = '#fff5f5';
-        cellTimestamp.textContent = 'NULL';
-        cellTimestamp.style.color = '#c53030';
-        cellTimestamp.style.fontWeight = 'bold';
-        
-        cellPrice.textContent = 'NULL';
-        cellPrice.style.color = '#c53030';
-        cellPrice.style.fontWeight = 'bold';
-        
-        cellPrice2.textContent = ' 2.75 ';
-        cellPrice2.style.background = '#fff5f5';
-        cellPrice2.style.color = '#c53030';
+        cellTimestamp.textContent = 'MISSING_DATE'; cellTimestamp.style.color = '#c53030'; cellTimestamp.style.fontWeight = 'bold';
+        cellPrice.textContent = 'ERROR_NaN'; cellPrice.style.color = '#c53030'; cellPrice.style.fontWeight = 'bold';
 
-        // Fila 4: Espacios en blanco
+        // Fila 3
+        row3.style.background = '#fff5f5';
+        cellPrice2.textContent = '-99.99'; cellPrice2.style.background = '#fff5f5'; cellPrice2.style.color = '#c53030'; cellPrice2.style.fontWeight = 'bold';
+
+        // Fila 4
         row4.style.background = '#fff5f5';
-        cellItem.textContent = '  Mocha  ';
-        cellItem.style.color = '#c53030';
-        cellItem.style.fontWeight = 'bold';
-        cellItem.style.background = '#fff5f5';
+        cellItem.textContent = '   M#cha   '; cellItem.style.color = '#c53030'; cellItem.style.fontWeight = 'bold'; cellItem.style.background = '#fff5f5';
 
-        // Fila 6: Desconocido
+        // Fila 5
+        row5.style.background = '#fff5f5';
+        cellPrice3.textContent = 'FREE_PROMO'; cellPrice3.style.color = '#c53030'; cellPrice3.style.fontWeight = 'bold'; cellPrice3.style.background = '#fff5f5';
+
+        // Fila 6
         row6.style.background = '#fff5f5';
-        cellPayment.textContent = 'unknown';
-        cellPayment.style.color = '#c53030';
-        cellPayment.style.fontWeight = 'bold';
-        cellPayment.style.background = '#fff5f5';
+        cellPayment.textContent = '???_UNKNOWN'; cellPayment.style.color = '#c53030'; cellPayment.style.fontWeight = 'bold'; cellPayment.style.background = '#fff5f5';
 
-        // Fila 7: N/A en ubicación
+        // Fila 7
         row7.style.background = '#fff5f5';
-        cellLoc.textContent = 'N/A';
-        cellLoc.style.color = '#c53030';
-        cellLoc.style.fontWeight = 'bold';
-        cellLoc.style.background = '#fff5f5';
+        cellLoc.textContent = 'ERROR_404'; cellLoc.style.color = '#c53030'; cellLoc.style.fontWeight = 'bold'; cellLoc.style.background = '#fff5f5';
+        cellCust.textContent = 'NULL_USER'; cellCust.style.color = '#c53030'; cellCust.style.fontWeight = 'bold'; cellCust.style.background = '#fff5f5';
+
+        // Fila 8
+        row8.style.background = '#fff5f5';
+        cellDate8.textContent = 'BAD_DATE_FORMAT'; cellDate8.style.color = '#c53030'; cellDate8.style.fontWeight = 'bold'; cellDate8.style.background = '#fff5f5';
 
       } else {
         // Estilos Botón Raw Inactivo
@@ -590,44 +600,39 @@
         integrityEl.textContent = '100%'; integrityEl.style.color = '#276749';
         
         // Tabla Clean
-        tableMsg.innerHTML = '<span>✨</span> [State: Production Model] - Imputed values, trimmed whitespace & standardized schemas.';
+        tableMsg.innerHTML = '<span>✨</span> [State: Production Model] - Fully cleansed, imputed, standardized & deduplicated analytical schema.';
         tableMsg.style.background = '#f0fff4';
         tableMsg.style.color = '#276749';
         
-        // Fila 2: Imputado
+        // Fila 2
         row2.style.background = '#ffffff';
-        cellTimestamp.textContent = '2026-01-01 08:45';
-        cellTimestamp.style.color = '#276749';
-        cellTimestamp.style.fontWeight = 'normal';
-        
-        cellPrice.textContent = '2.50';
-        cellPrice.style.color = '#276749';
-        cellPrice.style.fontWeight = 'normal';
-        
-        cellPrice2.textContent = '2.75';
-        cellPrice2.style.background = '#ffffff';
-        cellPrice2.style.color = '#1e293b';
+        cellTimestamp.textContent = '2026-01-01 08:45'; cellTimestamp.style.color = '#276749'; cellTimestamp.style.fontWeight = 'normal';
+        cellPrice.textContent = '2.50'; cellPrice.style.color = '#276749'; cellPrice.style.fontWeight = 'normal';
 
-        // Fila 4: Limpio
+        // Fila 3
+        row3.style.background = '#ffffff';
+        cellPrice2.textContent = '2.75'; cellPrice2.style.background = '#ffffff'; cellPrice2.style.color = '#1e293b'; cellPrice2.style.fontWeight = 'normal';
+
+        // Fila 4
         row4.style.background = '#ffffff';
-        cellItem.textContent = 'Mocha';
-        cellItem.style.color = '#276749';
-        cellItem.style.fontWeight = 'normal';
-        cellItem.style.background = '#ffffff';
+        cellItem.textContent = 'Mocha'; cellItem.style.color = '#276749'; cellItem.style.fontWeight = 'normal'; cellItem.style.background = '#ffffff';
 
-        // Fila 6: Imputado
+        // Fila 5
+        row5.style.background = '#ffffff';
+        cellPrice3.textContent = '0.00'; cellPrice3.style.color = '#276749'; cellPrice3.style.fontWeight = 'normal'; cellPrice3.style.background = '#ffffff';
+
+        // Fila 6
         row6.style.background = '#ffffff';
-        cellPayment.textContent = 'Cash';
-        cellPayment.style.color = '#276749';
-        cellPayment.style.fontWeight = 'normal';
-        cellPayment.style.background = '#ffffff';
+        cellPayment.textContent = 'Cash'; cellPayment.style.color = '#276749'; cellPayment.style.fontWeight = 'normal'; cellPayment.style.background = '#ffffff';
 
-        // Fila 7: Imputado store_loc
+        // Fila 7
         row7.style.background = '#ffffff';
-        cellLoc.textContent = 'Downtown';
-        cellLoc.style.color = '#276749';
-        cellLoc.style.fontWeight = 'normal';
-        cellLoc.style.background = '#ffffff';
+        cellLoc.textContent = 'Downtown'; cellLoc.style.color = '#276749'; cellLoc.style.fontWeight = 'normal'; cellLoc.style.background = '#ffffff';
+        cellCust.textContent = 'C-7714'; cellCust.style.color = '#276749'; cellCust.style.fontWeight = 'normal'; cellCust.style.background = '#ffffff';
+
+        // Fila 8
+        row8.style.background = '#ffffff';
+        cellDate8.textContent = '2026-01-01 12:10'; cellDate8.style.color = '#276749'; cellDate8.style.fontWeight = 'normal'; cellDate8.style.background = '#ffffff';
       }
     }
 
