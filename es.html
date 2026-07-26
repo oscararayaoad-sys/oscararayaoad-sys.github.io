@@ -157,6 +157,45 @@
     <a href="https://www.linkedin.com/in/oscar-araya-diaz">LinkedIn</a>
   </p>
 
+  <!-- Componente Interactivo: Datos Sucios vs. Limpios (Punto 11) -->
+<div class="data-cleaner-demo">
+  <div class="cleaner-header">
+    <span class="badge-demo">Demostración en vivo</span>
+    <h3>Transformación de Datos</h3>
+    <p>Desliza para ver el antes (datos crudos, inconsistentes) y el después (datos estructurados y listos para análisis).</p>
+  </div>
+
+  <div class="slider-container">
+    <!-- Capa de Datos Limpios (Fondo) -->
+    <div class="data-layer clean-data">
+      <div class="data-content">
+        <span class="status-tag success">✓ Limpio & Validado</span>
+        <code>
+          id, cliente, monto, fecha<br>
+          101, "Empresa A", 1500.50, 2026-07-26<br>
+          102, "Empresa B", 3200.00, 2026-07-25
+        </code>
+      </div>
+    </div>
+
+    <!-- Capa de Datos Sucios (Superpuesta con clip-path) -->
+    <div class="data-layer raw-data" id="rawLayer">
+      <div class="data-content">
+        <span class="status-tag warning">⚠ Datos Sucios</span>
+        <code>
+          ID | CLI_NAME | TOTAL_USD | DATE<br>
+          ?  | emp_a    | $ 1,500.5 | 26/07/26<br>
+          102| EMPRESA  | NULL      | INV-DATE
+        </code>
+      </div>
+    </div>
+
+    <!-- Control deslizante nativo -->
+    <input type="range" min="0" max="100" value="50" class="slider-range" id="dataSlider" aria-label="Control deslizante de comparación de datos">
+  </div>
+</div>
+  
+
   <h2>Proyectos</h2>
 
   <div class="projects-grid">
