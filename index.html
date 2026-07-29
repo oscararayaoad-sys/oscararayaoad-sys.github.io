@@ -473,7 +473,7 @@
           <span>Python</span><span>pandas</span><span>NumPy</span><span>Matplotlib</span><span>Seaborn</span><span>Power BI</span>
         </p>
         <p>
-          Exploratory Data Analysis (EDA) of ~1.1 million public purchase orders from Mercado Público (ChileCompra) to identify spending patterns, geographic concentration, and accessible market niches for suppliers[cite: 2].
+          Exploratory Data Analysis (EDA) of ~1.1 million public purchase orders from Mercado Público (ChileCompra) to identify spending patterns, geographic concentration, and accessible market niches for suppliers.
         </p>
 
         <!-- 1. DASHBOARD -->
@@ -495,9 +495,9 @@
         <div style="margin: 24px 0; padding: 16px; background: var(--bg); border: 1px solid var(--borde); border-radius: 8px;">
           <h4 style="margin: 0 0 12px 0; font-size: 1.05em; color: var(--text);">Data Cleaning & Key Decisions</h4>
           <ul style="margin: 0; padding-left: 20px; font-size: 0.9em; color: var(--muted); line-height: 1.6;">
-            <li><strong style="color: var(--text);">Line vs. Order Granularity:</strong> Analyzed item line net totals (<code>total_linea_neto</code>) instead of total order amounts to prevent double counting[cite: 2].</li>
-            <li><strong style="color: var(--text);">Currency & VAT Reconciliation:</strong> Verified 99.4% CLP transactions and reconciled gaps between net and gross order values[cite: 2].</li>
-            <li><strong style="color: var(--text);">Geographic Entity Normalization:</strong> Consolidated 32 inconsistent regional labels into the 16 official Chilean regions via Unicode normalization and keyword string matching[cite: 2].</li>
+            <li><strong style="color: var(--text);">Line vs. Order Granularity:</strong> Analyzed item line net totals (<code>total_linea_neto</code>) instead of total order amounts to prevent double counting</li>
+            <li><strong style="color: var(--text);">Currency & VAT Reconciliation:</strong> Verified 99.4% CLP transactions and reconciled gaps between net and gross order values.</li>
+            <li><strong style="color: var(--text);">Geographic Entity Normalization:</strong> Consolidated 32 inconsistent regional labels into the 16 official Chilean regions via Unicode normalization and keyword string matching.</li>
             <li><strong style="color: var(--text);">Pedagogical Principle:</strong> Deep diagnosis of raw data anomalies prior to applying automated transformations.</li>
           </ul>
         </div>
@@ -511,7 +511,7 @@
               <h5 style="margin: 0 0 8px 0; font-size: 0.9em; text-align: center; color: var(--text);">Pareto Chart by Agency</h5>
               <img src="https://raw.githubusercontent.com/oscararayaoad-sys/mercado-publico-eda/main/assets/concentración_de_gasto_por_organismo.png" alt="Pareto Chart Agency concentration analysis" class="zoomable" style="width: 100%; border-radius: 4px; border: 1px solid var(--borde);">
             </div>
-            <p style="font-size: 0.8em; color: var(--muted); margin: 8px 0 0 0; text-align: center;">Top 10 entities absorb 84.1% of the total budget[cite: 2].</p>
+            <p style="font-size: 0.8em; color: var(--muted); margin: 8px 0 0 0; text-align: center;">Top 10 entities absorb 84.1% of the total budget.</p>
           </div>
 
           <div style="background: var(--bg); border: 1px solid var(--borde); border-radius: 8px; padding: 12px; display: flex; flex-direction: column; justify-content: space-between;">
@@ -519,7 +519,7 @@
               <h5 style="margin: 0 0 8px 0; font-size: 0.9em; text-align: center; color: var(--text);">Sector Breakdown</h5>
               <img src="https://raw.githubusercontent.com/oscararayaoad-sys/mercado-publico-eda/main/assets/concentración_de_gasto_por_rubro.png" alt="Sector Breakdown public spending" class="zoomable" style="width: 100%; border-radius: 4px; border: 1px solid var(--borde);">
             </div>
-            <p style="font-size: 0.8em; color: var(--muted); margin: 8px 0 0 0; text-align: center;">IT & Telecom leading macro sector spending at 42.8%[cite: 2].</p>
+            <p style="font-size: 0.8em; color: var(--muted); margin: 8px 0 0 0; text-align: center;">IT & Telecom leading macro sector spending at 42.8%.</p>
           </div>
 
           <div style="background: var(--bg); border: 1px solid var(--borde); border-radius: 8px; padding: 12px; display: flex; flex-direction: column; justify-content: space-between; grid-column: 1 / -1;">
@@ -527,7 +527,7 @@
               <h5 style="margin: 0 0 8px 0; font-size: 0.9em; text-align: center; color: var(--text);">Category Breakdown</h5>
               <img src="https://raw.githubusercontent.com/oscararayaoad-sys/mercado-publico-eda/main/assets/concentración_de_gasto_por_categoría.png" alt="Category Breakdown spending distribution" class="zoomable" style="width: 100%; max-height: 350px; object-fit: contain; border-radius: 4px; border: 1px solid var(--borde);">
             </div>
-            <p style="font-size: 0.8em; color: var(--muted); margin: 8px 0 0 0; text-align: center;">Granular distribution showing passenger transport & logistics dominance[cite: 2].</p>
+            <p style="font-size: 0.8em; color: var(--muted); margin: 8px 0 0 0; text-align: center;">Granular distribution showing passenger transport & logistics dominance.</p>
           </div>
 
         </div>
@@ -556,35 +556,35 @@
                   <td style="padding: 8px 12px; border-right: 1px solid var(--borde);">Open / Dynamic</td>
                   <td style="padding: 8px 12px; border-right: 1px solid var(--borde);">94</td>
                   <td style="padding: 8px 12px; border-right: 1px solid var(--borde);">$140.09T CLP</td>
-                  <td style="padding: 8px 12px;">🟢 <strong>Niche #1:</strong> High transaction flow[cite: 2].</td>
+                  <td style="padding: 8px 12px;">🟢 <strong>Niche #1:</strong> High transaction flow.</td>
                 </tr>
                 <tr style="border-bottom: 1px solid var(--borde);">
                   <td style="padding: 8px 12px; border-right: 1px solid var(--borde);"><strong>IT & Telecom (Sub 1782)</strong></td>
                   <td style="padding: 8px 12px; border-right: 1px solid var(--borde);">Open / Dynamic</td>
                   <td style="padding: 8px 12px; border-right: 1px solid var(--borde);">364</td>
                   <td style="padding: 8px 12px; border-right: 1px solid var(--borde);">$26.33T CLP</td>
-                  <td style="padding: 8px 12px;">🟢 <strong>Niche #2:</strong> Highest transactional turnover[cite: 2].</td>
+                  <td style="padding: 8px 12px;">🟢 <strong>Niche #2:</strong> Highest transactional turnover.</td>
                 </tr>
                 <tr style="border-bottom: 1px solid var(--borde);">
                   <td style="padding: 8px 12px; border-right: 1px solid var(--borde);"><strong>IT & Telecom (Sub 1802)</strong></td>
                   <td style="padding: 8px 12px; border-right: 1px solid var(--borde);">Moderate</td>
                   <td style="padding: 8px 12px; border-right: 1px solid var(--borde);">429</td>
                   <td style="padding: 8px 12px; border-right: 1px solid var(--borde);">$28.69T CLP</td>
-                  <td style="padding: 8px 12px;">🟢 <strong>Niche #3:</strong> High accumulated liquidity[cite: 2].</td>
+                  <td style="padding: 8px 12px;">🟢 <strong>Niche #3:</strong> High accumulated liquidity.</td>
                 </tr>
                 <tr style="border-bottom: 1px solid var(--borde);">
                   <td style="padding: 8px 12px; border-right: 1px solid var(--borde);"><strong>Financial Services</strong></td>
                   <td style="padding: 8px 12px; border-right: 1px solid var(--borde);">Closed / Concentrated</td>
                   <td style="padding: 8px 12px; border-right: 1px solid var(--borde);">6</td>
                   <td style="padding: 8px 12px; border-right: 1px solid var(--borde);">$630.98T CLP</td>
-                  <td style="padding: 8px 12px;">🔴 <strong>False Niche:</strong> Institutional banking oligopoly[cite: 2].</td>
+                  <td style="padding: 8px 12px;">🔴 <strong>False Niche:</strong> Institutional banking oligopoly.</td>
                 </tr>
                 <tr>
                   <td style="padding: 8px 12px; border-right: 1px solid var(--borde);"><strong>Mining Machinery</strong></td>
                   <td style="padding: 8px 12px; border-right: 1px solid var(--borde);">Closed / Concentrated</td>
                   <td style="padding: 8px 12px; border-right: 1px solid var(--borde);">8</td>
                   <td style="padding: 8px 12px; border-right: 1px solid var(--borde);">$37.12T CLP</td>
-                  <td style="padding: 8px 12px;">🔴 <strong>False Niche:</strong> Extreme technical exclusivity[cite: 2].</td>
+                  <td style="padding: 8px 12px;">🔴 <strong>False Niche:</strong> Extreme technical exclusivity.</td>
                 </tr>
               </tbody>
             </table>
@@ -599,7 +599,7 @@
           </p>
           
           <div style="background: var(--card); border: 1px solid var(--borde); border-left: 4px solid var(--acento); padding: 12px 16px; margin-bottom: 12px; border-radius: 6px; font-size: 0.95em;">
-            <strong>💡 Key Finding:</strong> "Few suppliers" does NOT equal opportunity. High-spending niches with few suppliers are captive markets; true opportunities reside in open markets with medium competition[cite: 2].
+            <strong>💡 Key Finding:</strong> "Few suppliers" does NOT equal opportunity. High-spending niches with few suppliers are captive markets; true opportunities reside in open markets with medium competition.
           </div>
           
           <div style="border: 1px solid var(--borde); border-radius: 6px; overflow: hidden; background: #fff;">
