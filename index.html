@@ -405,7 +405,7 @@
           
           <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.9em; flex-wrap: wrap; gap: 12px;">
             <a href="https://github.com/oscararayaoad-sys/dashboard-and-analysis-coffeeshop" target="_blank" rel="noopener">View Code on GitHub →</a>
-            <a href="dashboard/03_dashboard_cafeteria.pbix" download class="btn" style="padding: 6px 14px; font-size: 0.85em;">Download Power BI (.pbix) ↓</a>
+            <a href="dashboard/03_dashboard_coffeeshop.pbix" download class="btn" style="padding: 6px 14px; font-size: 0.85em;">Download Power BI (.pbix) ↓</a>
           </div>
         </div>
 
@@ -515,7 +515,7 @@
       Evaluación interactiva del destino de los recursos estatales y distribución regional/rubros.
     </p>
 
-    <img src="https://raw.githubusercontent.com/oscararayaoad-sys/dashboard-and-analysis-coffeeshop/assets/dashboard_demo_mercado_publico_eda.gif" alt="Demo interactiva del Dashboard de Mercado Público en Power BI" class="zoomable" style="width: 100%; border-radius: 6px; border: 1px solid var(--borde); margin-bottom: 12px;">
+    <img src="https://raw.githubusercontent.com/oscararayaoad-sys/mercado-publico-eda/assets/dashboard_demo_mercado_publico_eda.gif" alt="Demo interactiva del Dashboard de Mercado Público en Power BI" class="zoomable" style="width: 100%; border-radius: 6px; border: 1px solid var(--borde); margin-bottom: 12px;">
     
     <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.9em; flex-wrap: wrap; gap: 12px;">
       <a href="https://github.com/oscararayaoad-sys/mercado-publico-chile-eda" target="_blank" rel="noopener">View Code on GitHub →</a>
@@ -523,49 +523,28 @@
     </div>
   </div>
 
-<!-- 2. ANÁLISIS RESPALDADO POR GRÁFICOS (CUADRÍCULA) -->
-  <h4 style="margin: 28px 0 12px 0; font-size: 1.1em; border-bottom: 1px solid var(--borde); padding-bottom: 4px;">Chart-Backed Analysis</h4>
-  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-bottom: 24px;">
-    
-    <div style="background: var(--bg); border: 1px solid var(--borde); border-radius: 8px; padding: 12px; display: flex; flex-direction: column; justify-content: space-between;">
-      <div>
-        <h5 style="margin: 0 0 8px 0; font-size: 0.9em; text-align: center; color: var(--text);">Concentración de Gasto</h5>
-        <img src="https://raw.githubusercontent.com/oscararayaoad-sys/dashboard-and-analysis-coffeeshop/assets/img/grafico_1.png" alt="Análisis de concentración de gasto regional" class="zoomable" style="width: 100%; border-radius: 4px; border: 1px solid var(--borde);">
-      </div>
-      <p style="font-size: 0.8em; color: var(--muted); margin: 8px 0 0 0; text-align: center;">Distribución del presupuesto según regiones y organismos.</p>
-    </div>
-
-    <div style="background: var(--bg); border: 1px solid var(--borde); border-radius: 8px; padding: 12px; display: flex; flex-direction: column; justify-content: space-between;">
-      <div>
-        <h5 style="margin: 0 0 8px 0; font-size: 0.9em; text-align: center; color: var(--text);">Oportunidad por Competencia</h5>
-        <img src="https://raw.githubusercontent.com/oscararayaoad-sys/dashboard-and-analysis-coffeeshop/assets/img/grafico_2.png" alt="Matriz de competencia y participación" class="zoomable" style="width: 100%; border-radius: 4px; border: 1px solid var(--borde);">
-      </div>
-      <p style="font-size: 0.8em; color: var(--muted); margin: 8px 0 0 0; text-align: center;">Evaluación de barreras de entrada por nivel de concentración de líderes.</p>
-    </div>
-
-    <div style="background: var(--bg); border: 1px solid var(--borde); border-radius: 8px; padding: 12px; display: flex; flex-direction: column; justify-content: space-between;">
-      <div>
-        <h5 style="margin: 0 0 8px 0; font-size: 0.9em; text-align: center; color: var(--text);">Tipos de Licitación</h5>
-        <img src="https://raw.githubusercontent.com/oscararayaoad-sys/dashboard-and-analysis-coffeeshop/assets/img/grafico_3.png" alt="Distribución por tipo de compra" class="zoomable" style="width: 100%; border-radius: 4px; border: 1px solid var(--borde);">
-      </div>
-      <p style="font-size: 0.8em; color: var(--muted); margin: 8px 0 0 0; text-align: center;">Proporción entre compra directa, licitación pública y convenio marco.</p>
-    </div>
-
-    <div style="background: var(--bg); border: 1px solid var(--borde); border-radius: 8px; padding: 12px; display: flex; flex-direction: column; justify-content: space-between;">
-      <div>
-        <h5 style="margin: 0 0 8px 0; font-size: 0.9em; text-align: center; color: var(--text);">Comportamiento Temporal</h5>
-        <img src="https://raw.githubusercontent.com/oscararayaoad-sys/dashboard-and-analysis-coffeeshop/assets/img/grafico_4.png" alt="Tendencia mensual de adjudicación" class="zoomable" style="width: 100%; border-radius: 4px; border: 1px solid var(--borde);">
-      </div>
-      <p style="font-size: 0.8em; color: var(--muted); margin: 8px 0 0 0; text-align: center;">Picos de ejecución presupuestaria hacia el cierre de año.</p>
-    </div>
-
+<!-- 2. DATA CLEANING & KEY DECISIONS -->
+  <div style="margin: 24px 0; padding: 16px; background: var(--bg); border: 1px solid var(--borde); border-radius: 8px;">
+    <h4 style="margin: 0 0 12px 0; font-size: 1.05em; color: var(--text);">Data Cleaning & Key Decisions</h4>
+    <ul style="margin: 0; padding-left: 20px; font-size: 0.9em; color: var(--muted); line-height: 1.6;">
+      <li><strong style="color: var(--text);">Line-level Granularity:</strong> Analyzed line item net totals (<code>totalLineaNeto</code>) instead of total order amounts (<code>MontoTotalOC</code>) to prevent double counting.</li>
+      <li><strong style="color: var(--text);">Currency & VAT Reconciliation:</strong> Verified 99.4% CLP transactions and identified the ~2x gap as VAT (gross vs. net).</li>
+      <li><strong style="color: var(--text);">Label Normalization (32 labels to 16 regions):</strong> Standardized naming inconsistencies using Unicode normalization and regex.</li>
+      <li><strong style="color: var(--text);">Pedagogical Principle:</strong> Deep diagnosis of raw data anomalies prior to applying automated transformations.</li>
+    </ul>
   </div>
 
-  <!-- 3. HALLAZGOS CLAVE -->
+  <!-- 3. ANALYSIS & KEY INSIGHTS -->
   <div style="margin: 24px 0; padding: 16px; background: var(--bg); border: 1px solid var(--borde); border-radius: 8px;">
-    <h4 style="margin: 0 0 8px 0; font-size: 1em; color: var(--text);">Hallazgos Clave</h4>
-    <div style="background: var(--card); border: 1px solid var(--borde); border-left: 4px solid var(--acento); padding: 12px 16px; border-radius: 6px; font-size: 0.95em;">
-      <strong>💡 Key Finding:</strong> "Pocos proveedores" no significa oportunidad: los nichos de alto gasto con pocos proveedores resultaron ser <strong>mercados cautivos</strong> con barreras altas, mientras que las verdaderas oportunidades residen en mercados de gasto alto con competencia media y líder débil (&lt;50%).
+    <h4 style="margin: 0 0 12px 0; font-size: 1.05em; color: var(--text);">Analysis & Key Insights</h4>
+    <ul style="margin: 0 0 16px 0; padding-left: 20px; font-size: 0.9em; color: var(--muted); line-height: 1.6;">
+      <li><strong style="color: var(--text);">Agency Concentration:</strong> JUNAEB and CENABAST account for ~30% of total spending; the Top 10 agencies reach ~42%.</li>
+      <li><strong style="color: var(--text);">Geographic Centralization:</strong> The Metropolitan Region absorbs ~62% of the public budget.</li>
+      <li><strong style="color: var(--text);">Concentration Metric (<code>pct_lider</code>):</strong> Custom metric engineered to measure the market share captured by the leading supplier.</li>
+    </ul>
+
+    <div style="background: var(--card); border: 1px solid var(--borde); border-left: 4px solid var(--acento); padding: 12px 16px; border-radius: 6px; font-size: 0.9em;">
+      <strong>💡 Key Finding:</strong> "Few suppliers" does NOT equal opportunity. High-spending niches with few suppliers turned out to be <strong>captive markets</strong> with steep entry barriers. True opportunities reside in high-spending markets with medium competition and a weak leader (&lt;50%).
     </div>
   </div>
 </article>
@@ -579,7 +558,6 @@
       <a href="https://www.linkedin.com/in/oscar-araya-diaz-7a418a170" target="_blank" rel="noopener">LinkedIn</a>
     </p>
   </main>
-
 
   <a href="#top" class="floating-top">Top ↑</a>
 
