@@ -276,7 +276,7 @@
           <!-- Botones Estilo Segmentador -->
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px;">
             <button id="btn-raw" onclick="switchDataState('raw')" style="padding: 12px 16px; font-weight: 600; font-size: 0.9em; border-radius: 8px; border: 2px solid #e06c75; background: #ffeef0; color: #c53030; cursor: pointer; transition: all 0.2s ease; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 2px 6px rgba(197, 48, 48, 0.15);">
-              <span>⚠️</span> Ingesta Cruda (Sucia)
+              <span>⚠️</span> Ingreso Crudo (Sucia)
             </button>
             <button id="btn-clean" onclick="switchDataState('clean')" style="padding: 12px 16px; font-weight: 600; font-size: 0.9em; border-radius: 8px; border: 2px solid var(--borde); background: var(--card); color: var(--muted); cursor: pointer; transition: all 0.2s ease; display: flex; align-items: center; justify-content: center; gap: 8px;">
               <span>✨</span> Modelo de Producción (Limpio)
@@ -396,15 +396,14 @@
 
         <!-- 3. VENTANA DE DASHBOARD -->
         <div style="margin: 24px 0; padding: 16px; background: var(--bg); border: 2px solid var(--acento); border-radius: 8px;">
-          <h4 style="margin: 0 0 8px 0; font-size: 1.1em; color: var(--text);">Panel Interactivo Final (Power BI)</h4>
+          <h4 style="margin: 0 0 8px 0; font-size: 1.1em; color: var(--text);">Dashboard Interactivo Final (Power BI)</h4>
           <p style="font-size: 0.85em; color: var(--muted); margin: 0 0 12px 0;">
-            Vista consolidada de inteligencia de negocios diseñada para la toma de decisiones ejecutivas y el control operativo.
+            Vista consolidada de Business intelligence diseñada para la toma de decisiones ejecutivas y el control operativo.
           </p>
 
           <img src="https://raw.githubusercontent.com/oscararayaoad-sys/dashboard-and-analysis-coffeeshop/main/assets/dashboard_demo_coffeeshop.gif" alt="GIF de demostración del panel de Power BI mostrando el rendimiento y métricas comerciales" class="zoomable" style="width: 100%; border-radius: 6px; border: 1px solid var(--borde); margin-bottom: 12px;">
           
           <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.9em; flex-wrap: wrap; gap: 12px;">
-            <a href="https://github.com/oscararayaoad-sys/dashboard-and-analysis-coffeeshop" target="_blank" rel="noopener">Ver Código en GitHub →</a>
             <a href="dashboard/03_dashboard_coffeeshop.pbix" download class="btn" style="padding: 6px 14px; font-size: 0.85em;">Descargar Power BI (.pbix) ↓</a>
           </div>
         </div>
@@ -477,7 +476,7 @@
           <span>Python</span><span>pandas</span><span>NumPy</span><span>Matplotlib</span><span>Seaborn</span><span>Power BI</span>
         </p>
         <p>
-          Análisis Exploratorio de Datos (EDA) de ~1.1 millones de órdenes de compra públicas de Mercado Público (ChileCompra) para identificar patrones de gasto, concentración geográfica y nichos de mercado accesibles para proveedores.
+          Análisis Exploratorio de Datos (EDA) de ~1.1 millones de órdenes de compra públicas de Mercado Público para identificar patrones de gasto, concentración geográfica y nichos de mercado accesibles para proveedores.
         </p>
 
         <!-- 1. DASHBOARD -->
@@ -490,7 +489,6 @@
           <img src="https://raw.githubusercontent.com/oscararayaoad-sys/mercado-publico-eda/main/assets/dashboard_demo_mercado_publico_eda.gif" alt="Demostración interactiva del panel de Power BI de Mercado Público" class="zoomable" style="width: 100%; border-radius: 6px; border: 1px solid var(--borde); margin-bottom: 12px;">
           
           <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.9em; flex-wrap: wrap; gap: 12px;">
-            <a href="https://github.com/oscararayaoad-sys/mercado-publico-chile-eda" target="_blank" rel="noopener">Ver Código en GitHub →</a>
             <a href="dashboard/03_dashboard_mercado_publico.pbix" download class="btn" style="padding: 6px 14px; font-size: 0.85em;">Descargar Power BI (.pbix) ↓</a>
           </div>
         </div>
@@ -521,7 +519,7 @@
           <div style="background: var(--bg); border: 1px solid var(--borde); border-radius: 8px; padding: 12px; display: flex; flex-direction: column; justify-content: space-between;">
             <div>
               <h5 style="margin: 0 0 8px 0; font-size: 0.9em; text-align: center; color: var(--text);">Desglose por Sector</h5>
-              <img src="https://raw.githubusercontent.com/oscararayaoad-sys/mercado-publico-eda/main/assets/concentración_de_gasto_por_rubro.png" alt="Desglose por sector del gasto público" class="zoomable" style="width: 100%; border-radius: 4px; border: 1px solid var(--borde);">
+              <img src="https://raw.githubusercontent.com/oscararayaoad-sys/mercado-publico-eda/main/assets/concentración_de_gasto_por_rubro.png" alt="Desglose por rubro del gasto público" class="zoomable" style="width: 100%; border-radius: 4px; border: 1px solid var(--borde);">
             </div>
             <p style="font-size: 0.8em; color: var(--muted); margin: 8px 0 0 0; text-align: center;">TI y Telecomunicaciones lideran el gasto macrosectorial con un 42.8%.</p>
           </div>
@@ -547,7 +545,7 @@
             <table style="width: 100%; border-collapse: collapse; font-size: 0.85em; text-align: left; color: var(--text);">
               <thead>
                 <tr style="background: var(--acento-suave); border-bottom: 2px solid var(--borde); color: var(--acento);">
-                  <th style="padding: 10px 12px; border-right: 1px solid var(--borde);">Categoría / Sector</th>
+                  <th style="padding: 10px 12px; border-right: 1px solid var(--borde);">Categoría / Rubro</th>
                   <th style="padding: 10px 12px; border-right: 1px solid var(--borde);">Tipo de Mercado</th>
                   <th style="padding: 10px 12px; border-right: 1px solid var(--borde);">Proveedores</th>
                   <th style="padding: 10px 12px; border-right: 1px solid var(--borde);">Gasto / Proveedor</th>
