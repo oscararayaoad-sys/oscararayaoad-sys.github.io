@@ -3,10 +3,49 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Oscar Araya Díaz — Data Analyst Portfolio</title>
-  <meta name="description" content="Data Analyst portfolio of Oscar Araya Díaz specializing in Python, SQL, and Power BI.">
+  
+  <!-- SEO & Open Graph Metadata -->
+  <title>Oscar Araya Díaz — Data Analyst</title>
+  <meta name="description" content="Data Analyst specializing in Python, SQL, and Power BI. End-to-end data projects, from cleaning and pipelines to visualization.">
+  <meta property="og:title" content="Oscar Araya Díaz — Data Analyst">
+  <meta property="og:description" content="Explore data science and analytics projects: Coffee Shop Analytics, Central Bank Inflation Pipeline, and Chilean Public Procurement Analysis.">
+  <meta property="og:image" content="https://raw.githubusercontent.com/oscararayaoad-sys/dashboard-and-analysis-coffeeshop/main/img/dashboard_preview.png">
+  <meta property="og:url" content="https://oscararayaoad-sys.github.io">
+  <meta property="og:type" content="profile">
+
+  <!-- Twitter Cards Metadata -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Oscar Araya Díaz — Data Analyst">
+  <meta name="twitter:description" content="Data Analyst specializing in Python, SQL, and Power BI. End-to-end data projects, from cleaning and pipelines to visualization.">
+  <meta name="twitter:image" content="https://raw.githubusercontent.com/oscararayaoad-sys/dashboard-and-analysis-coffeeshop/main/img/dashboard_preview.png">
+
+  <!-- Structured Data (Schema.org) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Oscar Araya Díaz",
+    "jobTitle": "Data Analyst",
+    "url": "https://oscararayaoad-sys.github.io",
+    "sameAs": [
+      "https://www.linkedin.com/in/oscar-araya-diaz-7a418a170",
+      "https://github.com/oscararayaoad-sys"
+    ],
+    "knowsAbout": ["Python", "SQL", "Power BI", "Data Analytics", "Data Visualization", "ETL Pipelines"]
+  }
+  </script>
+
+  <!-- Prism.js CSS para resaltado de sintaxis -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+
   <style>
+    /* Tipografía y Jerarquía Limpia & Scroll Suave */
+    html {
+      scroll-behavior: smooth;
+    }
+
     :root {
+      --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       --bg: #1a1a1a;
       --card: #262626;
       --text: #e8e8e8;
@@ -15,6 +54,8 @@
       --acento-suave: #3a3a3a;
       --borde: #333;
     }
+
+    /* Modo Claro Automático */
     @media (prefers-color-scheme: light) {
       :root {
         --bg: #f8fafc;
@@ -26,18 +67,34 @@
         --borde: #e2e8f0;
       }
     }
+
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-family: var(--font-main);
       max-width: 800px;
       margin: 40px auto 80px;
       padding: 0 20px;
       line-height: 1.7;
       color: var(--text);
       background: var(--bg);
+      transition: background 0.3s ease, color 0.3s ease;
     }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background: url("fondo.jpg") center/cover no-repeat;
+      opacity: 0.15;
+    }
+
     .hero { padding: 24px 0 40px; border-bottom: 1px solid var(--borde); margin-bottom: 8px; }
     .hero h1 { font-size: 2.6em; line-height: 1.15; margin: 0 0 16px; letter-spacing: -0.5px; }
     .hero .sub { color: var(--muted); margin: 0 0 24px; font-size: 1.05em; }
+    .intro { margin: 20px 0 10px; }
+    h2 { margin-top: 64px; border-bottom: 2px solid var(--acento); padding-bottom: 6px; }
+    
+    /* Microinteracciones en Botones */
     .btn {
       display: inline-block;
       background: var(--acento);
@@ -47,24 +104,43 @@
       font-size: 0.95em;
       padding: 10px 20px;
       border-radius: 8px;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     }
+    .btn:hover {
+      opacity: 0.9;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+    }
+    .btn:active {
+      transform: translateY(-1px);
+    }
+
+    /* Grid Visual para Proyectos */
     .projects-grid {
       display: grid;
       grid-template-columns: 1fr;
       gap: 32px;
       margin-top: 32px;
     }
-    .proyecto-card {
+
+    /* Tarjetas de Proyectos */
+    .proyecto {
       border: 1px solid var(--borde);
       border-radius: 12px;
       padding: 32px;
       background: var(--card);
-      transition: all 0.3s ease;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15), 0 8px 24px rgba(0,0,0,0.1);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      margin-bottom: 32px;
     }
-    .proyecto-card:hover {
+    .proyecto:hover {
       border-color: var(--acento);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3), 0 16px 40px rgba(0,0,0,0.15);
       transform: translateY(-4px);
     }
+    .proyecto h3 { margin-top: 0; }
+
+    /* Badges de Stack Técnico */
     .stack { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; padding: 0; list-style: none; }
     .stack span {
       background: var(--acento-suave);
@@ -73,58 +149,564 @@
       padding: 4px 10px;
       border-radius: 999px;
       font-weight: 500;
+      transition: background 0.2s ease;
     }
-    a { color: var(--acento); text-decoration: underline; }
+    .stack span:hover {
+      background: var(--acento);
+      color: var(--bg);
+    }
+
+    /* Enlaces Generales */
+    a {
+      color: var(--acento);
+      text-decoration: underline;
+      transition: opacity 0.2s ease, color 0.2s ease;
+    }
+    a:hover { opacity: 0.75; }
+
+    a:focus-visible, button:focus-visible, input:focus-visible {
+      outline: 2px solid var(--acento);
+      outline-offset: 3px;
+    }
+
     .contacto a { margin-right: 12px; }
-    footer { margin-top: 40px; color: var(--muted); font-size: 0.9em; }
+    footer { margin-top: 40px; color: var(--muted); font-size: 0.9em; display: flex; justify-content: space-between; align-items: center; }
+    
+    .project-img { width: 100%; border-radius: 8px; border: 1px solid var(--borde); margin: 16px 0; display: block; transition: transform 0.3s ease; }
+    .project-img:hover { transform: scale(1.01); }
+    .img-caption { color: var(--muted); font-size: 0.85em; text-align: center; margin: 4px 0 20px; }
+
+    /* Zoomable Images (Modal Gallery) */
+    .zoomable {
+      cursor: zoom-in;
+    }
+    #image-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(4px);
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+    #image-modal img {
+      max-width: 90%;
+      max-height: 90vh;
+      border-radius: 8px;
+      border: 1px solid var(--borde);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+    }
+
+    /* Botón flotante rectangular con texto */
+    .floating-top {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--card);
+      color: var(--acento);
+      border: 1px solid var(--borde);
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-size: 0.9em;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      transition: all 0.25s ease;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .floating-top:hover {
+      background: var(--acento);
+      color: var(--bg);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+      opacity: 1;
+    }
   </style>
 </head>
-<body>
+<body id="top">
   <header class="hero">
+    <div style="font-size: 0.9em; margin-bottom: 16px; color: var(--muted);">
+      <strong>EN</strong> · <a href="es.html" style="text-decoration: none;" aria-label="Cambiar idioma a Español">ES (Español)</a>
+    </div>
+
     <h1>Your business in your hands.</h1>
     <p class="sub">Oscar Araya Díaz · Data Analyst · Python &amp; SQL · Santiago, Chile 🇨🇱</p>
-    <a href="CV_Oscar_Araya_Diaz.pdf" target="_blank" rel="noopener" class="btn">Download CV ↓</a>
+    <a href="CV_Oscar_Araya_Diaz.pdf" target="_blank" rel="noopener" class="btn" aria-label="Download CV in PDF format">Download CV ↓</a>
   </header>
 
   <main>
     <p class="intro">
-      Focused on helping businesses take control of their decisions. I build end-to-end data projects: from extracting and cleaning real-world data to analysis, visualization, and automation.
+      Focused on helping business to take control on their desicions. My motto is "Your business in your hands". I ask the right questions to uncover the most impactful insights. I build end-to-end data projects: from extracting and cleaning real-world data to analysis, visualization, and automation.
     </p>
 
     <p class="contacto">
-      <a href="mailto:oscar.araya.oad@gmail.com">Email</a>
+      <a href="#" onclick="navigator.clipboard.writeText('oscar.araya.oad@gmail.com'); alert('Email copied to clipboard!'); return false;" aria-label="Send email to Oscar Araya">Email</a>
+      <a href="https://github.com/oscararayaoad-sys" target="_blank" rel="noopener" aria-label="Visit Oscar Araya GitHub profile">GitHub</a>
+      <a href="https://www.linkedin.com/in/oscar-araya-diaz-7a418a170" target="_blank" rel="noopener" aria-label="Visit Oscar Araya LinkedIn profile">LinkedIn</a>
+    </p>
+
+    <h2>Projects</h2>
+
+    <div class="projects-grid">
+      
+      <!-- Proyecto 1: Coffee Shop -->
+      <article class="proyecto">
+        
+        <!-- 1. TÍTULO Y STACK -->
+        <h3>Coffee Shop Business Performance & Customer Insights</h3>
+        <p class="stack">
+          <span>Python</span><span>pandas</span><span>Matplotlib</span><span>Seaborn</span><span>Power BI</span>
+        </p>
+        <p>
+          A comprehensive data analysis of sales performance and customer behavior focused on optimizing the business strategy and profitability of a coffee shop using Python and Power BI.
+        </p>
+
+        <!-- 2. SLICER DE DATOS TIPO TABLA EXCEL -->
+        <div style="margin: 24px 0; padding: 20px; background: var(--bg); border: 1px solid var(--borde); border-radius: 12px; box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);">
+          <h4 style="margin: 0 0 6px 0; font-size: 1.1em; color: var(--text);">Data Pipeline Transformation Slicer</h4>
+          <p style="font-size: 0.88em; color: var(--muted); margin: 0 0 20px 0;">
+            Select pipeline state to interactively inspect how chaotic raw ingestion filled with anomalies transforms into a pristine model.
+          </p>
+          
+          <!-- Botones Estilo Segmentador -->
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px;">
+            <button id="btn-raw" onclick="switchDataState('raw')" style="padding: 12px 16px; font-weight: 600; font-size: 0.9em; border-radius: 8px; border: 2px solid #e06c75; background: #ffeef0; color: #c53030; cursor: pointer; transition: all 0.2s ease; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 2px 6px rgba(197, 48, 48, 0.15);">
+              <span>⚠️</span> Raw Ingestion (Dirty)
+            </button>
+            <button id="btn-clean" onclick="switchDataState('clean')" style="padding: 12px 16px; font-weight: 600; font-size: 0.9em; border-radius: 8px; border: 2px solid var(--borde); background: var(--card); color: var(--muted); cursor: pointer; transition: all 0.2s ease; display: flex; align-items: center; justify-content: center; gap: 8px;">
+              <span>✨</span> Production Model (Clean)
+            </button>
+          </div>
+
+          <!-- Panel de Tarjetas de Métricas Visuales -->
+          <div id="metrics-panel" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 20px; text-align: center; font-size: 0.85em;">
+            <div id="card-status" style="background: #ffeef0; border: 1px solid #fbd5d5; padding: 10px; border-radius: 8px; transition: all 0.3s ease;">
+              <span style="display: block; color: var(--muted); font-size: 0.75em; text-transform: uppercase; letter-spacing: 0.5px;">Pipeline Status</span>
+              <span id="metric-status" style="font-weight: bold; color: #c53030; font-size: 0.95em;">Raw Ingestion</span>
+            </div>
+            <div id="card-nulls" style="background: #ffeef0; border: 1px solid #fbd5d5; padding: 10px; border-radius: 8px; transition: all 0.3s ease;">
+              <span style="display: block; color: var(--muted); font-size: 0.75em; text-transform: uppercase; letter-spacing: 0.5px;">Anomalies Detected</span>
+              <span id="metric-nulls" style="font-weight: bold; color: #c53030; font-size: 0.95em;">10 Critical Errors</span>
+            </div>
+            <div id="card-integrity" style="background: #ffeef0; border: 1px solid #fbd5d5; padding: 10px; border-radius: 8px; transition: all 0.3s ease;">
+              <span style="display: block; color: var(--muted); font-size: 0.75em; text-transform: uppercase; letter-spacing: 0.5px;">Data Integrity</span>
+              <span id="metric-integrity" style="font-weight: bold; color: #c53030; font-size: 0.95em;">42.8%</span>
+            </div>
+          </div>
+        
+          <!-- Cuadrícula tipo Excel Demostrativa -->
+          <div style="overflow-x: auto; border: 1px solid var(--borde); border-radius: 8px; background: #fff; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+            <div id="table-state-msg" style="padding: 10px 14px; font-size: 0.9em; font-weight: 600; background: #ffeef0; color: #c53030; border-bottom: 1px solid var(--borde); display: flex; align-items: center; gap: 6px;">
+              <span>🚨</span> [State: Raw Dataset] - Extreme corruption: NaN values, negative prices, duplicate IDs, typos and format breaks.
+            </div>
+            <table style="width: 100%; border-collapse: collapse; font-family: monospace; font-size: 0.95em; text-align: left; color: #1e293b; white-space: nowrap;">
+              <thead>
+                <tr style="background: #f1f5f9; border-bottom: 2px solid #cbd5e1;">
+                  <th style="padding: 10px 12px; border-right: 1px solid #e2e8f0;">tx_id</th>
+                  <th style="padding: 10px 12px; border-right: 1px solid #e2e8f0;">timestamp</th>
+                  <th style="padding: 10px 12px; border-right: 1px solid #e2e8f0;">item</th>
+                  <th style="padding: 10px 12px; border-right: 1px solid #e2e8f0;">price</th>
+                  <th style="padding: 10px 12px; border-right: 1px solid #e2e8f0;">payment</th>
+                  <th style="padding: 10px 12px; border-right: 1px solid #e2e8f0;">store_loc</th>
+                  <th style="padding: 10px 12px;">customer_id</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid #e2e8f0;">
+                  <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">TX1001</td>
+                  <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">2026-01-01 08:30</td>
+                  <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">Latte</td>
+                  <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">3.50</td>
+                  <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">Credit</td>
+                  <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">Downtown</td>
+                  <td style="padding: 8px 12px;">C-4091</td>
+                </tr>
+                <tr id="row-2" style="border-bottom: 1px solid #e2e8f0; background: #fff5f5; transition: background 0.3s ease;">
+                  <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">TX1002</td>
+                  <td id="cell-timestamp" style="padding: 8px 12px; border-right: 1px solid #e2e8f0; color: #c53030; font-weight: bold; transition: all 0.3s ease;">MISSING_DATE</td>
+                  <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">Espresso</td>
+                  <td id="cell-price" style="padding: 8px 12px; border-right: 1px solid #e2e8f0; color: #c53030; font-weight: bold; transition: all 0.3s ease;">ERROR_NaN</td>
+                  <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">Debit</td>
+                  <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">Downtown</td>
+                  <td style="padding: 8px 12px;">C-8812</td>
+                </tr>
+                <tr id="row-3" style="border-bottom: 1px solid #e2e8f0; background: #fff5f5; transition: background 0.3s ease;">
+                  <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">TX1003</td>
+                  <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">01/01/2026 09:15</td>
+                  <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">Croissant</td>
+                  <td id="cell-price2" style="padding: 8px 12px; border-right: 1px solid #e2e8f0; background: #fff5f5; color: #c53030; font-weight: bold; transition: all 0.3s ease;">-99.99</td>
+                  <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">Cash</td>
+                  <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">Airport</td>
+                  <td style="padding: 8px 12px;">C-1029</td>
+                </tr>
+                <tr id="row-4" style="border-bottom: 1px solid #e2e8f0; background: #fff5f5; transition: background 0.3s ease;">
+                  <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">TX1004</td>
+                  <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">2026.01.01</td>
+                  <td id="cell-item" style="padding: 8px 12px; border-right: 1px solid #e2e8f0; color: #c53030; font-weight: bold; background: #fff5f5; transition: all 0.3s ease;">   M#cha   </td>
+                  <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">4.00</td>
+                  <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">Credit</td>
+                  <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">Downtown</td>
+                  <td style="padding: 8px 12px;">C-3304</td>
+                </tr>
+                <tr id="row-5" style="border-bottom: 1px solid #e2e8f0; background: #fff5f5; transition: background 0.3s ease;">
+                  <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">TX1001</td>
+                  <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">2026-01-01 10:20</td>
+                  <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">Muffin</td>
+                  <td id="cell-price3" style="padding: 8px 12px; border-right: 1px solid #e2e8f0; color: #c53030; font-weight: bold; background: #fff5f5; transition: all 0.3s ease;">FREE_PROMO</td>
+                  <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">Cash</td>
+                  <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">Airport</td>
+                  <td style="padding: 8px 12px;">C-5012</td>
+                </tr>
+                <tr id="row-6" style="border-bottom: 1px solid #e2e8f0; background: #fff5f5; transition: background 0.3s ease;">
+                  <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">TX1006</td>
+                  <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">2026-01-01 11:05</td>
+                  <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">Cappuccino</td>
+                  <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">3.75</td>
+                  <td id="cell-payment" style="padding: 8px 12px; border-right: 1px solid #e2e8f0; color: #c53030; font-weight: bold; background: #fff5f5; transition: all 0.3s ease;">???_UNKNOWN</td>
+                  <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">Downtown</td>
+                  <td style="padding: 8px 12px;">C-9921</td>
+                </tr>
+                <tr id="row-7" style="border-bottom: 1px solid #e2e8f0; background: #fff5f5; transition: background 0.3s ease;">
+                  <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">TX1007</td>
+                  <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">2026-01-01 11:40</td>
+                  <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">Tea</td>
+                  <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">2.00</td>
+                  <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">Credit</td>
+                  <td id="cell-loc" style="padding: 8px 12px; border-right: 1px solid #e2e8f0; color: #c53030; font-weight: bold; background: #fff5f5; transition: all 0.3s ease;">ERROR_404</td>
+                  <td id="cell-cust" style="padding: 8px 12px; color: #c53030; font-weight: bold; background: #fff5f5; transition: all 0.3s ease;">NULL_USER</td>
+                </tr>
+                <tr id="row-8" style="background: #fff5f5; transition: background 0.3s ease;">
+                  <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">TX1008</td>
+                  <td id="cell-date8" style="padding: 8px 12px; border-right: 1px solid #e2e8f0; color: #c53030; font-weight: bold; background: #fff5f5; transition: all 0.3s ease;">BAD_DATE_FORMAT</td>
+                  <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">Americano</td>
+                  <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">2.80</td>
+                  <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">Debit</td>
+                  <td style="padding: 8px 12px; border-right: 1px solid #e2e8f0;">Downtown</td>
+                  <td style="padding: 8px 12px;">C-2290</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- 3. VENTANA DE DASHBOARD -->
+        <div style="margin: 24px 0; padding: 16px; background: var(--bg); border: 2px solid var(--acento); border-radius: 8px;">
+          <h4 style="margin: 0 0 8px 0; font-size: 1.1em; color: var(--text);">Final Interactive Dashboard (Power BI)</h4>
+          <p style="font-size: 0.85em; color: var(--muted); margin: 0 0 12px 0;">
+            Consolidated business intelligence view designed for executive decision-making and operational control.
+          </p>
+
+          <img src="https://raw.githubusercontent.com/oscararayaoad-sys/dashboard-and-analysis-coffeeshop/main/assets/dashboard_demo_coffeeshop.gif" alt="Power BI Dashboard Demo GIF showing business performance and metrics" class="zoomable" style="width: 100%; border-radius: 6px; border: 1px solid var(--borde); margin-bottom: 12px;">
+          
+          <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.9em; flex-wrap: wrap; gap: 12px;">
+            <a href="https://github.com/oscararayaoad-sys/dashboard-and-analysis-coffeeshop" target="_blank" rel="noopener">View Code on GitHub →</a>
+            <a href="dashboard/03_dashboard_coffeeshop.pbix" download class="btn" style="padding: 6px 14px; font-size: 0.85em;">Download Power BI (.pbix) ↓</a>
+          </div>
+        </div>
+
+        <!-- 4. ANÁLISIS RESPALDADO POR GRÁFICOS -->
+        <h4 style="margin: 28px 0 12px 0; font-size: 1.1em; border-bottom: 1px solid var(--borde); padding-bottom: 4px;">Chart-Backed Analysis</h4>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-bottom: 24px;">
+          
+          <div style="background: var(--bg); border: 1px solid var(--borde); border-radius: 8px; padding: 12px; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <h5 style="margin: 0 0 8px 0; font-size: 0.9em; text-align: center; color: var(--text);">BCG Matrix (Portfolio)</h5>
+              <img src="https://raw.githubusercontent.com/oscararayaoad-sys/dashboard-and-analysis-coffeeshop/main/assets/grafico_6.png" alt="BCG Matrix product portfolio analysis chart" class="zoomable" style="width: 100%; border-radius: 4px; border: 1px solid var(--borde);">
+            </div>
+            <p style="font-size: 0.8em; color: var(--muted); margin: 8px 0 0 0; text-align: center;">Products categorized by profitability and sales volume.</p>
+          </div>
+
+          <div style="background: var(--bg); border: 1px solid var(--borde); border-radius: 8px; padding: 12px; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <h5 style="margin: 0 0 8px 0; font-size: 0.9em; text-align: center; color: var(--text);">Time-of-Day Demand</h5>
+              <img src="https://raw.githubusercontent.com/oscararayaoad-sys/dashboard-and-analysis-coffeeshop/main/assets/grafico_1.png" alt="Time of Day Demand chart showing customer traffic patterns" class="zoomable" style="width: 100%; border-radius: 4px; border: 1px solid var(--borde);">
+            </div>
+            <p style="font-size: 0.8em; color: var(--muted); margin: 8px 0 0 0; text-align: center;">Identification of bimodal operational peaks.</p>
+          </div>
+
+          <div style="background: var(--bg); border: 1px solid var(--borde); border-radius: 8px; padding: 12px; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <h5 style="margin: 0 0 8px 0; font-size: 0.9em; text-align: center; color: var(--text);">Service Channel</h5>
+              <img src="https://raw.githubusercontent.com/oscararayaoad-sys/dashboard-and-analysis-coffeeshop/main/assets/grafico_3.png" alt="Service Channel consumption preference chart" class="zoomable" style="width: 100%; border-radius: 4px; border: 1px solid var(--borde);">
+            </div>
+            <p style="font-size: 0.8em; color: var(--muted); margin: 8px 0 0 0; text-align: center;">In-store vs. takeaway consumption preference.</p>
+          </div>
+
+          <div style="background: var(--bg); border: 1px solid var(--borde); border-radius: 8px; padding: 12px; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <h5 style="margin: 0 0 8px 0; font-size: 0.9em; text-align: center; color: var(--text);">Payment Methods</h5>
+              <img src="https://raw.githubusercontent.com/oscararayaoad-sys/dashboard-and-analysis-coffeeshop/main/assets/grafico_4.png" alt="Payment Methods adoption distribution chart" class="zoomable" style="width: 100%; border-radius: 4px; border: 1px solid var(--borde);">
+            </div>
+            <p style="font-size: 0.8em; color: var(--muted); margin: 8px 0 0 0; text-align: center;">Digital payment adoption exceeding 85%.</p>
+          </div>
+
+        </div>
+
+        <!-- 5. RESUMEN EJECUTIVO -->
+        <div style="margin: 24px 0; padding: 16px; background: var(--bg); border: 1px solid var(--borde); border-radius: 8px;">
+          <h4 style="margin: 0 0 8px 0; font-size: 1em; color: var(--text);">Executive Summary (PDF Report)</h4>
+          <p style="font-size: 0.85em; color: var(--muted); margin: 0 0 12px 0;">
+            Optimizing staff rosters around peak hours and reallocating inventory to "Star" items increases estimated net margins by 14%.
+          </p>
+          
+          <div style="background: var(--card); border: 1px solid var(--borde); border-left: 4px solid var(--acento); padding: 12px 16px; margin-bottom: 12px; border-radius: 6px; font-size: 0.95em;">
+            <strong>💡 Key Finding:</strong> Peak demand hours account for <strong>47.5% of total sales</strong>, selling 2.04 times more than off-peak hours.
+          </div>
+          
+          <div style="border: 1px solid var(--borde); border-radius: 6px; overflow: hidden; background: #fff;">
+            <iframe src="https://docs.google.com/gview?url=https://raw.githubusercontent.com/oscararayaoad-sys/dashboard-and-analysis-coffeeshop/main/reports/executive_summary.pdf&embedded=true" width="100%" height="220px" style="border: none;" title="Executive Summary PDF Preview"></iframe>
+          </div>
+        </div>
+
+      </article>
+
+      <!-- Proyecto 2: Pipeline ETL de Inflación — Banco Central de Chile -->
+      <article class="proyecto">
+        <h3>Pipeline ETL de Inflación — Banco Central de Chile</h3>
+        <p class="stack">
+          <span>Python</span><span>requests</span><span>pandas</span><span>PostgreSQL</span><span>SQLAlchemy</span><span>Power BI</span>
+        </p>
+        <p>
+          Pipeline de datos automatizado de extremo a extremo que extrae las series UF e IPC desde la API del Banco Central de Chile, las procesa, las almacena en una base de datos con carga idempotente, y se visualiza en un dashboard interactivo de Power BI.
+        </p>
+
+        <!-- Arquitectura / Visual -->
+        <div style="margin: 24px 0; padding: 16px; background: var(--bg); border: 1px solid var(--borde); border-radius: 8px;">
+          <h4 style="margin: 0 0 8px 0; font-size: 1.1em; color: var(--text);">Dashboard & Arquitectura ETL</h4>
+          <p style="font-size: 0.85em; color: var(--muted); margin: 0 0 12px 0;">
+            Visualización del impacto inflacionario y diagrama de orquestación mensual sin intervención humana.
+          </p>
+
+          <img src="docs/dashboard-inflacion-bcch.png" alt="Dashboard de inflación BCCh" class="zoomable" style="width: 100%; border-radius: 6px; border: 1px solid var(--borde); margin-bottom: 12px;">
+
+          <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.9em; flex-wrap: wrap; gap: 12px;">
+            <a href="https://github.com/oscararayaoad-sys/bcch-inflacion-pipeline" target="_blank" rel="noopener">View Code on GitHub →</a>
+          </div>
+        </div>
+
+        <!-- Hallazgo clave -->
+        <div style="margin: 24px 0; padding: 16px; background: var(--bg); border: 1px solid var(--borde); border-radius: 8px;">
+          <h4 style="margin: 0 0 8px 0; font-size: 1em; color: var(--text);">Hallazgos Clave</h4>
+          <div style="background: var(--card); border: 1px solid var(--borde); border-left: 4px solid var(--acento); padding: 12px 16px; border-radius: 6px; font-size: 0.95em;">
+            <strong>💡 Key Finding:</strong> Entre enero 2015 y diciembre 2025, el peso perdió cerca del <strong>38% de su poder de compra</strong>, mientras que la UF se solapó casi de forma idéntica con el IPC (~160 vs ~162), confirmando empíricamente que la UF blinda el valor frente a la inflación.
+          </div>
+        </div>
+      </article>
+
+      <!-- Proyecto 3: Análisis del Gasto Público en Mercado Público de Chile -->
+<article class="proyecto">
+  <h3>Análisis del Gasto Público en Mercado Público de Chile</h3>
+  <p class="stack">
+    <span>Python</span><span>pandas</span><span>NumPy</span><span>Matplotlib</span><span>Seaborn</span><span>Power BI</span>
+  </p>
+  <p>
+    Análisis exploratorio de datos (EDA) de ~1,1 millones de órdenes de compra pública para identificar patrones de gasto, concentración geográfica y nichos accesibles para proveedores.
+  </p>
+
+  <!-- 1. DASHBOARD -->
+  <div style="margin: 24px 0; padding: 16px; background: var(--bg); border: 2px solid var(--acento); border-radius: 8px;">
+    <h4 style="margin: 0 0 8px 0; font-size: 1.1em; color: var(--text);">Final Interactive Dashboard (Power BI)</h4>
+    <p style="font-size: 0.85em; color: var(--muted); margin: 0 0 12px 0;">
+      Interactive assessment of state resource allocation and regional/sectoral distribution.
+    </p>
+
+    <img src="https://raw.githubusercontent.com/oscararayaoad-sys/mercado-publico-eda/assets/dasbhboard_demo_mercado_publico_eda.gif" alt="Demo interactiva del Dashboard de Mercado Público en Power BI" class="zoomable" style="width: 100%; border-radius: 6px; border: 1px solid var(--borde); margin-bottom: 12px;">
+    
+    <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.9em; flex-wrap: wrap; gap: 12px;">
+      <a href="https://github.com/oscararayaoad-sys/mercado-publico-chile-eda" target="_blank" rel="noopener">View Code on GitHub →</a>
+      <a href="dashboard/mercado_publico.pbix" download class="btn" style="padding: 6px 14px; font-size: 0.85em;">Download Power BI (.pbix) ↓</a>
+    </div>
+  </div>
+
+<!-- 2. DATA CLEANING & KEY DECISIONS -->
+  <div style="margin: 24px 0; padding: 16px; background: var(--bg); border: 1px solid var(--borde); border-radius: 8px;">
+    <h4 style="margin: 0 0 12px 0; font-size: 1.05em; color: var(--text);">Data Cleaning & Key Decisions</h4>
+    <ul style="margin: 0; padding-left: 20px; font-size: 0.9em; color: var(--muted); line-height: 1.6;">
+      <li><strong style="color: var(--text);">Line-level Granularity:</strong> Analyzed line item net totals (<code>totalLineaNeto</code>) instead of total order amounts (<code>MontoTotalOC</code>) to prevent double counting.</li>
+      <li><strong style="color: var(--text);">Currency & VAT Reconciliation:</strong> Verified 99.4% CLP transactions and identified the ~2x gap as VAT (gross vs. net).</li>
+      <li><strong style="color: var(--text);">Label Normalization (32 labels to 16 regions):</strong> Standardized naming inconsistencies using Unicode normalization and regex.</li>
+      <li><strong style="color: var(--text);">Pedagogical Principle:</strong> Deep diagnosis of raw data anomalies prior to applying automated transformations.</li>
+    </ul>
+  </div>
+
+  <!-- 3. ANALYSIS & KEY INSIGHTS -->
+  <div style="margin: 24px 0; padding: 16px; background: var(--bg); border: 1px solid var(--borde); border-radius: 8px;">
+    <h4 style="margin: 0 0 12px 0; font-size: 1.05em; color: var(--text);">Analysis & Key Insights</h4>
+    <ul style="margin: 0 0 16px 0; padding-left: 20px; font-size: 0.9em; color: var(--muted); line-height: 1.6;">
+      <li><strong style="color: var(--text);">Agency Concentration:</strong> JUNAEB and CENABAST account for ~30% of total spending; the Top 10 agencies reach ~42%.</li>
+      <li><strong style="color: var(--text);">Geographic Centralization:</strong> The Metropolitan Region absorbs ~62% of the public budget.</li>
+      <li><strong style="color: var(--text);">Concentration Metric (<code>pct_lider</code>):</strong> Custom metric engineered to measure the market share captured by the leading supplier.</li>
+    </ul>
+
+    <div style="background: var(--card); border: 1px solid var(--borde); border-left: 4px solid var(--acento); padding: 12px 16px; border-radius: 6px; font-size: 0.9em;">
+      <strong>💡 Key Finding:</strong> "Few suppliers" does NOT equal opportunity. High-spending niches with few suppliers turned out to be <strong>captive markets</strong> with steep entry barriers. True opportunities reside in high-spending markets with medium competition and a weak leader (&lt;50%).
+    </div>
+  </div>
+</article>
+
+    </div>
+
+    <h2>Contact</h2>
+    <p class="contacto">
+      <a href="#" onclick="navigator.clipboard.writeText('oscar.araya.oad@gmail.com'); alert('Email copied to clipboard!'); return false;">Email</a>
       <a href="https://github.com/oscararayaoad-sys" target="_blank" rel="noopener">GitHub</a>
       <a href="https://www.linkedin.com/in/oscar-araya-diaz-7a418a170" target="_blank" rel="noopener">LinkedIn</a>
     </p>
-
-    <h2>Featured Projects</h2>
-
-    <div class="projects-grid">
-      <article class="proyecto-card">
-        <h3>1. Coffee Shop Business Performance & Customer Insights</h3>
-        <p class="stack"><span>Python</span><span>pandas</span><span>Matplotlib</span><span>Seaborn</span><span>Power BI</span></p>
-        <p>A comprehensive data analysis of sales performance and customer behavior focused on optimizing business strategy and profitability using Python and Power BI.</p>
-        <p><a href="project_coffee_shop.html">View Detailed Project Page →</a></p>
-      </article>
-
-      <article class="proyecto-card">
-        <h3>2. Pipeline ETL de Inflación — Banco Central de Chile</h3>
-        <p class="stack"><span>Python</span><span>requests</span><span>pandas</span><span>PostgreSQL</span><span>SQLAlchemy</span><span>Power BI</span></p>
-        <p>Pipeline de datos automatizado de extremo a extremo que extrae las series UF e IPC desde la API del Banco Central de Chile, las almacena e integra en Power BI.</p>
-        <p><a href="project_bcch_inflation.html">View Detailed Project Page →</a></p>
-      </article>
-
-      <article class="proyecto-card">
-        <h3>3. Análisis del Gasto Público en Mercado Público de Chile</h3>
-        <p class="stack"><span>Python</span><span>pandas</span><span>NumPy</span><span>Matplotlib</span><span>Seaborn</span><span>Power BI</span></p>
-        <p>Análisis exploratorio de datos (EDA) de ~1,1 millones de órdenes de compra pública para identificar patrones de gasto y concentración geográfica.</p>
-        <p><a href="project_mercado_publico.html">View Detailed Project Page →</a></p>
-      </article>
-    </div>
   </main>
 
-  <footer>
-    <p>&copy; 2026 Oscar Araya Díaz. All rights reserved.</p>
-  </footer>
+  <a href="#top" class="floating-top">Top ↑</a>
+
+  <div id="image-modal" onclick="this.style.display='none'">
+    <img id="modal-img" src="" alt="Amplified view">
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-sql.min.js"></script>
+  <script>
+    function switchDataState(state) {
+      const btnRaw = document.getElementById('btn-raw');
+      const btnClean = document.getElementById('btn-clean');
+      
+      const cardStatus = document.getElementById('card-status');
+      const cardNulls = document.getElementById('card-nulls');
+      const cardIntegrity = document.getElementById('card-integrity');
+
+      const statusEl = document.getElementById('metric-status');
+      const nullsEl = document.getElementById('metric-nulls');
+      const integrityEl = document.getElementById('metric-integrity');
+      const tableMsg = document.getElementById('table-state-msg');
+      
+      const row2 = document.getElementById('row-2');
+      const cellTimestamp = document.getElementById('cell-timestamp');
+      const cellPrice = document.getElementById('cell-price');
+
+      const row3 = document.getElementById('row-3');
+      const cellPrice2 = document.getElementById('cell-price2');
+
+      const row4 = document.getElementById('row-4');
+      const cellItem = document.getElementById('cell-item');
+
+      const row5 = document.getElementById('row-5');
+      const cellPrice3 = document.getElementById('cell-price3');
+
+      const row6 = document.getElementById('row-6');
+      const cellPayment = document.getElementById('cell-payment');
+
+      const row7 = document.getElementById('row-7');
+      const cellLoc = document.getElementById('cell-loc');
+      const cellCust = document.getElementById('cell-cust');
+
+      const row8 = document.getElementById('row-8');
+      const cellDate8 = document.getElementById('cell-date8');
+
+      if (state === 'raw') {
+        btnRaw.style.border = '2px solid #e06c75';
+        btnRaw.style.background = '#ffeef0';
+        btnRaw.style.color = '#c53030';
+        btnRaw.style.boxShadow = '0 2px 6px rgba(197, 48, 48, 0.15)';
+
+        btnClean.style.border = '2px solid var(--borde)';
+        btnClean.style.background = 'var(--card)';
+        btnClean.style.color = 'var(--muted)';
+        btnClean.style.boxShadow = 'none';
+
+        cardStatus.style.background = '#ffeef0'; cardStatus.style.borderColor = '#fbd5d5';
+        cardNulls.style.background = '#ffeef0'; cardNulls.style.borderColor = '#fbd5d5';
+        cardIntegrity.style.background = '#ffeef0'; cardIntegrity.style.borderColor = '#fbd5d5';
+
+        statusEl.textContent = 'Raw Ingestion'; statusEl.style.color = '#c53030';
+        nullsEl.textContent = '10 Critical Errors'; nullsEl.style.color = '#c53030';
+        integrityEl.textContent = '42.8%'; integrityEl.style.color = '#c53030';
+        
+        tableMsg.innerHTML = '<span>🚨</span> [State: Raw Dataset] - Extreme corruption: NaN values, negative prices, duplicate IDs, typos and format breaks.';
+        tableMsg.style.background = '#ffeef0';
+        tableMsg.style.color = '#c53030';
+        
+        row2.style.background = '#fff5f5';
+        cellTimestamp.textContent = 'MISSING_DATE'; cellTimestamp.style.color = '#c53030'; cellTimestamp.style.fontWeight = 'bold';
+        cellPrice.textContent = 'ERROR_NaN'; cellPrice.style.color = '#c53030'; cellPrice.style.fontWeight = 'bold';
+
+        row3.style.background = '#fff5f5';
+        cellPrice2.textContent = '-99.99'; cellPrice2.style.background = '#fff5f5'; cellPrice2.style.color = '#c53030'; cellPrice2.style.fontWeight = 'bold';
+
+        row4.style.background = '#fff5f5';
+        cellItem.textContent = '   M#cha   '; cellItem.style.color = '#c53030'; cellItem.style.fontWeight = 'bold'; cellItem.style.background = '#fff5f5';
+
+        row5.style.background = '#fff5f5';
+        cellPrice3.textContent = 'FREE_PROMO'; cellPrice3.style.color = '#c53030'; cellPrice3.style.fontWeight = 'bold'; cellPrice3.style.background = '#fff5f5';
+
+        row6.style.background = '#fff5f5';
+        cellPayment.textContent = '???_UNKNOWN'; cellPayment.style.color = '#c53030'; cellPayment.style.fontWeight = 'bold'; cellPayment.style.background = '#fff5f5';
+
+        row7.style.background = '#fff5f5';
+        cellLoc.textContent = 'ERROR_404'; cellLoc.style.color = '#c53030'; cellLoc.style.fontWeight = 'bold'; cellLoc.style.background = '#fff5f5';
+        cellCust.textContent = 'NULL_USER'; cellCust.style.color = '#c53030'; cellCust.style.fontWeight = 'bold'; cellCust.style.background = '#fff5f5';
+
+        row8.style.background = '#fff5f5';
+        cellDate8.textContent = 'BAD_DATE_FORMAT'; cellDate8.style.color = '#c53030'; cellDate8.style.fontWeight = 'bold'; cellDate8.style.background = '#fff5f5';
+
+      } else {
+        btnRaw.style.border = '2px solid var(--borde)';
+        btnRaw.style.background = 'var(--card)';
+        btnRaw.style.color = 'var(--muted)';
+        btnRaw.style.boxShadow = 'none';
+
+        btnClean.style.border = '2px solid #38a169';
+        btnClean.style.background = '#f0fff4';
+        btnClean.style.color = '#276749';
+        btnClean.style.boxShadow = '0 2px 6px rgba(56, 161, 105, 0.15)';
+
+        cardStatus.style.background = '#f0fff4'; cardStatus.style.borderColor = '#c6f6d5';
+        cardNulls.style.background = '#f0fff4'; cardNulls.style.borderColor = '#c6f6d5';
+        cardIntegrity.style.background = '#f0fff4'; cardIntegrity.style.borderColor = '#c6f6d5';
+
+        statusEl.textContent = 'Production Model'; statusEl.style.color = '#276749';
+        nullsEl.textContent = '0 Errors'; nullsEl.style.color = '#276749';
+        integrityEl.textContent = '100%'; integrityEl.style.color = '#276749';
+        
+        tableMsg.innerHTML = '<span>✨</span> [State: Production Model] - Fully cleansed, imputed, standardized & deduplicated analytical schema.';
+        tableMsg.style.background = '#f0fff4';
+        tableMsg.style.color = '#276749';
+        
+        row2.style.background = '#ffffff';
+        cellTimestamp.textContent = '2026-01-01 08:45'; cellTimestamp.style.color = '#276749'; cellTimestamp.style.fontWeight = 'normal';
+        cellPrice.textContent = '2.50'; cellPrice.style.color = '#276749'; cellPrice.style.fontWeight = 'normal';
+
+        row3.style.background = '#ffffff';
+        cellPrice2.textContent = '2.75'; cellPrice2.style.background = '#ffffff'; cellPrice2.style.color = '#1e293b'; cellPrice2.style.fontWeight = 'normal';
+
+        row4.style.background = '#ffffff';
+        cellItem.textContent = 'Mocha'; cellItem.style.color = '#276749'; cellItem.style.fontWeight = 'normal'; cellItem.style.background = '#ffffff';
+
+        row5.style.background = '#ffffff';
+        cellPrice3.textContent = '0.00'; cellPrice3.style.color = '#276749'; cellPrice3.style.fontWeight = 'normal'; cellPrice3.style.background = '#ffffff';
+
+        row6.style.background = '#ffffff';
+        cellPayment.textContent = 'Cash'; cellPayment.style.color = '#276749'; cellPayment.style.fontWeight = 'normal'; cellPayment.style.background = '#ffffff';
+
+        row7.style.background = '#ffffff';
+        cellLoc.textContent = 'Downtown'; cellLoc.style.color = '#276749'; cellLoc.style.fontWeight = 'normal'; cellLoc.style.background = '#ffffff';
+        cellCust.textContent = 'C-7714'; cellCust.style.color = '#276749'; cellCust.style.fontWeight = 'normal'; cellCust.style.background = '#ffffff';
+
+        row8.style.background = '#ffffff';
+        cellDate8.textContent = '2026-01-01 12:10'; cellDate8.style.color = '#276749'; cellDate8.style.fontWeight = 'normal'; cellDate8.style.background = '#ffffff';
+      }
+    }
+
+    const modal = document.getElementById('image-modal');
+    const modalImg = document.getElementById('modal-img');
+    
+    document.querySelectorAll('.proyecto img.zoomable').forEach(img => {
+      img.addEventListener('click', (e) => {
+        modal.style.display = 'flex';
+        modalImg.src = e.target.src;
+      });
+    });
+  </script>
 </body>
 </html>
