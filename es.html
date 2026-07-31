@@ -614,7 +614,205 @@
           </a>
         </div>
       </article>
+      
+      <!-- Proyecto 3: Pipeline ETL Automatizado de Inflación del Banco Central -->
+      <article class="proyecto">
+        <!-- 1. TÍTULO Y BADGES DEL STACK -->
+        <h3>Pipeline ETL Automatizado de Inflación y UF del Banco Central de Chile</h3>
+        <p class="stack">
+          <span>Python</span><span>requests</span><span>pandas</span><span>PostgreSQL</span><span>SQLAlchemy</span><span>Power BI</span><span>Windows Task Scheduler</span>
+        </p>
+        <p>
+          Un pipeline de datos automatizado de extremo a extremo que extrae series del IPC y la UF desde la API REST del Banco Central de Chile (BCCh), limpia y transforma los datos, los carga de forma idempotente en PostgreSQL y visualiza la pérdida del poder adquisitivo y la protección contra la inflación en Power BI.
+        </p>
 
+        <!-- Gadget Visual: Semáforo del Pipeline ETL (Bucle Infinito) -->
+<div style="margin: 24px 0; padding: 20px; background: var(--bg); border: 1px solid var(--borde); border-radius: 12px; text-align: center;">
+  <h4 style="margin: 0 0 6px 0; font-size: 1.05em; color: var(--text);">Ciclo de Ejecución del Pipeline ETL</h4>
+  <p style="font-size: 0.85em; color: var(--muted); margin: 0 0 16px 0;">
+    Flujo de ejecución continua automatizada (haz clic o pasa el cursor para inspeccionar una etapa):
+  </p>
+
+  <!-- Cuerpo del Semáforo -->
+  <div id="traffic-light-box-es" style="display: inline-flex; flex-direction: column; gap: 14px; background: #121212; padding: 16px 20px; border-radius: 20px; border: 2px solid var(--borde); box-shadow: 0 4px 12px rgba(0,0,0,0.4);">
+    
+    <!-- Luz Roja: Extracción -->
+    <button onclick="selectStageES(0)" aria-label="Ver etapa de Extracción" style="background: none; border: none; cursor: pointer; display: flex; align-items: center; gap: 12px; outline: none;">
+      <div id="light-extract-es" style="width: 24px; height: 24px; border-radius: 50%; background: #551a1a; box-shadow: none; transition: all 0.3s ease;"></div>
+      <span style="font-family: monospace; font-size: 0.9em; font-weight: bold; color: var(--text);">1. EXTRACCIÓN (API BCCh)</span>
+    </button>
+
+    <!-- Luz Amarilla: Transformación -->
+    <button onclick="selectStageES(1)" aria-label="Ver etapa de Transformación" style="background: none; border: none; cursor: pointer; display: flex; align-items: center; gap: 12px; outline: none;">
+      <div id="light-transform-es" style="width: 24px; height: 24px; border-radius: 50%; background: #554d1a; box-shadow: none; transition: all 0.3s ease;"></div>
+      <span style="font-family: monospace; font-size: 0.9em; font-weight: bold; color: var(--text);">2. TRANSFORMACIÓN (pandas)</span>
+    </button>
+
+    <!-- Luz Verde: Carga -->
+    <button onclick="selectStageES(2)" aria-label="Ver etapa de Carga" style="background: none; border: none; cursor: pointer; display: flex; align-items: center; gap: 12px; outline: none;">
+      <div id="light-load-es" style="width: 24px; height: 24px; border-radius: 50%; background: #1a5522; box-shadow: none; transition: all 0.3s ease;"></div>
+      <span style="font-family: monospace; font-size: 0.9em; font-weight: bold; color: var(--text);">3. CARGA (PostgreSQL)</span>
+    </button>
+
+  </div>
+
+  <!-- Panel de Descripción de Etapas -->
+  <div id="traffic-light-desc-es" style="margin-top: 16px; padding: 12px; background: var(--card); border: 1px solid var(--borde); border-radius: 8px; font-size: 0.88em; color: var(--text); min-height: 48px; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;">
+    Cargando pipeline...
+  </div>
+</div>
+
+<script>
+  (function() {
+    const stages = [
+      {
+        id: 'light-extract-es',
+        color: '#ff4d4d',
+        glow: '0 0 14px #ff4d4d',
+        dim: '#551a1a',
+        text: '<strong>🔴 1. Extracción:</strong>&nbsp;Obtención de datos macroeconómicos desde la API REST del Banco Central con manejo de errores.'
+      },
+      {
+        id: 'light-transform-es',
+        color: '#ffcc00',
+        glow: '0 0 14px #ffcc00',
+        dim: '#554d1a',
+        text: '<strong>🟡 2. Transformación:</strong>&nbsp;Procesamiento de series temporales con <code>pandas</code> para alinear frecuencias.'
+      },
+      {
+        id: 'light-load-es',
+        color: '#2ecc71',
+        glow: '0 0 14px #2ecc71',
+        dim: '#1a5522',
+        text: '<strong>🟢 3. Carga:</strong>&nbsp;Persistencia en base de datos PostgreSQL mediante upserts (actualización automática sin duplicados).'
+      }
+    ];
+
+    let currentIdx = 0;
+    let timer = null;
+    let isHovered = false;
+
+    function renderStage(idx) {
+      stages.forEach((s, i) => {
+        const el = document.getElementById(s.id);
+        if (el) {
+          if (i === idx) {
+            el.style.background = s.color;
+            el.style.boxShadow = s.glow;
+          } else {
+            el.style.background = s.dim;
+            el.style.boxShadow = 'none';
+          }
+        }
+      });
+      const desc = document.getElementById('traffic-light-desc-es');
+      if (desc) desc.innerHTML = stages[idx].text;
+    }
+
+    function nextStage() {
+      if (!isHovered) {
+        renderStage(currentIdx);
+        currentIdx = (currentIdx + 1) % stages.length;
+      }
+    }
+
+    window.selectStageES = function(idx) {
+      currentIdx = idx;
+      renderStage(currentIdx);
+      currentIdx = (currentIdx + 1) % stages.length;
+    };
+
+    const container = document.getElementById('traffic-light-box-es');
+    if (container) {
+      container.addEventListener('mouseenter', () => isHovered = true);
+      container.addEventListener('mouseleave', () => isHovered = false);
+    }
+
+    renderStage(0);
+    currentIdx = 1;
+    timer = setInterval(nextStage, 2500); // Cambia cada 2.5 segundos
+  })();
+</script>
+
+        <!-- 2. SECCIÓN DEL DASHBOARD INTERACTIVO -->
+        <div style="margin: 24px 0; padding: 16px; background: var(--bg); border: 2px solid var(--acento); border-radius: 8px;">
+          <h4 style="margin: 0 0 8px 0; font-size: 1.1em; color: var(--text);">Dashboard Interactivo Final (Power BI)</h4>
+          <p style="font-size: 0.85em; color: var(--muted); margin: 0 0 12px 0;">
+            Visualización de 11 años de datos macroeconómicos (2015–2025): erosión del poder adquisitivo del peso chileno vs. cobertura de inflación con la UF.
+          </p>
+
+          <img src="https://raw.githubusercontent.com/oscararayaoad-sys/bcch-inflacion-pipeline/main/assets/dashboard_demo_bcch_pipeline.gif" alt="Demostración del Dashboard en Power BI del Pipeline de Inflación del BCCh" class="zoomable" style="width: 100%; border-radius: 6px; border: 1px solid var(--borde); margin-bottom: 12px;">
+          
+          <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.9em; flex-wrap: wrap; gap: 12px;">
+            <a href="dashboard/03_dashboard_bcch_inflacion.pbix" download class="btn" style="padding: 6px 14px; font-size: 0.85em;">Descargar Power BI (.pbix) ↓</a>
+          </div>
+        </div>
+
+        <!-- 3. ARQUITECTURA Y ESPECIFICACIONES TÉCNICAS -->
+        <div style="margin: 24px 0; padding: 16px; background: var(--bg); border: 1px solid var(--borde); border-radius: 8px;">
+          <h4 style="margin: 0 0 12px 0; font-size: 1.05em; color: var(--text);">Arquitectura y Especificaciones del Pipeline</h4>
+          <div style="overflow-x: auto; border: 1px solid var(--borde); border-radius: 6px; background: var(--card); margin-bottom: 16px;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.85em; text-align: left; color: var(--text);">
+              <thead>
+                <tr style="background: var(--acento-suave); border-bottom: 2px solid var(--borde); color: var(--acento);">
+                  <th style="padding: 10px 12px; border-right: 1px solid var(--borde);">Componente</th>
+                  <th style="padding: 10px 12px; border-right: 1px solid var(--borde);">Selección Técnica</th>
+                  <th style="padding: 10px 12px;">Justificación Técnica</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid var(--borde);">
+                  <td style="padding: 8px 12px; border-right: 1px solid var(--borde);"><strong>Extracción</strong></td>
+                  <td style="padding: 8px 12px; border-right: 1px solid var(--borde);">API REST del BCCh (<code>requests</code>)</td>
+                  <td style="padding: 8px 12px;">Peticiones HTTP directas para un control total de las respuestas en lugar de wrappers de SDKs de terceros.</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--borde);">
+                  <td style="padding: 8px 12px; border-right: 1px solid var(--borde);"><strong>Transformación</strong></td>
+                  <td style="padding: 8px 12px; border-right: 1px solid var(--borde);">Python (<code>pandas</code>)</td>
+                  <td style="padding: 8px 12px;">Resampling de frecuencia diaria a mensual, alineación del índice a base 100 y cálculo de inflación interanual (YoY).</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--borde);">
+                  <td style="padding: 8px 12px; border-right: 1px solid var(--borde);"><strong>Persistencia</strong></td>
+                  <td style="padding: 8px 12px; border-right: 1px solid var(--borde);">PostgreSQL + <code>SQLAlchemy</code></td>
+                  <td style="padding: 8px 12px;">Cargas idempotentes con upsert (<code>ON CONFLICT DO UPDATE</code>) para eliminar registros duplicados en reejecuciones.</td>
+                </tr>
+                <tr>
+                  <td style="padding: 8px 12px; border-right: 1px solid var(--borde);"><strong>Orquestación</strong></td>
+                  <td style="padding: 8px 12px; border-right: 1px solid var(--borde);"><code>main.py</code> centralizado + Windows Task Scheduler</td>
+                  <td style="padding: 8px 12px;">Ejecución mensual automatizada con reintentos mediante backoff exponencial y registro de logs.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h5 style="margin: 12px 0 6px 0; font-size: 0.95em; color: var(--text);">Decisiones Clave de Ingeniería:</h5>
+          <ul style="margin: 0; padding-left: 20px; font-size: 0.9em; color: var(--muted); line-height: 1.6;">
+            <li><strong style="color: var(--text);">Upsert Idempotente en Base de Datos:</strong> Reejecutar el pipeline actualiza los registros existentes en lugar de generar duplicados.</li>
+            <li><strong style="color: var(--text);">Rutas Absolutas Ancladas al Script:</strong> Utiliza <code>pathlib</code> de Python para garantizar una ejecución consistente, ya sea desde la CLI o mediante el Programador de Tareas.</li>
+            <li><strong style="color: var(--text);">Contextualización de Errores por Capas:</strong> Mecanismos diferenciados de reintento y registro de logs entre la etapa de extracción y la de orquestación.</li>
+          </ul>
+        </div>
+
+        <!-- 4. RESUMEN EJECUTIVO Y HALLAZGOS CLAVE -->
+        <div style="margin: 24px 0; padding: 16px; background: var(--bg); border: 1px solid var(--borde); border-radius: 8px;">
+          <h4 style="margin: 0 0 8px 0; font-size: 1em; color: var(--text);">Hallazgos Empíricos Clave (2015 – 2025)</h4>
+          <p style="font-size: 0.85em; color: var(--muted); margin: 0 0 12px 0;">
+            Evaluación cuantitativa de la depreciación de la moneda y los mecanismos de preservación del valor real en Chile.
+          </p>
+          
+          <div style="background: var(--card); border: 1px solid var(--borde); border-left: 4px solid var(--acento); padding: 12px 16px; margin-bottom: 12px; border-radius: 6px; font-size: 0.95em;">
+            <strong>💡 Hallazgo Clave:</strong> Entre 2015 y 2025, el peso chileno perdió casi el <strong>38% de su poder adquisitivo</strong> (el IPC creció de 100 a ~160). Simultáneamente, el índice de la UF acompañó este crecimiento (~162), demostrando empíricamente que la <strong>UF protege perfectamente el capital contra la inflación</strong> en horizontes de largo plazo.
+          </div>
+        </div>
+
+        <!-- 5. ENLACE A GITHUB -->
+        <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--borde); text-align: right;">
+          <a href="https://github.com/oscararayaoad-sys/bcch-inflacion-pipeline" target="_blank" rel="noopener" style="font-weight: 600; text-decoration: none;">
+            Ver código en GitHub →
+          </a>
+        </div>
+      </article>
+      
     </div>
 
     <h2>Contacto</h2>
