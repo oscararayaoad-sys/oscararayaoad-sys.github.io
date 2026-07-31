@@ -615,6 +615,204 @@
         </div>
       </article>
 
+      <!-- Project 3: Central Bank Inflation ETL Pipeline -->
+      <article class="proyecto">
+        <!-- 1. TITLE AND STACK BADGES -->
+        <h3>Central Bank of Chile Inflation & UF Automated ETL Pipeline</h3>
+        <p class="stack">
+          <span>Python</span><span>requests</span><span>pandas</span><span>PostgreSQL</span><span>SQLAlchemy</span><span>Power BI</span><span>Windows Task Scheduler</span>
+        </p>
+        <p>
+          An end-to-end automated data pipeline that extracts CPI and UF series from the Central Bank of Chile (BCCh) REST API, cleans and transforms the data, loads it idempotently into PostgreSQL, and visualizes purchasing power loss and inflation protection in Power BI.
+        </p>
+
+        <!-- Visual Gadget: ETL Pipeline Traffic Light (Infinite Loop) -->
+<div style="margin: 24px 0; padding: 20px; background: var(--bg); border: 1px solid var(--borde); border-radius: 12px; text-align: center;">
+  <h4 style="margin: 0 0 6px 0; font-size: 1.05em; color: var(--text);">ETL Pipeline Execution Cycle</h4>
+  <p style="font-size: 0.85em; color: var(--muted); margin: 0 0 16px 0;">
+    Automated continuous execution flow (click or hover to inspect a stage):
+  </p>
+
+  <!-- Traffic Light Body -->
+  <div id="traffic-light-box-en" style="display: inline-flex; flex-direction: column; gap: 14px; background: #121212; padding: 16px 20px; border-radius: 20px; border: 2px solid var(--borde); box-shadow: 0 4px 12px rgba(0,0,0,0.4);">
+    
+    <!-- Red Light: Extract -->
+    <button onclick="selectStageEN(0)" aria-label="View Extract stage" style="background: none; border: none; cursor: pointer; display: flex; align-items: center; gap: 12px; outline: none;">
+      <div id="light-extract-en" style="width: 24px; height: 24px; border-radius: 50%; background: #551a1a; box-shadow: none; transition: all 0.3s ease;"></div>
+      <span style="font-family: monospace; font-size: 0.9em; font-weight: bold; color: var(--text);">1. EXTRACT (BCCh API)</span>
+    </button>
+
+    <!-- Yellow Light: Transform -->
+    <button onclick="selectStageEN(1)" aria-label="View Transform stage" style="background: none; border: none; cursor: pointer; display: flex; align-items: center; gap: 12px; outline: none;">
+      <div id="light-transform-en" style="width: 24px; height: 24px; border-radius: 50%; background: #554d1a; box-shadow: none; transition: all 0.3s ease;"></div>
+      <span style="font-family: monospace; font-size: 0.9em; font-weight: bold; color: var(--text);">2. TRANSFORM (pandas)</span>
+    </button>
+
+    <!-- Green Light: Load -->
+    <button onclick="selectStageEN(2)" aria-label="View Load stage" style="background: none; border: none; cursor: pointer; display: flex; align-items: center; gap: 12px; outline: none;">
+      <div id="light-load-en" style="width: 24px; height: 24px; border-radius: 50%; background: #1a5522; box-shadow: none; transition: all 0.3s ease;"></div>
+      <span style="font-family: monospace; font-size: 0.9em; font-weight: bold; color: var(--text);">3. LOAD (PostgreSQL)</span>
+    </button>
+
+  </div>
+
+  <!-- Stage Description Panel -->
+  <div id="traffic-light-desc-en" style="margin-top: 16px; padding: 12px; background: var(--card); border: 1px solid var(--borde); border-radius: 8px; font-size: 0.88em; color: var(--text); min-height: 48px; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;">
+    Loading pipeline...
+  </div>
+</div>
+
+<script>
+  (function() {
+    const stages = [
+      {
+        id: 'light-extract-en',
+        color: '#ff4d4d',
+        glow: '0 0 14px #ff4d4d',
+        dim: '#551a1a',
+        text: '<strong>🔴 1. Extract:</strong>&nbsp;Fetching macroeconomic data from Central Bank REST API with error handling.'
+      },
+      {
+        id: 'light-transform-en',
+        color: '#ffcc00',
+        glow: '0 0 14px #ffcc00',
+        dim: '#554d1a',
+        text: '<strong>🟡 2. Transform:</strong>&nbsp;Processing time series with <code>pandas</code> to align frequencies.'
+      },
+      {
+        id: 'light-load-en',
+        color: '#2ecc71',
+        glow: '0 0 14px #2ecc71',
+        dim: '#1a5522',
+        text: '<strong>🟢 3. Load:</strong>&nbsp;Database persistence in PostgreSQL using upserts (automatic updates without duplicates).'
+      }
+    ];
+
+    let currentIdx = 0;
+    let timer = null;
+    let isHovered = false;
+
+    function renderStage(idx) {
+      stages.forEach((s, i) => {
+        const el = document.getElementById(s.id);
+        if (el) {
+          if (i === idx) {
+            el.style.background = s.color;
+            el.style.boxShadow = s.glow;
+          } else {
+            el.style.background = s.dim;
+            el.style.boxShadow = 'none';
+          }
+        }
+      });
+      const desc = document.getElementById('traffic-light-desc-en');
+      if (desc) desc.innerHTML = stages[idx].text;
+    }
+
+    function nextStage() {
+      if (!isHovered) {
+        renderStage(currentIdx);
+        currentIdx = (currentIdx + 1) % stages.length;
+      }
+    }
+
+    window.selectStageEN = function(idx) {
+      currentIdx = idx;
+      renderStage(currentIdx);
+      currentIdx = (currentIdx + 1) % stages.length;
+    };
+
+    const container = document.getElementById('traffic-light-box-en');
+    if (container) {
+      container.addEventListener('mouseenter', () => isHovered = true);
+      container.addEventListener('mouseleave', () => isHovered = false);
+    }
+
+    renderStage(0);
+    currentIdx = 1;
+    timer = setInterval(nextStage, 2500); // Changes every 3 seconds
+  })();
+</script>
+
+        <!-- 2. INTERACTIVE DASHBOARD SECTION -->
+        <div style="margin: 24px 0; padding: 16px; background: var(--bg); border: 2px solid var(--acento); border-radius: 8px;">
+          <h4 style="margin: 0 0 8px 0; font-size: 1.1em; color: var(--text);">Final Interactive Dashboard (Power BI)</h4>
+          <p style="font-size: 0.85em; color: var(--muted); margin: 0 0 12px 0;">
+            Visualizing 11 years of macroeconomic data (2015–2025): Chilean Peso purchasing power erosion vs. UF inflation hedging.
+          </p>
+
+          <img src="https://raw.githubusercontent.com/oscararayaoad-sys/bcch-inflacion-pipeline/main/assets/dashboard_demo_bcch_pipeline.gif" alt="BCCh Inflation Pipeline Power BI Dashboard Demo" class="zoomable" style="width: 100%; border-radius: 6px; border: 1px solid var(--borde); margin-bottom: 12px;">
+          
+          <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.9em; flex-wrap: wrap; gap: 12px;">
+            <a href="dashboard/03_dashboard_bcch_inflacion.pbix" download class="btn" style="padding: 6px 14px; font-size: 0.85em;">Download Power BI (.pbix) ↓</a>
+          </div>
+        </div>
+
+        <!-- 3. ARCHITECTURE & TECHNICAL SPECIFICATIONS -->
+        <div style="margin: 24px 0; padding: 16px; background: var(--bg); border: 1px solid var(--borde); border-radius: 8px;">
+          <h4 style="margin: 0 0 12px 0; font-size: 1.05em; color: var(--text);">Pipeline Architecture & Specifications</h4>
+          <div style="overflow-x: auto; border: 1px solid var(--borde); border-radius: 6px; background: var(--card); margin-bottom: 16px;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.85em; text-align: left; color: var(--text);">
+              <thead>
+                <tr style="background: var(--acento-suave); border-bottom: 2px solid var(--borde); color: var(--acento);">
+                  <th style="padding: 10px 12px; border-right: 1px solid var(--borde);">Component</th>
+                  <th style="padding: 10px 12px; border-right: 1px solid var(--borde);">Technical Selection</th>
+                  <th style="padding: 10px 12px;">Technical Justification</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid var(--borde);">
+                  <td style="padding: 8px 12px; border-right: 1px solid var(--borde);"><strong>Extraction</strong></td>
+                  <td style="padding: 8px 12px; border-right: 1px solid var(--borde);">BCCh REST API (<code>requests</code>)</td>
+                  <td style="padding: 8px 12px;">Direct HTTP requests for full response control over third-party SDK wrappers.</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--borde);">
+                  <td style="padding: 8px 12px; border-right: 1px solid var(--borde);"><strong>Transformation</strong></td>
+                  <td style="padding: 8px 12px; border-right: 1px solid var(--borde);">Python (<code>pandas</code>)</td>
+                  <td style="padding: 8px 12px;">Daily to monthly resampling, base-100 index alignment, and YoY inflation calculations.</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--borde);">
+                  <td style="padding: 8px 12px; border-right: 1px solid var(--borde);"><strong>Persistence</strong></td>
+                  <td style="padding: 8px 12px; border-right: 1px solid var(--borde);">PostgreSQL + <code>SQLAlchemy</code></td>
+                  <td style="padding: 8px 12px;">Idempotent upsert loads (<code>ON CONFLICT DO UPDATE</code>) to eliminate duplicate rows on rerun.</td>
+                </tr>
+                <tr>
+                  <td style="padding: 8px 12px; border-right: 1px solid var(--borde);"><strong>Orchestration</strong></td>
+                  <td style="padding: 8px 12px; border-right: 1px solid var(--borde);">Centralized <code>main.py</code> + Windows Scheduler</td>
+                  <td style="padding: 8px 12px;">Automated monthly execution with exponential backoff retries and execution logging.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h5 style="margin: 12px 0 6px 0; font-size: 0.95em; color: var(--text);">Key Engineering Decisions:</h5>
+          <ul style="margin: 0; padding-left: 20px; font-size: 0.9em; color: var(--muted); line-height: 1.6;">
+            <li><strong style="color: var(--text);">Idempotent Database Upsert:</strong> Re-running the pipeline will update existing records rather than creating duplicate entries.</li>
+            <li><strong style="color: var(--text);">Script-Anchored Absolute Paths:</strong> Uses Python <code>pathlib</code> to guarantee consistent execution whether triggered by CLI or Task Scheduler.</li>
+            <li><strong style="color: var(--text);">Layered Error Contextualization:</strong> Separate logging and retry mechanisms between extraction and orchestration.</li>
+          </ul>
+        </div>
+
+        <!-- 4. EXECUTIVE SUMMARY & KEY FINDINGS -->
+        <div style="margin: 24px 0; padding: 16px; background: var(--bg); border: 1px solid var(--borde); border-radius: 8px;">
+          <h4 style="margin: 0 0 8px 0; font-size: 1em; color: var(--text);">Key Empirical Findings (2015 – 2025)</h4>
+          <p style="font-size: 0.85em; color: var(--muted); margin: 0 0 12px 0;">
+            Quantitative evaluation of currency depreciation and real-value preservation mechanisms in Chile.
+          </p>
+          
+          <div style="background: var(--card); border: 1px solid var(--borde); border-left: 4px solid var(--acento); padding: 12px 16px; margin-bottom: 12px; border-radius: 6px; font-size: 0.95em;">
+            <strong>💡 Key Finding:</strong> Between 2015 and 2025, the Chilean Peso lost nearly <strong>38% of its purchasing power</strong> (CPI grew from 100 to ~160). Concurrently, the UF index matched this growth (~162), empirically proving that <strong>UF perfectly shields capital against inflation</strong> over long horizons.
+          </div>
+        </div>
+
+        <!-- 5. GITHUB LINK -->
+        <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--borde); text-align: right;">
+          <a href="https://github.com/oscararayaoad-sys/bcch-inflacion-pipeline" target="_blank" rel="noopener" style="font-weight: 600; text-decoration: none;">
+            View code on GitHub →
+          </a>
+        </div>
+      </article>
+
     </div>
 
     <h2>Contact</h2>
