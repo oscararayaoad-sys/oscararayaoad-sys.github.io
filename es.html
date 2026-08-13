@@ -448,27 +448,51 @@
         </div>
 
         <!-- 5. RESUMEN EJECUTIVO -->
-        <div style="margin: 24px 0; padding: 16px; background: var(--bg); border: 1px solid var(--borde); border-radius: 8px;">
-          <h4 style="margin: 0 0 8px 0; font-size: 1em; color: var(--text);">Resumen Ejecutivo (Reporte PDF)</h4>
-          <p style="font-size: 0.85em; color: var(--muted); margin: 0 0 12px 0;">
-            Optimizar los turnos del personal en horas punta y reasignar inventario hacia los productos "Estrella" incrementa los márgenes netos estimados en un 14%.
-          </p>
-          
-          <div style="background: var(--card); border: 1px solid var(--borde); border-left: 4px solid var(--acento); padding: 12px 16px; margin-bottom: 12px; border-radius: 6px; font-size: 0.95em;">
-            <strong>💡 Hallazgo Clave:</strong> Las horas de mayor demanda representan el <strong>47.5% de las ventas totales</strong>, vendiendo 2.04 veces más que en horas de menor concurrencia.
+        <!-- ================================================================= -->
+        <!-- BLOQUE 3: COFFEE SHOP (ESPAÑOL) -->
+        <!-- ================================================================= -->
+        <article style="border: 1px solid var(--borde, #e2e8f0); border-radius: 8px; background: var(--card-bg, #ffffff); padding: 18px; font-family: system-ui, -apple-system, sans-serif; margin-bottom: 24px;">
+          <!-- Header / KPI -->
+          <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--borde, #e2e8f0); padding-bottom: 12px; margin-bottom: 12px;">
+            <div>
+              <span style="font-size: 0.75em; text-transform: uppercase; font-weight: 700; color: #e11d48; letter-spacing: 0.5px;">Resumen Ejecutivo</span>
+              <h4 style="margin: 4px 0 0 0; font-size: 1.05em; color: var(--texto, #0f172a);">Descalce entre % de Margen y Ganancia Real en $</h4>
+            </div>
+            <div style="text-align: right; background: rgba(225, 29, 72, 0.08); padding: 6px 12px; border-radius: 6px;">
+              <span style="font-size: 1.1em; font-weight: 800; color: #e11d48;">79.8%</span>
+              <span style="display: block; font-size: 0.65em; color: var(--muted, #64748b);">Ingresos (Café + Sándwiches)</span>
+            </div>
           </div>
-          
-          <div style="border: 1px solid var(--borde); border-radius: 6px; overflow: hidden; background: #fff;">
-            <object data="https://raw.githubusercontent.com/oscararayaoad-sys/dashboard-and-analysis-coffeeshop/main/reports/executive_summary.es.pdf" type="application/pdf" width="100%" height="220px">
-              <p style="font-size: 0.85em; padding: 12px; color: var(--muted); margin: 0; text-align: center;">
-                Tu navegador no soporta la vista previa. <a href="https://raw.githubusercontent.com/oscararayaoad-sys/dashboard-and-analysis-coffeeshop/main/reports/executive_summary.es.pdf" target="_blank" rel="noopener">Descargar Resumen Ejecutivo en PDF</a>
-              </p>
-            </object>
+
+          <!-- Preview -->
+          <div style="max-height: 180px; overflow-y: auto; padding-right: 8px; font-size: 0.88em; line-height: 1.5; color: var(--texto-secundario, #334155);">
+            <p style="margin-top: 0;">
+              <strong>• Tés (Ilusión de Alto Margen):</strong> Alto margen porcentual (70%-77%), pero retorno en efectivo muy bajo ($1,365 - $1,483 por unidad, cuadrante Perro BCG).
+            </p>
+            <p>
+              <strong>• Sándwiches (Motor de Ganancia):</strong> Menor porcentaje de margen (62.4%), pero generan la mayor ganancia neta en dinero por unidad (ej. <em>Croissant de Carne Pulled</em> genera <strong>+$2,882</strong> de ganancia neta/unidad).
+            </p>
+            <p style="margin-bottom: 0;">
+              <strong>• Concentración del Negocio:</strong> El Café ($21.4M) y los Sándwiches ($19.0M) impulsan casi el 80% de los ingresos totales ($50.4M).
+            </p>
           </div>
-        </div>
-      <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--borde); text-align: right;">
-          <a href="https://github.com/oscararayaoad-sys/dashboard-and-analysis-coffeeshop" target="_blank" rel="noopener" style="font-weight: 600; text-decoration: none;">
-            Ver código en GitHub →
+
+          <!-- Botones de Acción -->
+          <div class="card-actions" style="margin-top: 16px; display: flex; gap: 8px;">
+            <a href="https://github.com/oscararayaoad-sys/dashboard-and-analysis-coffeeshop/blob/main/reports/executive_summary.es.pdf" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="btn btn-view">
+              📄 Visualizar PDF Completo
+            </a>
+            
+            <a href="https://raw.githubusercontent.com/oscararayaoad-sys/dashboard-and-analysis-coffeeshop/main/reports/executive_summary.es.pdf" 
+              download 
+              class="btn btn-download">
+              ⬇️ Descargar PDF
+            </a>
+          </div>
+        </article>
           </a>
         </div>
       </article>
@@ -600,28 +624,48 @@
         </div>
 
         <!-- 5. EXECUTIVE SUMMARY -->
-        <div style="margin: 24px 0; padding: 16px; background: var(--bg); border: 1px solid var(--borde); border-radius: 8px;">
-          <h4 style="margin: 0 0 8px 0; font-size: 1em; color: var(--text);">Resumen Ejecutivo (Reporte PDF)</h4>
-          <p style="font-size: 0.85em; color: var(--muted); margin: 0 0 12px 0;">
-            Desglose estratégico de la concentración del gasto público e identificación de oportunidades de mercado accesibles para proveedores.
-          </p>
-          
-          <div style="background: var(--card); border: 1px solid var(--borde); border-left: 4px solid var(--acento); padding: 12px 16px; margin-bottom: 12px; border-radius: 6px; font-size: 0.95em;">
-            <strong>💡 Hallazgo Clave:</strong> "Pocos proveedores" NO equivale a oportunidad. Los nichos de alto gasto con pocos proveedores son mercados cautivos; las verdaderas oportunidades residen en mercados abiertos con competencia media.
+        <!-- ================================================================= -->
+        <!-- BLOQUE 1: MERCADO PÚBLICO (ESPAÑOL) -->
+        <!-- ================================================================= -->
+        <article style="border: 1px solid var(--borde, #e2e8f0); border-radius: 8px; background: var(--card-bg, #ffffff); padding: 18px; font-family: system-ui, -apple-system, sans-serif; margin-bottom: 24px;">
+          <!-- Header / KPI -->
+          <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--borde, #e2e8f0); padding-bottom: 12px; margin-bottom: 12px;">
+            <div>
+              <span style="font-size: 0.75em; text-transform: uppercase; font-weight: 700; color: #e11d48; letter-spacing: 0.5px;">Resumen Ejecutivo</span>
+              <h4 style="margin: 4px 0 0 0; font-size: 1.05em; color: var(--texto, #0f172a);">Análisis Exploratorio Mercado Público</h4>
+            </div>
+            <div style="text-align: right; background: rgba(225, 29, 72, 0.08); padding: 6px 12px; border-radius: 6px;">
+              <span style="font-size: 1.1em; font-weight: 800; color: #e11d48;">💡 Hallazgo</span>
+              <span style="display: block; font-size: 0.65em; color: var(--muted, #64748b);">Análisis EDA</span>
+            </div>
           </div>
-          
-          <div style="border: 1px solid var(--borde); border-radius: 6px; overflow: hidden; background: #fff;">
-            <object data="https://raw.githubusercontent.com/oscararayaoad-sys/mercado-publico-eda/main/reports/executive_summary.es.pdf" type="application/pdf" width="100%" height="220px">
-              <p style="font-size: 0.85em; padding: 12px; color: var(--muted); margin: 0; text-align: center;">
-                Tu navegador no soporta la vista previa. <a href="https://raw.githubusercontent.com/oscararayaoad-sys/mercado-publico-eda/main/reports/executive_summary.es.pdf" target="_blank" rel="noopener">Descargar Resumen Ejecutivo en PDF</a>
-              </p>
-            </object>
+
+          <!-- Preview -->
+          <div style="max-height: 180px; overflow-y: auto; padding-right: 8px; font-size: 0.88em; line-height: 1.5; color: var(--texto-secundario, #334155);">
+            <p style="margin-top: 0;">
+              <strong>• Concentración de Ofertas:</strong> Gran parte del volumen de transacciones se concentra en licitaciones de menor tamaño, identificando cuellos de botella clave en los procesos de adjudicación.
+            </p>
+            <p style="margin-bottom: 0;">
+              <strong>• Oportunidad de Optimización:</strong> Ajustes estratégicos en la postulación y filtrado de licitaciones permiten detectar patrones atípicos y mejorar la eficiencia en la toma de decisiones presupuestarias.
+            </p>
           </div>
-        </div>
-      <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--borde); text-align: right;">
-          <a href="https://github.com/oscararayaoad-sys/mercado-publico-chile-eda/main/reports/executive_summary.pdf&embedded=true" target="_blank" rel="noopener" style="font-weight: 600; text-decoration: none;">
-            Ver código en GitHub →
-          </a>
+
+          <!-- Botones de Acción -->
+          <div class="card-actions" style="margin-top: 16px; display: flex; gap: 8px;">
+            <a href="https://github.com/oscararayaoad-sys/mercado-publico-eda/blob/main/reports/executive_summary.es.pdf" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="btn btn-view">
+              📄 Visualizar PDF Completo
+            </a>
+            
+            <a href="https://raw.githubusercontent.com/oscararayaoad-sys/mercado-publico-eda/main/reports/executive_summary.es.pdf" 
+              download 
+              class="btn btn-download">
+              ⬇️ Descargar PDF
+            </a>
+          </div>
+        </article>
         </div>
       </article>
       
