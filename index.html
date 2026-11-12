@@ -680,4 +680,347 @@
         <!-- Visual Gadget: ETL Pipeline Traffic Light -->
         <div style="margin: 24px 0; padding: 20px; background: var(--bg); border: 1px solid var(--borde); border-radius: 12px; text-align: center;">
           <h4 style="margin: 0 0 6px 0; font-size: 1.05em; color: var(--text);">ETL Pipeline Execution Cycle</h4>
-          <p style="font-size: 0.85em; color: var(--
+          <p style="font-size: 0.85em; color: var(--muted); margin: 0 0 16px 0;">
+            Automated continuous execution flow (click or hover to inspect a stage):
+          </p>
+
+          <div id="traffic-light-box-en" style="display: inline-flex; flex-direction: column; gap: 14px; background: #121212; padding: 16px 20px; border-radius: 20px; border: 2px solid var(--borde); box-shadow: 0 4px 12px rgba(0,0,0,0.4);">
+            
+            <button onclick="selectStageEN(0)" aria-label="View Extract stage" style="background: none; border: none; cursor: pointer; display: flex; align-items: center; gap: 12px; outline: none;">
+              <div id="light-extract-en" style="width: 24px; height: 24px; border-radius: 50%; background: #551a1a; box-shadow: none; transition: all 0.3s ease;"></div>
+              <span style="font-family: monospace; font-size: 0.9em; font-weight: bold; color: #e8e8e8;">1. EXTRACT (BCCh API)</span>
+            </button>
+
+            <button onclick="selectStageEN(1)" aria-label="View Transform stage" style="background: none; border: none; cursor: pointer; display: flex; align-items: center; gap: 12px; outline: none;">
+              <div id="light-transform-en" style="width: 24px; height: 24px; border-radius: 50%; background: #554d1a; box-shadow: none; transition: all 0.3s ease;"></div>
+              <span style="font-family: monospace; font-size: 0.9em; font-weight: bold; color: #e8e8e8;">2. TRANSFORM (pandas)</span>
+            </button>
+
+            <button onclick="selectStageEN(2)" aria-label="View Load stage" style="background: none; border: none; cursor: pointer; display: flex; align-items: center; gap: 12px; outline: none;">
+              <div id="light-load-en" style="width: 24px; height: 24px; border-radius: 50%; background: #1a5522; box-shadow: none; transition: all 0.3s ease;"></div>
+              <span style="font-family: monospace; font-size: 0.9em; font-weight: bold; color: #e8e8e8;">3. LOAD (PostgreSQL)</span>
+            </button>
+
+          </div>
+
+          <div id="traffic-light-desc-en" style="margin-top: 16px; padding: 12px; background: var(--card); border: 1px solid var(--borde); border-radius: 8px; font-size: 0.88em; color: var(--text); min-height: 48px; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;">
+            Loading pipeline...
+          </div>
+        </div>
+
+        <!-- 2. INTERACTIVE DASHBOARD SECTION -->
+        <div style="margin: 24px 0; padding: 16px; background: var(--bg); border: 2px solid var(--acento); border-radius: 8px;">
+          <h4 style="margin: 0 0 8px 0; font-size: 1.1em; color: var(--text);">Final Interactive Dashboard (Power BI)</h4>
+          <p style="font-size: 0.85em; color: var(--muted); margin: 0 0 12px 0;">
+            Visualizing 11 years of macroeconomic data (2015–2025): Chilean Peso purchasing power erosion vs. UF inflation hedging.
+          </p>
+
+          <img src="https://raw.githubusercontent.com/oscararayaoad-sys/bcch-inflacion-pipeline/main/assets/dashboard_demo_bcch_pipeline.gif" alt="BCCh Inflation Pipeline Power BI Dashboard Demo" class="zoomable" style="width: 100%; border-radius: 6px; border: 1px solid var(--borde); margin-bottom: 12px;">
+          
+          <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.9em; flex-wrap: wrap; gap: 12px;">
+            <a href="https://raw.githubusercontent.com/oscararayaoad-sys/bcch-inflacion-pipeline/main/dashboard/03_dashboard_bcch_inflacion.pbix" download class="btn" style="padding: 6px 14px; font-size: 0.85em;">Download Power BI (.pbix) ↓</a>
+          </div>
+        </div>
+
+        <!-- 3. ARCHITECTURE & TECHNICAL SPECIFICATIONS -->
+        <div style="margin: 24px 0; padding: 16px; background: var(--bg); border: 1px solid var(--borde); border-radius: 8px;">
+          <h4 style="margin: 0 0 12px 0; font-size: 1.05em; color: var(--text);">Pipeline Architecture &amp; Specifications</h4>
+          <div style="overflow-x: auto; border: 1px solid var(--borde); border-radius: 6px; background: var(--card); margin-bottom: 16px;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.85em; text-align: left; color: var(--text);">
+              <thead>
+                <tr style="background: var(--acento-suave); border-bottom: 2px solid var(--borde); color: var(--acento);">
+                  <th style="padding: 10px 12px; border-right: 1px solid var(--borde);">Component</th>
+                  <th style="padding: 10px 12px; border-right: 1px solid var(--borde);">Technical Selection</th>
+                  <th style="padding: 10px 12px;">Technical Justification</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid var(--borde);">
+                  <td style="padding: 8px 12px; border-right: 1px solid var(--borde);"><strong>Extraction</strong></td>
+                  <td style="padding: 8px 12px; border-right: 1px solid var(--borde);">BCCh REST API (<code>requests</code>)</td>
+                  <td style="padding: 8px 12px;">Direct HTTP requests for full response control over third-party SDK wrappers.</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--borde);">
+                  <td style="padding: 8px 12px; border-right: 1px solid var(--borde);"><strong>Transformation</strong></td>
+                  <td style="padding: 8px 12px; border-right: 1px solid var(--borde);">Python (<code>pandas</code>)</td>
+                  <td style="padding: 8px 12px;">Daily to monthly resampling, base-100 index alignment, and YoY inflation calculations.</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--borde);">
+                  <td style="padding: 8px 12px; border-right: 1px solid var(--borde);"><strong>Persistence</strong></td>
+                  <td style="padding: 8px 12px; border-right: 1px solid var(--borde);">PostgreSQL + <code>SQLAlchemy</code></td>
+                  <td style="padding: 8px 12px;">Idempotent upsert loads (<code>ON CONFLICT DO UPDATE</code>) to eliminate duplicate rows on rerun.</td>
+                </tr>
+                <tr>
+                  <td style="padding: 8px 12px; border-right: 1px solid var(--borde);"><strong>Orchestration</strong></td>
+                  <td style="padding: 8px 12px; border-right: 1px solid var(--borde);">Centralized <code>main.py</code> + Windows Scheduler</td>
+                  <td style="padding: 8px 12px;">Automated monthly execution with exponential backoff retries and execution logging.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h5 style="margin: 12px 0 6px 0; font-size: 0.95em; color: var(--text);">Key Engineering Decisions:</h5>
+          <ul style="margin: 0; padding-left: 20px; font-size: 0.9em; color: var(--muted); line-height: 1.6;">
+            <li><strong style="color: var(--text);">Idempotent Database Upsert:</strong> Re-running the pipeline updates existing records rather than creating duplicate entries.</li>
+            <li><strong style="color: var(--text);">Script-Anchored Absolute Paths:</strong> Uses Python <code>pathlib</code> to guarantee consistent execution whether triggered by CLI or Task Scheduler.</li>
+            <li><strong style="color: var(--text);">Layered Error Contextualization:</strong> Separate logging and retry mechanisms between extraction and orchestration.</li>
+          </ul>
+        </div>
+
+        <!-- 4. EXECUTIVE SUMMARY & KEY FINDINGS -->
+        <div style="margin: 24px 0; padding: 16px; background: var(--bg); border: 1px solid var(--borde); border-radius: 8px;">
+          <h4 style="margin: 0 0 8px 0; font-size: 1em; color: var(--text);">Key Empirical Findings (2015 – 2025)</h4>
+          <p style="font-size: 0.85em; color: var(--muted); margin: 0 0 12px 0;">
+            Quantitative evaluation of currency depreciation and real-value preservation mechanisms in Chile.
+          </p>
+          
+          <div style="background: var(--card); border: 1px solid var(--borde); border-left: 4px solid var(--acento); padding: 12px 16px; margin-bottom: 12px; border-radius: 6px; font-size: 0.95em;">
+            <strong>💡 Key Finding:</strong> Between 2015 and 2025, the Chilean Peso lost nearly <strong>38% of its purchasing power</strong> (CPI grew from 100 to ~160). Concurrently, the UF index matched this growth (~162), empirically proving that <strong>UF shields capital against inflation</strong> over long horizons.
+          </div>
+        </div>
+
+        <!-- 5. GITHUB LINK -->
+        <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--borde); text-align: right;">
+          <a href="https://github.com/oscararayaoad-sys/bcch-inflacion-pipeline" target="_blank" rel="noopener" style="font-weight: 600; text-decoration: none;">
+            View code on GitHub →
+          </a>
+        </div>
+      </article>
+
+    </div>
+
+    <h2>Contact</h2>
+    <p class="contacto">
+      <a href="#" onclick="navigator.clipboard.writeText('oscar.araya.oad@gmail.com'); alert('Email copied to clipboard!'); return false;">Email</a>
+      <a href="https://github.com/oscararayaoad-sys" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/oscar-araya-diaz" target="_blank" rel="noopener">LinkedIn</a>
+    </p>
+  </main>
+
+  <a href="#top" class="floating-top">Top ↑</a>
+
+  <div id="image-modal" onclick="this.style.display='none'">
+    <img id="modal-img" src="" alt="Amplified view">
+  </div>
+
+  <script>
+    (function() {
+      const stages = [
+        {
+          id: 'light-extract-en',
+          color: '#ff4d4d',
+          glow: '0 0 14px #ff4d4d',
+          dim: '#551a1a',
+          text: '<strong>🔴 1. Extract:</strong>&nbsp;Fetching macroeconomic data from Central Bank REST API with error handling.'
+        },
+        {
+          id: 'light-transform-en',
+          color: '#ffcc00',
+          glow: '0 0 14px #ffcc00',
+          dim: '#554d1a',
+          text: '<strong>🟡 2. Transform:</strong>&nbsp;Processing time series with <code>pandas</code> to align frequencies.'
+        },
+        {
+          id: 'light-load-en',
+          color: '#2ecc71',
+          glow: '0 0 14px #2ecc71',
+          dim: '#1a5522',
+          text: '<strong>🟢 3. Load:</strong>&nbsp;Database persistence in PostgreSQL using upserts (automatic updates without duplicates).'
+        }
+      ];
+
+      let currentIdx = 0;
+      let isHovered = false;
+
+      function renderStage(idx) {
+        stages.forEach((s, i) => {
+          const el = document.getElementById(s.id);
+          if (el) {
+            if (i === idx) {
+              el.style.background = s.color;
+              el.style.boxShadow = s.glow;
+            } else {
+              el.style.background = s.dim;
+              el.style.boxShadow = 'none';
+            }
+          }
+        });
+        const desc = document.getElementById('traffic-light-desc-en');
+        if (desc) desc.innerHTML = stages[idx].text;
+      }
+
+      function nextStage() {
+        if (!isHovered) {
+          renderStage(currentIdx);
+          currentIdx = (currentIdx + 1) % stages.length;
+        }
+      }
+
+      window.selectStageEN = function(idx) {
+        currentIdx = idx;
+        renderStage(currentIdx);
+        currentIdx = (currentIdx + 1) % stages.length;
+      };
+
+      const container = document.getElementById('traffic-light-box-en');
+      if (container) {
+        container.addEventListener('mouseenter', () => isHovered = true);
+        container.addEventListener('mouseleave', () => isHovered = false);
+      }
+
+      renderStage(0);
+      currentIdx = 1;
+      setInterval(nextStage, 2500);
+    })();
+
+    function switchDataState(state) {
+      const btnRaw = document.getElementById('btn-raw');
+      const btnClean = document.getElementById('btn-clean');
+      
+      const cardStatus = document.getElementById('card-status');
+      const cardNulls = document.getElementById('card-nulls');
+      const cardIntegrity = document.getElementById('card-integrity');
+
+      const statusEl = document.getElementById('metric-status');
+      const nullsEl = document.getElementById('metric-nulls');
+      const integrityEl = document.getElementById('metric-integrity');
+      const tableMsg = document.getElementById('table-state-msg');
+      
+      const row2 = document.getElementById('row-2');
+      const cellTimestamp = document.getElementById('cell-timestamp');
+      const cellPrice = document.getElementById('cell-price');
+
+      const row3 = document.getElementById('row-3');
+      const cellDate3 = document.getElementById('cell-date3');
+      const cellPrice2 = document.getElementById('cell-price2');
+
+      const row4 = document.getElementById('row-4');
+      const cellDate4 = document.getElementById('cell-date4');
+      const cellItem = document.getElementById('cell-item');
+
+      const row5 = document.getElementById('row-5');
+      const cellId5 = document.getElementById('cell-id5');
+      const cellPrice3 = document.getElementById('cell-price3');
+
+      const row6 = document.getElementById('row-6');
+      const cellPayment = document.getElementById('cell-payment');
+
+      const row7 = document.getElementById('row-7');
+      const cellLoc = document.getElementById('cell-loc');
+      const cellCust = document.getElementById('cell-cust');
+
+      const row8 = document.getElementById('row-8');
+      const cellDate8 = document.getElementById('cell-date8');
+
+      if (state === 'raw') {
+        btnRaw.style.border = '2px solid #e06c75';
+        btnRaw.style.background = '#ffeef0';
+        btnRaw.style.color = '#c53030';
+        btnRaw.style.boxShadow = '0 2px 6px rgba(197, 48, 48, 0.15)';
+
+        btnClean.style.border = '2px solid var(--borde)';
+        btnClean.style.background = 'var(--card)';
+        btnClean.style.color = 'var(--muted)';
+        btnClean.style.boxShadow = 'none';
+
+        cardStatus.style.background = '#ffeef0'; cardStatus.style.borderColor = '#fbd5d5';
+        cardNulls.style.background = '#ffeef0'; cardNulls.style.borderColor = '#fbd5d5';
+        cardIntegrity.style.background = '#ffeef0'; cardIntegrity.style.borderColor = '#fbd5d5';
+
+        statusEl.textContent = 'Raw Ingestion'; statusEl.style.color = '#c53030';
+        nullsEl.textContent = '12 Critical Errors'; nullsEl.style.color = '#c53030';
+        integrityEl.textContent = '42.8%'; integrityEl.style.color = '#c53030';
+        
+        tableMsg.innerHTML = '<span>🚨</span> [State: Raw Dataset] - Extreme corruption: NaN values, negative prices, duplicate IDs, typos and format breaks.';
+        tableMsg.style.background = '#ffeef0';
+        tableMsg.style.color = '#c53030';
+        
+        row2.style.background = '#fff5f5';
+        cellTimestamp.textContent = 'MISSING_DATE'; cellTimestamp.style.color = '#c53030'; cellTimestamp.style.fontWeight = 'bold';
+        cellPrice.textContent = 'ERROR_NaN'; cellPrice.style.color = '#c53030'; cellPrice.style.fontWeight = 'bold';
+
+        row3.style.background = '#fff5f5';
+        cellDate3.textContent = '01/01/2026 09:15'; cellDate3.style.color = '#c53030'; cellDate3.style.fontWeight = 'bold';
+        cellPrice2.textContent = '-99.99'; cellPrice2.style.background = '#fff5f5'; cellPrice2.style.color = '#c53030'; cellPrice2.style.fontWeight = 'bold';
+
+        row4.style.background = '#fff5f5';
+        cellDate4.textContent = '2026.01.01'; cellDate4.style.color = '#c53030'; cellDate4.style.fontWeight = 'bold';
+        cellItem.textContent = '   M#cha   '; cellItem.style.color = '#c53030'; cellItem.style.fontWeight = 'bold'; cellItem.style.background = '#fff5f5';
+
+        row5.style.background = '#fff5f5';
+        cellId5.textContent = 'TX1001'; cellId5.style.color = '#c53030'; cellId5.style.fontWeight = 'bold';
+        cellPrice3.textContent = 'FREE_PROMO'; cellPrice3.style.color = '#c53030'; cellPrice3.style.fontWeight = 'bold'; cellPrice3.style.background = '#fff5f5';
+
+        row6.style.background = '#fff5f5';
+        cellPayment.textContent = '???_UNKNOWN'; cellPayment.style.color = '#c53030'; cellPayment.style.fontWeight = 'bold'; cellPayment.style.background = '#fff5f5';
+
+        row7.style.background = '#fff5f5';
+        cellLoc.textContent = 'ERROR_404'; cellLoc.style.color = '#c53030'; cellLoc.style.fontWeight = 'bold'; cellLoc.style.background = '#fff5f5';
+        cellCust.textContent = 'NULL_USER'; cellCust.style.color = '#c53030'; cellCust.style.fontWeight = 'bold'; cellCust.style.background = '#fff5f5';
+
+        row8.style.background = '#fff5f5';
+        cellDate8.textContent = 'BAD_DATE_FORMAT'; cellDate8.style.color = '#c53030'; cellDate8.style.fontWeight = 'bold'; cellDate8.style.background = '#fff5f5';
+
+      } else {
+        btnRaw.style.border = '2px solid var(--borde)';
+        btnRaw.style.background = 'var(--card)';
+        btnRaw.style.color = 'var(--muted)';
+        btnRaw.style.boxShadow = 'none';
+
+        btnClean.style.border = '2px solid #38a169';
+        btnClean.style.background = '#f0fff4';
+        btnClean.style.color = '#276749';
+        btnClean.style.boxShadow = '0 2px 6px rgba(56, 161, 105, 0.15)';
+
+        cardStatus.style.background = '#f0fff4'; cardStatus.style.borderColor = '#c6f6d5';
+        cardNulls.style.background = '#f0fff4'; cardNulls.style.borderColor = '#c6f6d5';
+        cardIntegrity.style.background = '#f0fff4'; cardIntegrity.style.borderColor = '#c6f6d5';
+
+        statusEl.textContent = 'Production Model'; statusEl.style.color = '#276749';
+        nullsEl.textContent = '0 Errors'; nullsEl.style.color = '#276749';
+        integrityEl.textContent = '100%'; integrityEl.style.color = '#276749';
+        
+        tableMsg.innerHTML = '<span>✨</span> [State: Production Model] - Fully cleansed, imputed, standardized &amp; deduplicated analytical schema.';
+        tableMsg.style.background = '#f0fff4';
+        tableMsg.style.color = '#276749';
+        
+        row2.style.background = '#ffffff';
+        cellTimestamp.textContent = '2026-01-01 08:45'; cellTimestamp.style.color = '#276749'; cellTimestamp.style.fontWeight = 'normal';
+        cellPrice.textContent = '2.50'; cellPrice.style.color = '#276749'; cellPrice.style.fontWeight = 'normal';
+
+        row3.style.background = '#ffffff';
+        cellDate3.textContent = '2026-01-01 09:15'; cellDate3.style.color = '#276749'; cellDate3.style.fontWeight = 'normal';
+        cellPrice2.textContent = '2.75'; cellPrice2.style.background = '#ffffff'; cellPrice2.style.color = '#276749'; cellPrice2.style.fontWeight = 'normal';
+
+        row4.style.background = '#ffffff';
+        cellDate4.textContent = '2026-01-01 09:40'; cellDate4.style.color = '#276749'; cellDate4.style.fontWeight = 'normal';
+        cellItem.textContent = 'Mocha'; cellItem.style.color = '#276749'; cellItem.style.fontWeight = 'normal'; cellItem.style.background = '#ffffff';
+
+        row5.style.background = '#ffffff';
+        cellId5.textContent = 'TX1005'; cellId5.style.color = '#276749'; cellId5.style.fontWeight = 'normal';
+        cellPrice3.textContent = '0.00'; cellPrice3.style.color = '#276749'; cellPrice3.style.fontWeight = 'normal'; cellPrice3.style.background = '#ffffff';
+
+        row6.style.background = '#ffffff';
+        cellPayment.textContent = 'Cash'; cellPayment.style.color = '#276749'; cellPayment.style.fontWeight = 'normal'; cellPayment.style.background = '#ffffff';
+
+        row7.style.background = '#ffffff';
+        cellLoc.textContent = 'Downtown'; cellLoc.style.color = '#276749'; cellLoc.style.fontWeight = 'normal'; cellLoc.style.background = '#ffffff';
+        cellCust.textContent = 'C-7714'; cellCust.style.color = '#276749'; cellCust.style.fontWeight = 'normal'; cellCust.style.background = '#ffffff';
+
+        row8.style.background = '#ffffff';
+        cellDate8.textContent = '2026-01-01 12:10'; cellDate8.style.color = '#276749'; cellDate8.style.fontWeight = 'normal'; cellDate8.style.background = '#ffffff';
+      }
+    }
+
+    const modal = document.getElementById('image-modal');
+    const modalImg = document.getElementById('modal-img');
+    
+    document.querySelectorAll('.proyecto img.zoomable').forEach(img => {
+      img.addEventListener('click', (e) => {
+        modal.style.display = 'flex';
+        modalImg.src = e.target.src;
+      });
+    });
+  </script>
+</body>
+</html>
